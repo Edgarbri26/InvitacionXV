@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme{
+    --color-verde-principal: #8DC63F;
+    --color-azul-principal: #2445DA;
+    --color-azul-suave: #AFCBFF;
+    --color-verde-menta: #D4F1BE;
+
+    --font-sans: 'Rubik', system-ui, sans-serif;
+}
