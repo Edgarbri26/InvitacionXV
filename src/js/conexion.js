@@ -77,6 +77,19 @@ class Conexion{
         });
     }
 
+    asistencia(id,asistencia){
+        return new Promise((resolve, reject) => {
+            const comando = "UPDATE invitado SET asistencia = ? WHERE id = ?";
+            this.conn.query(comando, [asistencia, id], function(err, resultado) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(resultado);
+                }
+            });
+        })
+    }
+
     cerrar(){
         this.conn.end();
     }
