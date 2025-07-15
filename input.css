@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
-@theme{
+@theme {
+    --color-rosa-frambuesa: #e75480;
+    --color-rosa-berlín: #d35d8c;
+    --color-rosa-vino: #b3446c;
+    --color-rosa-mas-oscuro: #f8a8c0;
     --color-rosa-oscuro: #ffc1d5;
+    --color-rosa-medio: #ffd2e0;
     --color-rosa-claro: #ffe4ec;
     --color-verde-oscuro: #586e26;
     --color-verde-medio: #778c43;

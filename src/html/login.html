@@ -6,28 +6,38 @@
     <link rel="stylesheet" href="../../assets/output.css">
     <title>Inicio</title>
 </head>
-<body class="bg-gray-700 grid grid-cols-1 grid-rows-1 h-screen">
-
-    <main class="m-5 text-black justify-center items-center flex flex-col">
-
-        <div class="p-10 justify-center items-center flex flex-col bg-amber-50 rounded-lg shadow-lg">
-            <form class="flex flex-col items-center" action="">
+<body class="bg-[var(--color-rosa-claro)] grid grid-cols-1 grid-rows-1 h-screen">
+    <main class="m-7 text-black  items-center flex flex-col  ">
+        <header>
+            <picture class="">
+                <img src="../../assets/XV.svg" alt="logo" class="w-screen transition-transform duration-300 ease-in-out group-hover:scale-110">
+            </picture>
+        </header>
+        <div class="p-10 justify-center items-center flex flex-col bg-[var(--color-pastel-claro)] rounded-xl shadow-2xl h-100">
+            <form class="flex flex-col items-center" action="/inicio" method="post" id="loginForm">
                 
-                <h1 class=" text-center text-2xl mb-10">Bienvenido</h1>
+                <h1 class="text-[var(--color-rosa-mas-oscuro)] text-center text-3xl mb-10 font-bold">Bienvenido</h1>
                 <div>
-                    <label for="name">Nombre y Apellido</label>
-                    <input type="text" id="name" name="name" placeholder="Ingresa tu nombre y apellido" class="border-2 border-gray-300 rounded p-2 mb-15 w-full max-w-xs">
+                    <label for="name" class=" text-[var(--color-rosa-vino)] text-xl">Nombre y Apellido</label>
+                    <input required type="text" id="name" name="name" placeholder="Ingresa tu nombre y apellido" class="text-lg bg-[var(--color-pastel-claro)] border-2 border-[var(--color-rosa-oscuro)] rounded p-2 mb-15 mt-4 w-full max-w-xs focus:outline-none focus:border-[var(--color-rosa-medio)] focus:bg-[var(--color-pastel-claro-medio)] transition duration-300">
                 </div>
-                <input type="submit" value="Aceptar" class="bg-blue-500 text-white rounded p-2 w-25 cursor-pointer hover:bg-blue-600">
+                <input type="submit" value="Aceptar" class="bg-[var(--color-rosa-mas-oscuro)] text-blue-50 font-semibold decoration-solid rounded-lg p-2 w-32 cursor-pointer text-xl focus:bg-[var(--color-rosa-claro)] transition duration-300">
                 
             </form>
         </div>
-
         
     </main>
 
-    <footer class="bg-gray-800 text-white text-center p-4 mt-10 hi">
+    <footer class="bg-[var(--color-rosa-berlín)] text-white text-center p-4 mt-10 hi">
             <p>© Todos los derechos reservados.</p>
     </footer>
 </body>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        window.location.href = 'inicio.html';
+
+    });
+</script>
 </html>
