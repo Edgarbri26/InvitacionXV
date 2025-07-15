@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/output.css">
+    <title>Administra los invitados</title>
+</head>
+<body class="bg-[#f5dcbd] text-aliceblue h-screen overflow-x-hidden overscroll-none grid">
+
+ <header class=" bg-[var(--color-rosa-oscuro)] text-center flex justify-between items-center p-5 w-3xl shadow-red-950">
+
+    <h1 class="text-xl">Administra los invitados</h1>
+
+    <nav>
+        <ul class="flex space-x-4 ">
+            <li class="bg-amber-50"><a href="crud_invitados.html">Invitados</a></li>
+            <li class="bg-amber-50"><a href="inicio.html">Inicio</a></li>
+        </ul>
+    </nav>
+
+ </header>
+
+ <main class="p-4 h-screen">
+    <section class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
+
+        <div class="bg-[var(--color-rosa-claro)] p-5 rounded-lg shadow-md">
+            <form id="invitadoForm" class="mt-4 flex flex-col items-center">
+                <input type="text" id="nombre" placeholder="Nombre del invitado" required class="mb-28 p-2 border border-gray-300 rounded">
+                <button type="submit" class="bg-amber-50 px-3 py-1 border rounded-lg mt-5">Agregar Invitado</button>
+            </form>
+        </div>
+        
+        <div class="mt-10">
+            <h2 class="text-xl">Lista de Invitados</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Asistencia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <th>1</th>
+                    <th>Samuel Rosales</th>
+                    <th>Sí irá</th>
+                    <th>
+                        <button class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</button>
+                        <button class="bg-blue-500 text-white px-3 py-1 rounded">Editar</button>
+                    </th>
+                    <!-- Aquí se agregarán los invitados -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+ </main>
+
+ <footer class="p-4 bg-[var(--color-rosa-mas-oscuro)] text-center ">
+    <p>&copy; 2025 Invitación XV. Todos los derechos reservados.</p>
+
+ </footer>
+    
+</body>
+</html>
