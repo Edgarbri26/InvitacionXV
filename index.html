@@ -1,35 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/output.css">
+    <link rel="stylesheet" href="src/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <title>Los XV de Maria</title>
 </head>
-<body>
-    <?xml version="1.0" encoding="UTF-8"?>
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="500"
-    height="500"
-    viewBox="0 0 500 500"
->
-  <!-- Fondo blanco opcional -->
-  <rect width="100%" height="100%" fill="#fff" />
+<body class="bg-fondo">
 
-  <!-- Texto XV -->
-  <text
-    x="0"
-    y="420"
-    font-family="Times New Roman, serif"
-    font-weight="bold"
-    font-size="500"
-    fill="#000"
-    letter-spacing="-80"
-  >
-    XV
-  </text>
-</svg>
+  <div id="inicio-mask" class=" bg-verde-claro fixed top-0 w-full h-screen">
+    <section class="">
+      <picture id="picture-inicio" class="h-screen w-full scale-125 block overflow-hidden fixed bg-fondo">
+        <img src="/assets/img/fondoPrueba.jpg" alt="" class="absolute h-full w-full object-cover">
+        <img src="/assets/img/quince1-retouch.png" alt=""
+        class="absolute h-full object-cover mx-auto left-0 right-0">
+      </picture>
+    </section>
+  </div>
 
+  <div class="fixed flex flex-col items-center justify-between h-screen w-full p-5">
+    <header class="flex justify-between w-full">
+      <i class="fa-solid fa-web-awesome text-2xl text-verde-claro" ></i>
+    </header>
+
+    <footer class="absolute bottom-0 m-auto">
+      <div id="clock" class="flex gap-6 justify-center text-4xl font-semibold">
+        <div><span id="days">0</span><div class="text-base">Días</div></div>
+        <div><span id="hours">0</span><div class="text-base">Horas</div></div>
+        <div><span id="minutes">0</span><div class="text-base">Minutos</div></div>
+        <div><span id="seconds">0</span><div class="text-base">Segundos</div></div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/src/js/index.js" ></script>
 </body>
 </html>

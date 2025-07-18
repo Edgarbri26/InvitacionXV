@@ -19,6 +19,7 @@
   "description": "",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
+    "gsap": "^3.13.0",
     "mysql": "^2.18.1",
     "tailwindcss": "^4.1.11"
   }
