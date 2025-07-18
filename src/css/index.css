@@ -18,3 +18,10 @@ body{
 #clock{
     font-family: 'Digital Numbers', system-ui;
 }
+
+#img15{
+    mask-image: linear-gradient(
+        black 70%,
+        transparent 90%
+    );
+}
