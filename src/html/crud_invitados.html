@@ -6,51 +6,116 @@
     <link rel="stylesheet" href="../../assets/output.css">
     <title>Administra los invitados</title>
 </head>
-<body class="bg-[#f5dcbd] text-aliceblue h-screen overflow-x-hidden overscroll-none grid">
+<body class="bg-[#f5dcbd] text-aliceblue  overflow-x-hidden flex flex-col min-h-screen">
 
- <header class=" bg-[var(--color-rosa-oscuro)] text-center flex justify-between items-center p-5 w-3xl shadow-red-950">
+ <header class=" bg-[var(--color-rosa-oscuro)] text-center flex justify-between items-center p-5 shadow-red-950 mb-10">
 
-    <h1 class="text-xl">Administra los invitados</h1>
+    <h1 class="text-lg">Administra los invitados</h1>
 
     <nav>
-        <ul class="flex space-x-4 ">
-            <li class="bg-amber-50"><a href="crud_invitados.html">Invitados</a></li>
-            <li class="bg-amber-50"><a href="inicio.html">Inicio</a></li>
+        <ul class="flex space-x-2 ">
+            <li class="bg-amber-50 border-amber-50 rounded-4xl p-2"><a href="crud_invitados.html">Invitados</a></li>
+            <li class="bg-amber-50 border-amber-50 rounded-4xl p-2"><a href="inicio.html">Inicio</a></li>
         </ul>
     </nav>
 
  </header>
 
- <main class="p-4 h-screen">
+ <main class="p-3 flex-1">
     <section class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
 
         <div class="bg-[var(--color-rosa-claro)] p-5 rounded-lg shadow-md">
             <form id="invitadoForm" class="mt-4 flex flex-col items-center">
-                <input type="text" id="nombre" placeholder="Nombre del invitado" required class="mb-28 p-2 border border-gray-300 rounded">
+                <input type="text" id="nombre" placeholder="Nombre del invitado" required class="mb-3 p-2 border border-gray-300 rounded">
                 <button type="submit" class="bg-amber-50 px-3 py-1 border rounded-lg mt-5">Agregar Invitado</button>
             </form>
         </div>
         
-        <div class="mt-10">
-            <h2 class="text-xl">Lista de Invitados</h2>
+        <div class="mt-10 max-h-110 overflow-y-auto p-2" >
+            <h2 class="text-xl mb-1">Lista de Invitados</h2>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Asistencia</th>
-                        <th>Acciones</th>
+            <table class="w-full border-collapse bg-white shadow-md rounded-lg text-sm">
+                <thead class="bg-[var(--color-rosa-mas-oscuro)] text-white">
+                    <tr class="">
+                        <th class="px-4 py-2 text-center border-b">ID</th>
+                        <th class="px-4 py-2 text-center border-b">Nombre</th>
+                        <th class="px-4 py-2 text-center border-b">Asistencia</th>
+                        <th class="px-4 py-2 text-center border-b">Acciones</th>
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    <th>1</th>
-                    <th>Samuel Rosales</th>
-                    <th>Sí irá</th>
-                    <th>
-                        <button class="bg-red-500 text-white px-3 py-1 rounded">Eliminar</button>
-                        <button class="bg-blue-500 text-white px-3 py-1 rounded">Editar</button>
-                    </th>
+                    <tr >
+                        <td class="px-4 py-2 text-center border-b">1</td>
+                        <td class="px-4 py-2 text-center border-b">Samuel Rosales</td>
+                        <td class="px-4 py-2 text-center border-b">Sí irá</td>
+                        <td class="px-4 py-2 text-center border-b">
+                            <button class="bg-red-500 text-white px-2 py-1 rounded mb-2.5 focus:bg-red-600 transition">Eliminar</button>
+                            <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td class="px-4 py-2 text-center border-b">2</td>
+                        <td class="px-4 py-2 text-center border-b">Pancho Villega</td>
+                        <td class="px-4 py-2 text-center border-b">Sí irá</td>
+                        <td class="px-4 py-2 text-center border-b">
+                            <button class="bg-red-500 text-white px-2 py-1 mb-2.5 rounded">Eliminar</button>
+                            <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td class="px-4 py-2 text-center border-b">3</td>
+                        <td class="px-4 py-2 text-center border-b">Edgar Briceño</td>
+                        <td class="px-4 py-2 text-center border-b">Sí irá</td>
+                        <td class="px-4 py-2 text-center border-b">
+                            <button class="bg-red-500 text-white px-2 py-1 mb-2.5 rounded">Eliminar</button>
+                            <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td class="px-4 py-2 text-center border-b">4</td>
+                        <td class="px-4 py-2 text-center border-b">Juanito Del Valle</td>
+                        <td class="px-4 py-2 text-center border-b">Sí irá</td>
+                        <td class="px-4 py-2 text-center border-b">
+                            <button class="bg-red-500 text-white px-2 py-1 mb-2.5 rounded">Eliminar</button>
+                            <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td class="px-4 py-2 text-center border-b">1</td>
+                        <td class="px-4 py-2 text-center border-b">Samuel Rosales</td>
+                        <td class="px-4 py-2 text-center border-b">Sí irá</td>
+                        <td class="px-4 py-2 text-center border-b">
+                            <button class="bg-red-500 text-white px-2 py-1 mb-2.5 rounded">Eliminar</button>
+                            <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td class="px-4 py-2 text-center border-b">2</td>
+                        <td class="px-4 py-2 text-center border-b">Pancho Villega</td>
+                        <td class="px-4 py-2 text-center border-b">Sí irá</td>
+                        <td class="px-4 py-2 text-center border-b">
+                            <button class="bg-red-500 text-white px-2 py-1 mb-2.5 rounded">Eliminar</button>
+                            <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td class="px-4 py-2 text-center border-b">3</td>
+                        <td class="px-4 py-2 text-center border-b">Edgar Briceño</td>
+                        <td class="px-4 py-2 text-center border-b">Sí irá</td>
+                        <td class="px-4 py-2 text-center border-b">
+                            <button class="bg-red-500 text-white px-2 py-1 mb-2.5 rounded">Eliminar</button>
+                            <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td class="px-4 py-2 text-center border-b">4</td>
+                        <td class="px-4 py-2 text-center border-b">Juanito Del Valle</td>
+                        <td class="px-4 py-2 text-center border-b">Sí irá</td>
+                        <td class="px-4 py-2 text-center border-b">
+                            <button class="bg-red-500 text-white px-2 py-1 mb-2.5 rounded">Eliminar</button>
+                            <button class="bg-blue-500 text-white px-2 py-1 rounded">Editar</button>
+                        </td>
+                    </tr>
                     <!-- Aquí se agregarán los invitados -->
                 </tbody>
             </table>
