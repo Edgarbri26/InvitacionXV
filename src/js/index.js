@@ -7,13 +7,14 @@ const tl = gsap.timeline({
   }
 });
 
-tl.to("#picture-inicio", { duration: 1, scale: 1 })
-  .to("#inicio-mask", { maskSize: "clamp(20vh, 25%, 30vh)" })
-  .to("#inicio-mask", { maskPosition: "50% 20%" },"<")
-  .to("#picture-inicio", { opacity: 0, duration: 1 },"<");
+tl
+  .to("#picture-inicio", { duration: 1, scale: 1 })
+  // .to("#inicio-mask", { maskSize: "clamp(20vh, 25%, 30vh)" })
+  // .to("#inicio-mask", { maskPosition: "50% 20%" },"<")
+  // .to("#picture-inicio", { opacity: 0, duration: 1 },"<");
 //   .to("#inicio-mask", { opacity: 0 , duration: 0.2},0.4);
 
-console.log("Inicio");
+
 // const conn = new Conexion();
 
 // async function main() {
