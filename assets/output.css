@@ -236,6 +236,9 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
+  .top-\[-1\] {
+    top: -1;
+  }
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
@@ -513,6 +516,9 @@
   .bg-\[var\(--color-verde-claro\)\] {
     background-color: var(--color-verde-claro);
   }
+  .bg-amber-50 {
+    background-color: var(--color-amber-50);
+  }
   .bg-amber-300 {
     background-color: var(--color-amber-300);
   }
@@ -521,6 +527,9 @@
   }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
+  }
+  .bg-blue-700 {
+    background-color: var(--color-blue-700);
   }
   .bg-fondo {
     background-color: var(--color-fondo);
@@ -664,6 +673,10 @@
   .tracking-\[\.1em\] {
     --tw-tracking: .1em;
     letter-spacing: .1em;
+  }
+  .tracking-widest {
+    --tw-tracking: var(--tracking-widest);
+    letter-spacing: var(--tracking-widest);
   }
   .text-\[var\(--color-rosa-mas-oscuro\)\] {
     color: var(--color-rosa-mas-oscuro);
@@ -1027,10 +1040,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-tracking {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-shadow {
   syntax: "*";
   inherits: false;
@@ -1175,7 +1184,6 @@
       --tw-space-x-reverse: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
-      --tw-tracking: initial;
       --tw-tracking: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
