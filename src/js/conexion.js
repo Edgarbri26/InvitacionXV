@@ -1,6 +1,5 @@
-
-
 class Conexion{
+
     constructor(){
         this.mysql = require("mysql");
         this.conn = this.mysql.createConnection({

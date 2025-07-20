@@ -8,13 +8,26 @@
     --color-rosa-oscuro: #ffc1d5;
     --color-rosa-medio: #ffd2e0;
     --color-rosa-claro: #ffe4ec;
-    --color-fondo: #c08967
+
+    --color-fondo: #c08967;
     --color-verde-oscuro: #586e26;
     --color-verde-medio: #778c43;
     --color-verde-claro: #96ac60;
 
     --color-pastel-claro: #f4e8d4;
     --color-pastel-claro-medio: #f9e5c4;
+
+
+    --color-acento-terracota:	#a45d45;	/*Botones, íconos, enlaces destacados*/
+    --color-contraste-crema:	#fff8f0;	/*Fondo claro alternativo o tarjetas*/
+    --color-texto-oscuro:	#3e3a34;	/*Textos principales*/
+    --color-borde-suave:	#ddc4ac;	/*Bordes, separadores, sombras suaves*/
+    --color-amarillo-suave:	#ebc27e;	/*Notificaciones, elementos atractivos*/
+    --color-piedra-suave:	#adb69c; /*Fondo secundario o botones desactivados*/
+
+    --color-eliminar: #d3544f; /* Rojo terracota intenso */
+    --color-editar: #6c8e5e; /* Verde oliva medio */
+
 
     --font-sans: 'Rubik', system-ui, sans-serif;
     --font-Digital: 'Digital Numbers', system-ui, sans-serif;
