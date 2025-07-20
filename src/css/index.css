@@ -16,12 +16,23 @@ body{
 }
 
 #clock{
-    font-family: 'Digital Numbers', system-ui;
+    /* font-family: 'Digital Numbers', system-ui; */
 }
 
 #img15{
     mask-image: linear-gradient(
-        black 70%,
-        transparent 90%
+        black 75%,
+        transparent 85%
     );
+}
+
+
+#xv2{
+    fill: #96ac60;
+    position: absolute;
+    top: 5%;
+}
+
+#cuerpo{
+    height: 300vh;
 }
