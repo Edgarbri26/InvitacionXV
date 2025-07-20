@@ -19,7 +19,7 @@ body{
     /* font-family: 'Digital Numbers', system-ui; */
 }
 
-#img15{
+.img15{
     mask-image: linear-gradient(
         black 75%,
         transparent 85%

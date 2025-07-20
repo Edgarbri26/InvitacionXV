@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'Dancing Scrip';
+    src: url('assets/fonts/DancingScript-VariableFont_wght.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: swap;
+}
+
 @theme {
     --color-rosa-frambuesa: #e75480;
     --color-rosa-berlín: #d35d8c;
@@ -29,6 +37,5 @@
     --color-editar: #6c8e5e; /* Verde oliva medio */
 
 
-    --font-sans: 'Rubik', system-ui, sans-serif;
-    --font-Digital: 'Digital Numbers', system-ui, sans-serif;
+    --font-dancing: 'Dancing Scrip', system-ui, sans-serif;
 }
