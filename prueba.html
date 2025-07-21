@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuenta Regresiva</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+  <div class="text-center">
+    <h1 class="text-3xl font-bold mb-6">Cuenta regresiva al 16 de agosto - 8:00 PM</h1>
+    <!-- <div id="countdown" class="flex gap-6 justify-center text-4xl font-semibold">
+      <div><span id="days">0</span><div class="text-base">Días</div></div>
+      <div><span id="hours">0</span><div class="text-base">Horas</div></div>
+      <div><span id="minutes">0</span><div class="text-base">Minutos</div></div>
+      <div><span id="seconds">0</span><div class="text-base">Segundos</div></div>
+    </div> -->
+  </div>
+
+  <!-- Asegúrate de tener Tailwind CSS configurado -->
+<section class="min-h-screen flex items-center justify-center bg-[url('/ruta/a/tu/fondo.jpg')] bg-cover bg-center">
+  
+</section>
+<div id="clock" class="grid grid-cols-2 sm:grid-cols-4 gap-6 p-6 
+                      bg-white/10 backdrop-blur-md rounded-3xl shadow-xl">
+    <!-- DÍAS -->
+    <div class="flex flex-col items-center space-y-2">
+      <span id="days" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
+      <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Días</span>
+    </div>
+    <!-- HORAS -->
+    <div class="flex flex-col items-center space-y-2">
+      <span id="hours" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
+      <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Horas</span>
+    </div>
+    <!-- MINUTOS -->
+    <div class="flex flex-col items-center space-y-2">
+      <span id="minutes" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
+      <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Minutos</span>
+    </div>
+    <!-- SEGUNDOS -->
+    <div class="flex flex-col items-center space-y-2">
+      <span id="seconds" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
+      <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Segundos</span>
+    </div>
+  </div>
+
+
+  <script>
+    const countdown = () => {
+      const targetDate = new Date("2025-08-17T22:22:00"); // 16 de agosto, 8:00 PM
+      const now = new Date();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        document.getElementById("clock").innerHTML = "<p class='text-red-500 text-2xl'>¡La cuenta regresiva ha terminado!</p>";
+        clearInterval(timer);
+        return;
+      }
+
+      const seconds = Math.floor((difference / 1000) % 60);
+      const minutes = Math.floor((difference / 1000 / 60) % 60);
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    };
+
+    const timer = setInterval(countdown, 1000);
+    countdown(); // Llamada inicial
+  </script>
+</body>
+</html>
