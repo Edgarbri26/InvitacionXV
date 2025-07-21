@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
+    "start":"node ./src/js/app.js",
     "build": "npx tailwindcss -i ./input.css -o ./assets/output.css --watch"
   },
   "repository": {
