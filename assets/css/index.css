@@ -7,8 +7,7 @@ body{
 }
 
 #inicio-mask{
-    mask-image: url('/assets/XV\(recortado\).svg');
-    /* -webkit-mask-image: url('/assets/XV.svg'); */
+    mask-image: url('/assets/img/XV_recortado.svg');
     mask-position: 52% 15%;
     mask-repeat: no-repeat;
     mask-size: clamp(5000vh, 3500% , 0vh);

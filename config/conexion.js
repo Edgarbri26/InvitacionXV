@@ -1,14 +1,22 @@
-class Conexion{
+class Conexion {
 
-    constructor(){
+    constructor() {
         this.mysql = require("mysql");
-        this.conn = this.mysql.createConnection({
+        this.conn = this.mysql.createPool({
             host: "brbjs3krzs9xr6i3wcdv-mysql.services.clever-cloud.com",
             database: "brbjs3krzs9xr6i3wcdv", // <-- minúsculas
             user: "uoazfsvh2xeo7ce0",
             password: "cXf09VfUlelli3aWerFU",
             // port: "3306"
         });
+
+        /*this.conn.connect(function(err) {
+            if (err){
+                throw err;
+            } else {
+                console.log("Conexión exitosa a la base de datos");
+            }
+        });*/
     }
 
     insertar(nombre, numMesa, numinvitado) {
@@ -95,6 +103,4 @@ class Conexion{
 
 }
 
-module.exports = {
-    Conexion
-};
+module.exports = { Conexion };
