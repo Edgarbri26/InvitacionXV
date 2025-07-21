@@ -1,3 +1,5 @@
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 const tl = gsap.timeline({
@@ -16,21 +18,9 @@ tl
   .to("#seccion-fecha", { opacity: 1, duration: 0.2 }, 1.2) // 1.2 -> 1.4
   .to("#inicio-mask", { opacity: 0, duration: 0.2 }, 1.4)// 1.4 -> 1.6 (último evento)
   .to("#seccion-fecha", { opacity: 0, duration: 0.2 }, "<")// 1.2 -> 1.4
-  .to("#cuerpo", { opacity: 1, duration: 0.2 }, "<");// 1.2 -> 1.4
+  .to("#cuerpo", { opacity: 1, duration: 0.2 }, "<")// 1.2 -> 1.4
 
-// const conn = new Conexion();
-//
-// async function main() {
-//     // await conn.insertar("Edgar", 198, 3);
-//     // conn.eliminar(47)
-//     // conn.actualizar(48,"edgar",23,4);
-//     conn.asistencia(94,0);
-//     let invitado = await conn.getByName("Edgar");
-//     console.log(invitado);
-//     conn.cerrar();
-// }
-//
-// main();
+
 
 
 const countdown = () => {
