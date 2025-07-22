@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <link rel="stylesheet" href="/assets/css/output.css">
   <link rel="stylesheet" href="/assets/css/index.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -69,16 +70,37 @@
   </div>
 
 
-  <div class="relative flex flex-col items-center justify-between w-full p-5 z-40">
-    <header class="flex justify-between w-full">
-      <a href="/crud_invitados">
-        <i class="fa-solid fa-web-awesome text-2xl text-verde-claro"></i>
-      </a>
-      <a href="/login">
-        <i class="fa-solid fa-bars text-verde-claro"></i>
-      </a>
-    </header>
-  </div>
+  <div class="relative w-full p-5 z-40">
+  <header class="flex justify-between items-center w-full">
+    <a href="/crud_invitados">
+      <i class="fa-solid fa-web-awesome text-2xl text-verde-claro"></i>
+    </a>
+
+    <!-- Contenedor con layout en reversa -->
+    <div class="dropdown-container flex flex-colum-reverse items-start gap-2">
+
+      <!-- Burger totalmente a la derecha -->
+      <div class="burger-icon">
+        <label class="burger" for="burger">
+          <input class="line" type="checkbox" id="burger" />
+        </label>
+      </div>
+
+      <!-- Menú aparecerá a la izquierda del icono -->
+      <div class="input">
+        <button class="value" onclick="login()">
+          <!-- SVG abreviado -->
+          Iniciar Sesión
+        </button>
+        <button class="value">
+          Account
+        </button>
+      </div>
+
+    </div>
+  </header>
+</div>
+
 
  <main id="cuerpo" class="opacity-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <section  class=" text-center  h-screen w-full flex flex-col items-center justify-center ">
@@ -135,5 +157,14 @@
 
   <script src="/src/js/index.js"></script>
 </body>
+
+<script>
+    function login() {
+    // Espera 0.5 segundos antes de redirigir
+        setTimeout(() => {
+            window.location.href = "/login";
+        }, 500); // 500 ms = 0.5 segundos
+    }
+</script>
 
 </html>
