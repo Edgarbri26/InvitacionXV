@@ -15,6 +15,7 @@ tl
   .to("#picture-inicio", { opacity: 0, duration: 0.4 }, "<") // 0.8 -> 1.2
   .to("#seccion-fecha", { opacity: 1, duration: 0.2 }, 1.2) // 1.2 -> 1.4
   .to("#inicio-mask", { opacity: 0, duration: 0.2 }, 1.4)// 1.4 -> 1.6 (último evento)
+  // .to("#inicio-mask", { display: "none" }, "<") // 1.6 -> 1.8
   .to("#seccion-fecha", { opacity: 0, duration: 0.2 }, "<")// 1.2 -> 1.4
   .to("#cuerpo", { opacity: 1, duration: 0.2 }, "<")// 1.2 -> 1.4
   // .to("#inicio-mask", { display: none }); // 0.8 -> 1.0
