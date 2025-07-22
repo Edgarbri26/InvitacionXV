@@ -60,12 +60,12 @@ class Conexion {
 
     getByName(nombre) {
         return new Promise((resolve, reject) => {
-            let coman = "SELECT * FROM invitado WHERE nombre = '" + nombre + "'";
-            this.conn.query(coman, function(err, invitado) {
+            const coman = "SELECT * FROM invitado WHERE nombre = ?";
+            this.conn.query(coman, [nombre], function(err, invitado) {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(invitado);
+                    resolve(invitado[0]);
                 }
             });
         });

@@ -20,7 +20,15 @@
   
 
   <section id="seccion-fecha" class="fixed text-center bg-amber-800 h-screen w-full flex flex-col items-center justify-center top-0 opacity-0">
-    <h2 class="text-2xl font-bold mb-2 font-dancing">¡Hola, Juan Pérez!</h2>
+    
+      <% if (typeof nombre !== "undefined") { %>
+          <h2 class="text-2xl font-bold mb-2 font-dancing">¡Hola, <%= nombre %>!</h2>
+      
+        <% } else { %>
+          <h2 class="text-2xl font-bold mb-2 font-dancing">¡Hola, desconocido!</h2>
+
+        <% } %>
+    
     <p class=""><span>En mi corazón siempre hubo un sueño...</span><br>
       Me soñaba vestida de princesa, como en un cuento de hadas.
       Hoy, al cumplir mis 15 y hermosos años,
