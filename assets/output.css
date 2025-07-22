@@ -10,6 +10,7 @@
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
     --color-red-950: oklch(25.8% 0.092 26.042);
+    --color-orange-950: oklch(26.6% 0.079 36.259);
     --color-amber-50: oklch(98.7% 0.022 95.277);
     --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-amber-400: oklch(82.8% 0.189 84.429);
@@ -73,6 +74,7 @@
     --color-contraste-crema: #fff8f0;
     --color-texto-oscuro: #3e3a34;
     --color-borde-suave: #ddc4ac;
+    --color-amarillo-suave: #ebc27e;
     --color-piedra-suave: #adb69c;
     --color-eliminar: #d3544f;
     --color-editar: #6c8e5e;
@@ -255,14 +257,8 @@
   .z-20 {
     z-index: 20;
   }
-  .z-30 {
-    z-index: 30;
-  }
-  .z-50 {
-    z-index: 50;
-  }
-  .z-100 {
-    z-index: 100;
+  .z-40 {
+    z-index: 40;
   }
   .m-7 {
     margin: calc(var(--spacing) * 7);
@@ -311,6 +307,9 @@
   }
   .mb-15 {
     margin-bottom: calc(var(--spacing) * 15);
+  }
+  .mb-20 {
+    margin-bottom: calc(var(--spacing) * 20);
   }
   .block {
     display: block;
@@ -362,9 +361,6 @@
   }
   .w-full {
     width: 100%;
-  }
-  .w-screen {
-    width: 100vw;
   }
   .max-w-4xl {
     max-width: var(--container-4xl);
@@ -520,20 +516,14 @@
   .bg-\[var\(--color-rosa-berlín\)\] {
     background-color: var(--color-rosa-berlín);
   }
-  .bg-\[var\(--color-rosa-claro\)\] {
-    background-color: var(--color-rosa-claro);
-  }
   .bg-\[var\(--color-rosa-mas-oscuro\)\] {
     background-color: var(--color-rosa-mas-oscuro);
   }
   .bg-\[var\(--color-verde-claro\)\] {
     background-color: var(--color-verde-claro);
   }
-  .bg-acento-terracota {
-    background-color: var(--color-acento-terracota);
-  }
-  .bg-amber-50 {
-    background-color: var(--color-amber-50);
+  .bg-amarillo-suave {
+    background-color: var(--color-amarillo-suave);
   }
   .bg-amber-300 {
     background-color: var(--color-amber-300);
@@ -544,14 +534,8 @@
   .bg-amber-800 {
     background-color: var(--color-amber-800);
   }
-  .bg-black {
-    background-color: var(--color-black);
-  }
   .bg-blue-700 {
     background-color: var(--color-blue-700);
-  }
-  .bg-gray-100 {
-    background-color: var(--color-gray-100);
   }
   .bg-red-600 {
     background-color: var(--color-red-600);
@@ -686,17 +670,11 @@
   .text-amber-50 {
     color: var(--color-amber-50);
   }
-  .text-amber-400 {
-    color: var(--color-amber-400);
-  }
   .text-black {
     color: var(--color-black);
   }
   .text-blue-50 {
     color: var(--color-blue-50);
-  }
-  .text-lime-50 {
-    color: var(--color-lime-50);
   }
   .text-red-500 {
     color: var(--color-red-500);
@@ -787,11 +765,6 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .transition-transform {
-    transition-property: transform, translate, scale, rotate;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
@@ -803,16 +776,6 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
-  }
-  .group-hover\:scale-110 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 110%;
-        --tw-scale-y: 110%;
-        --tw-scale-z: 110%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
   }
   .after\:absolute {
     &::after {
@@ -906,13 +869,6 @@
       }
     }
   }
-  .hover\:underline {
-    &:hover {
-      @media (hover: hover) {
-        text-decoration-line: underline;
-      }
-    }
-  }
   .hover\:shadow-\[0_10px_20px_rgba\(0\,0\,0\,0\.2\)\] {
     &:hover {
       @media (hover: hover) {
@@ -977,11 +933,6 @@
   .focus\:ring-\[var\(--color-rosa-mas-oscuro\)\] {
     &:focus {
       --tw-ring-color: var(--color-rosa-mas-oscuro);
-    }
-  }
-  .focus\:ring-verde-claro {
-    &:focus {
-      --tw-ring-color: var(--color-verde-claro);
     }
   }
   .focus\:outline-none {

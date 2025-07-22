@@ -41,6 +41,10 @@ router.get("/editar_invitado/:id", async function(req, res) {
     res.status(500).send("Error al obtener los datos del invitado");
   }
   //res.render("editar_invitado");
-}) 
+})
+
+router.get("/login", function(req, res) {
+  res.render("login");
+})
 
 module.exports = router;
