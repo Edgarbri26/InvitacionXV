@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/output.css">
+    <link rel="stylesheet" href="/assets/css/swalStyles.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Administra los invitados</title>
@@ -64,27 +65,38 @@
                     </tr>
                 </thead>
                 <tbody class="text-center text-[var(--color-texto-oscuro)]">
-                    <tr class="">
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">Samuel Rosales</td>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">5</td>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">2</td>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">Sí irá</td>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">
-                            <button class="bg-[var(--color-eliminar)] text-white px-2 py-1 rounded mb-2.5 focus:bg-red-600 transition">Eliminar</button>
-                            <button class="bg-[var(--color-editar)] text-white px-2 py-1 rounded">Editar</button>
-                        </td>
-                    </tr>
                     <% invitados.forEach(inv => { %>
-                    <tr>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.nombre %></td>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.numero_mesa %></td>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.numero_invitado %></td>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.asistencia %></td>
-                        <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">
-                            <button class="bg-[var(--color-eliminar)] text-white px-2 py-1 rounded mb-2.5 focus:bg-red-600 transition" value="<%= inv.id %>">Eliminar</button>
-                            <button class="bg-[var(--color-editar)] text-white px-2 py-1 rounded" value="<%= inv.id %>">Editar</button>
-                        </td>
-                    </tr>
+
+                        <tr id="fila-<%= inv.id %>" class="hover:bg-[var(--color-piedra-suave)] transition duration-300">
+
+                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.nombre %></td>
+                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.numero_mesa %></td>
+                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.numero_invitado %></td>
+                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.asistencia %></td>
+                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">
+                                <button id="btn-eliminar-<%= inv.id %>" data-id="<%= inv.id %>" class="bg-[var(--color-eliminar)] text-white px-2 py-1  mb-2.5 
+                                    relative inline-blocfont-medium text-xs uppercase no-underline  
+                                    rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit font-semibold
+                                    hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+                                    active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+                                    after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full 
+                                    after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
+                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0" value="<%= inv.nombre %>">
+                                    Eliminar
+                                </button>
+                                <button onclick="editar()" id="btn-editar-<%= inv.id %>" data-id="<%= inv.id %>"  class="bg-[var(--color-editar)] text-white px-2 py-1  mb-2.5 
+                                    relative inline-blocfont-medium text-xs uppercase no-underline  
+                                    rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit font-semibold
+                                    hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+                                    active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+                                    after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full 
+                                    after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
+                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0" value="<%= inv.id %>">
+                                    Editar
+                                </button>
+                            </td>
+
+                        </tr>
                     <% }) %>
                     
                 </tbody>
@@ -101,11 +113,122 @@
 </body>
 
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[id^="btn-editar-"]').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.dataset.id;
+                window.location.href = `/editar_invitado/${id}`; // Puedes usar /editar_invitado/123 también
+            });
+        });
+    });
+</script>
+<!--<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[id^="btn-editar-"]').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.value;
+
+                fetch('/editar_invitado', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id })
+                })
+                .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire('Actualizado', data.message, 'success');
+                        }
+                    })
+                .catch(err => {
+                    Swal.fire('Error', 'Hubo un problema al actualizar el invitado.', 'error');
+                });
+            });
+        });
+    });
+</script>-->
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[id^="btn-eliminar-"]').forEach(button => {
+            button.addEventListener('click', () => {
+                const nombre = button.value;
+                const id = button.dataset.id;
+
+                Swal.fire({
+                    title:'¿Estás seguro?',
+                    text: `Esto eliminará el invitado: ${nombre}. Esta acción no se puede deshacer.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    buttonsStyling: false,
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar',
+                    customClass: {
+                        popup: 'swal-showtime',
+                        title: 'swal-titulo-glow',
+                        confirmButton: 'swal-btn-yes',
+                        cancelButton: 'swal-btn-no',
+                        actions: 'swal-action-box'
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch('/eliminarInvitado', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ id })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                        if (data.success) {
+                             Swal.fire({
+                                title: "Eliminado",
+                                text: data.message,
+                                icon: "success",
+                                confirmButtonText: 'Aceptar',
+                                buttonsStyling: false,
+                                customClass: {
+                                    popup: 'swal-showtime',
+                                    title: 'swal-titulo-glow',
+                                    confirmButton: 'swal-btn-confirm',
+                                    cancelButton: 'swal-btn-no',
+                                    actions: 'swal-action-box'
+                                }
+                            });
+                            
+                            
+                            // 🔥 Elimina el <tr> del DOM suavemente
+                            const fila = document.getElementById(`fila-${data.idEliminado}`);
+                            if (fila) {
+                            fila.classList.add('opacity-0', 'transition'); // Tailwind fade-out
+                            setTimeout(() => fila.remove(), 500); // Eliminar después de animación
+                            }
+                        }
+                        })
+                        .catch(err => {
+                        Swal.fire('Error', 'Hubo un problema al eliminar el invitado.', 'error');
+                        });
+
+                    }
+                })
+            });
+        });
+    });
+</script>
+
+<script>
      <% if (typeof message !== "undefined") { %>
         Swal.fire({
             title: "Éxito",
             text: "<%= message %>",
-            icon: "success"
+            icon: "success",
+            confirmButtonText: 'Aceptar',
+            buttonsStyling: false,
+            customClass: {
+                popup: 'swal-showtime',
+                title: 'swal-titulo-glow',
+                confirmButton: 'swal-btn-confirm',
+                cancelButton: 'swal-btn-no',
+                actions: 'swal-action-box'
+            }
         });
     <% } %>
 </script>

@@ -15,6 +15,8 @@ app.use(express.static("public"));
 app.use("/assets", express.static(path.join(__dirname, "../../assets")));
 app.use("/src", express.static(path.join(__dirname, "../")));
 app.use(require('../routes/aggInvitado.js'));
+app.use(require('../routes/eliminarInvitado.js'));
+app.use(require('../routes/editarInvitado.js'));
 
 //configuración del puerto del servidor
 const PORT = process.env.PORT || 3000;
