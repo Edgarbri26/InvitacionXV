@@ -18,6 +18,26 @@ tl
   .to("#seccion-fecha", { opacity: 0, duration: 0.2 }, "<")// 1.2 -> 1.4
   .to("#cuerpo", { opacity: 1, duration: 0.2 }, "<")// 1.2 -> 1.4
   // .to("#inicio-mask", { display: none }); // 0.8 -> 1.0
+  
+  /*ScrollTrigger.create({
+  trigger: "#seccion-ubicacion",
+  start: "top center",
+  onEnter: () => {
+    gsap.to("#inicio-mask", {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        document.getElementById("inicio-mask").classList.add("hidden");
+      }
+    });
+  },
+  onLeaveBack: () => {
+    const mask = document.getElementById("inicio-mask");
+    mask.classList.remove("hidden");
+    gsap.to(mask, { opacity: 1, duration: 0.5 });
+  }
+});*/
+
 
 // const conn = new Conexion();
 //
@@ -58,3 +78,5 @@ const countdown = () => {
 
     const timer = setInterval(countdown, 1000);
     countdown(); // Llamada inicial
+
+
