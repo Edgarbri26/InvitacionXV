@@ -33,6 +33,7 @@
 
     /* brackponit */
     --breakpoint-ll: 900px;
+    --breakpoint-xs: 550px;
 
     /* fonts */
     --font-dancing: 'Dancing Scrip', system-ui, sans-serif;
