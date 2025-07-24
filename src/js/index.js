@@ -7,53 +7,34 @@ const tl = gsap.timeline({
   }
 });
 
+  gsap.from("#fecha",{
+    opacity: 0,
+    scale: 0.5,
+    scrollTrigger:{
+      trigger: "#fecha",
+      start: "top 80%",
+      end: "top 50%",
+      scrub: 1,
+    }
+  });
+
 tl
   .to("#picture-inicio", { duration: 1, scale: 1 }) // 0 -> 1
-  .to("#clock", { opacity: 0, duration: 0.2 }, 0.8) // 0.8 -> 1.0
+  .to("#clock", { opacity: 0, duration: 0.1 }, 0.8) // 0.8 -> 1.0
+  .to("#maria-logo", { opacity: 0, duration: 0.1 }, "<") // 0.8 -> 1.0
   .to("#inicio-mask", { maskSize: "clamp(20vh, 25%, 30vh)" }, 0.8) // 0.8 -> 1.0
   .to("#inicio-mask", { maskPosition: "50% 20%" }, "<") // 0.8 -> 1.0
   .to("#picture-inicio", { opacity: 0, duration: 0.4 }, "<") // 0.8 -> 1.2
-  .to("#seccion-fecha", { opacity: 1, duration: 0.2 }, 1.2) // 1.2 -> 1.4
+  .to("#seccion-mensaje", { opacity: 1, duration: 0.2 }, 1.2) // 1.2 -> 1.4
   .to("#inicio-mask", { opacity: 0, duration: 0.2 }, 1.4)// 1.4 -> 1.6 (último evento)
   // .to("#inicio-mask", { display: "none" }, "<") // 1.6 -> 1.8
-  .to("#seccion-fecha", { opacity: 0, duration: 0.2 }, "<")// 1.2 -> 1.4
-  .to("#cuerpo", { opacity: 1, duration: 0.2 }, "<")// 1.2 -> 1.4
+  .to("#seccion-mensaje", { opacity: 0, scale: 0.5 , duration: 0.1 }, "<")// 1.2 -> 1.4
+  .to("#cuerpo", { opacity: 1, duration: 0.2 }, "<");// 1.2 -> 1.4
   // .to("#inicio-mask", { display: none }); // 0.8 -> 1.0
   
-  /*ScrollTrigger.create({
-  trigger: "#seccion-ubicacion",
-  start: "top center",
-  onEnter: () => {
-    gsap.to("#inicio-mask", {
-      opacity: 0,
-      duration: 0.5,
-      onComplete: () => {
-        document.getElementById("inicio-mask").classList.add("hidden");
-      }
-    });
-  },
-  onLeaveBack: () => {
-    const mask = document.getElementById("inicio-mask");
-    mask.classList.remove("hidden");
-    gsap.to(mask, { opacity: 1, duration: 0.5 });
-  }
-});*/
 
 
-// const conn = new Conexion();
-//
-// async function main() {
-//     // await conn.insertar("Edgar", 198, 3);
-//     // conn.eliminar(47)
-//     // conn.actualizar(48,"edgar",23,4);
-//     conn.asistencia(94,0);
-//     let invitado = await conn.getByName("Edgar");
-//     console.log(invitado);
-//     conn.cerrar();
-// }
-//
-// main();
-
+  
 
 const countdown = () => {
       const targetDate = new Date("2025-08-16T20:00:00"); // 16 de agosto, 8:00 PM
