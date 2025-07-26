@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
+    "dev": "npm run start && npm run build",
     "build": "npx tailwindcss -i ./input.css -o ./assets/css/output.css --watch",
     "start": "node ./src/js/app.js"
   },
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/Edgarbri26/InvitacionXV#readme",
   "description": "",
   "dependencies": {
+    "@midudev/tailwind-animations": "^0.2.0",
     "@tailwindcss/cli": "^4.1.11",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
@@ -28,4 +30,3 @@
   },
   "type": "commonjs"
 }
-

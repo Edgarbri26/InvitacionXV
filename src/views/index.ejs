@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Los XV de Maria</title>
+  <title>XV Maria</title>
 </head>
 
 <body class="bg-pastel-claro font-dancing">
@@ -19,14 +19,16 @@
   <!-- mensaje -->
   <section id="seccion-mensaje"
     class="fixed text-center  h-screen w-full flex flex-col items-center justify-center top-0 opacity-0 p-5">
-      <p class="text-center max-w-96 font-dancing text-2xl text-gray-800"><span class="font-bold">En mi corazón siempre hubo un sueño...</span><br>
-        Me soñaba vestida de princesa, como en un cuento de hadas.
-        Hoy, al cumplir mis 15 y hermosos años,
-        dejo atrás mi adorada infancia,
-        que junto a los míos muy feliz pasé.
-        Hoy mi sueño se hace realidad
-        y con tu presencia quiero contar.
-      </p>
+    <p class="text-center max-w-xl font-dancing text-3xl text-gray-800 font-light translate-y-10"><span class="font-bold">En mi corazón
+        siempre hubo un sueño...</span><br>
+      Me soñaba vestida de princesa, como en un cuento de hadas.
+      Hoy, al cumplir mis 15 y hermosos años,
+      dejo atrás mi adorada infancia,
+      que junto a los míos la pase muy feliz. <br><br>
+      <span class="font-medium">
+        Hoy mi sueño se hace realidad...
+      </span>
+    </p>
   </section>
 
   <div id="inicio-mask"
@@ -35,17 +37,43 @@
       <picture id="picture-inicio" class="h-screen w-full scale-125 block overflow-hidden fixed">
         <img src="/assets/img/fondoPrueba.jpg" alt="" class="absolute h-full w-full object-cover">
         <img src="/assets/img/cortado2.png" alt=""
-          class="img15 absolute h-full object-cover mx-auto left-0 right-0 ll:z-50">
+          class="img15 absolute h-full object-cover mx-auto left-0 right-0 animate-duration-500  animate-blurred-fade-in">
         <img src="/assets/img/maria5.png" alt="" id="maria-logo"
-          class="absolute w-full  mx-auto left-0 right-0 object-cover  ll:h-full ll:z-10">
+          class="absolute w-full scale-105 translate-y-15 min-w-2xs  mx-auto left-0 right-0 object-cover  sm:h-full sm:w-auto sm:translate-0 sm:scale-100 ">
         <img src="/assets/img/mitadDerecha.png" alt=""
-          class="img15 absolute h-full object-cover mx-auto left-0 right-0 translate-x-5/12 ">
+          class="absolute h-full object-cover mx-auto left-0 right-0 translate-x-5/12 animate-blurred-fade-in animate-duration-500 mask-b-from-20% mask-b-to-100%  mask-l-from-95% mask-l-to-100%">
       </picture>
 
-      <!-- cuenta -->
+      <!-- cuenta regresiva-->
       <footer class="w-full absolute bottom-0 m-auto p-10 flex justify-center ">
-        <div id="clock" class="left-0 right-0 m-auto flex justify-between w-auto sm:w-80 gap-5 p-4 
+        <div id="clock" class=" left-0 right-0 m-auto flex justify-between w-auto gap-5 p-4 
                             bg-white/10 backdrop-blur-md rounded-3xl shadow-xl">
+          <!-- mariposa -->
+          <div class="mariposa absolute top-0 left-0 -translate-x-6 fill-white rotate-35">
+            <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3.358 35.05c.435-.175.646-.408.861-.95.374-.94.698-1.52 1.145-2.05.78-.92 1.757-1.638 2.666-1.957.603-.212.9-.204 1.505.041.843.343 1.597.25 2.062-.254.95-1.029 3.95-6.873 5.841-11.376.869-2.07.831-1.882.797-3.962-.034-2.106-.024-2.064-.927-3.887-1.639-3.31-4.426-6.582-7.147-8.392C8.71 1.298 6.715.504 5.296.328c-.718-.09-2.465-.001-3.183.16C.943.752.279 1.268.279 1.917c0 .119.437 1.136.97 2.26.533 1.126 1.044 2.291 1.135 2.591.334 1.106.776 3.567.945 5.27.065.652.357 1.286.751 1.633.419.367 1.351.786 1.964.883.286.044.534.096.553.115.018.018-.129.128-.327.244-.761.446-1.432 1.439-1.74 2.574-.216.802-.194 2.914.045 4.121.24 1.212.575 2.318 1.031 3.403.46 1.092.535 1.458.439 2.135-.223 1.575-1.958 4.03-3.489 4.937-.693.41-.885.587-1.066.98-.173.375-.185.535-.069.953.223.802 1.206 1.326 1.937 1.033z">
+              </path>
+            </svg>
+
+
+            <svg viewBox="0 0 2.4 14.4" version="1.1" y="0" x="0" height="150" width="25"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M2.2 13c0 .641-.447 1.16-1 1.16-.553 0-1-.519-1-1.16V1.4C.2.759.647.24 1.2.24c.553 0 1 .519 1 1.16z">
+              </path>
+            </svg>
+
+
+            <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15.105 35.155c-.42-.196-.627-.482-.902-1.253-.544-1.517-2.145-3.126-3.636-3.652-.69-.243-.887-.242-1.486.01-.617.26-1.342.278-1.798.045-.555-.283-1.76-2.262-3.476-5.708C2.628 22.232.984 18.575.455 17.144c-.236-.637-.237-.655-.237-2.485 0-2.164.01-2.209.9-4.013 1.011-2.049 2.53-4.189 4.185-5.9C7.679 2.293 9.783.995 12.49.313c.782-.197 1.554-.236 2.695-.137 1.619.14 2.38.38 2.882.909.21.22.246.321.243.684-.002.373-.122.67-.959 2.395-1.277 2.63-1.59 3.806-2.035 7.63-.111.951-.316 1.426-.809 1.87-.52.47-1.306.807-2.165.928l-.391.054.35.224c.897.574 1.58 1.674 1.834 2.956.193.969.12 2.791-.164 4.15-.222 1.061-.696 2.518-1.12 3.443-.336.735-.411 1.584-.203 2.3.505 1.738 2.056 3.692 3.736 4.705.693.417.938.83.874 1.476-.104 1.071-1.193 1.706-2.153 1.256z">
+              </path>
+            </svg>
+          </div>
+
           <!-- DÍAS -->
           <div class="flex flex-col items-center space-y-2">
             <span id="days" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
@@ -72,10 +100,10 @@
   </div>
 
 
-  <div class="relative w-full p-5 z-40">
+  <div class="fixed w-full p-5 z-40">
     <header class="flex justify-between items-center w-full">
-      <a href="/crud_invitados">
-        <i class="fa-solid fa-web-awesome text-2xl text-verde-claro"></i>
+      <a href="#">
+        <i class="fa-solid fa-web-awesome text-2xl text-white"></i>
       </a>
 
       <!-- Contenedor con layout en reversa -->
@@ -109,95 +137,96 @@
       <!-- esto es solo para que tenga el tamaño -->
     </section>
 
-    <section class=" text-center min-h-screen w-full flex flex-col justify-center">
-      
-
-      <!--       <article>
-        <% if (typeof nombre !=="undefined" ) { %>
-          <h2 class="text-2xl font-bold mb-2 font-dancing">¡Hola, <%= nombre %>!</h2>
-
-          <% } else { %>
-            <h2 class="text-2xl font-bold mb-2 font-dancing">¡Hola, desconocido!</h2>
-
-            <% } %>
-      </article>
-
-      <article>
-        <h2>Invitacion valida para</h2>
-        <div
-          class="rounded-full  border-amber-500 bg-amber-300 w-10 h-10 flex justify-center items-center text-acento-terracota font-bold text-lg">
-          5</div>
-
-
-        <h2>Estaras en la mesa <span id="num-mesa">3</span></h2> -->
-        
-      <article class="mb-6 flex flex-col items-center">
-        <h2 class="text-3xl font-extrabold mb-2 font-dancing">¡Hola, <%= typeof nombre !== 'undefined' ? nombre : 'desconocido' %>!</h2>
-        <div class="text-lg text-gray-700 mb-2">Invitación válida para</div>
+    <section class=" text-center min-h-screen w-full flex flex-col items-center justify-center">
+      <article id="bienvenida" class="mb-6 flex flex-col items-center">
+        <h2 class="text-5xl font-extrabold mb-2 font-dancing">¡Hola, <%= typeof nombre !=='undefined' ? nombre
+            : 'desconocido' %>!</h2>
+        <p class="text-2xl">Estas cordialmente invitado a mis XV años.</p>
+        <div class="text-2xl text-gray-700 mb-2">Invitación válida para</div>
         <div class="flex flex-col items-center mb-2">
-          <div class="rounded-full bg-yellow-300 border-4 border-yellow-500 w-16 h-16 flex items-center justify-center text-yellow-900 font-extrabold text-2xl shadow-lg mb-2">
+          <div
+            class="rounded-full bg-yellow-300 border-4 border-yellow-500 w-16 h-16 flex items-center justify-center text-yellow-900 font-extrabold text-2xl shadow-lg mb-2">
             5
           </div>
-          <div class="text-base text-gray-800">Estarás en la mesa <span class="font-semibold text-blue-700" id="num-mesa">3</span></div>
+          <div class="text-2xl text-gray-800">Estarás en la mesa <span class="font-semibold text-blue-700"
+              id="num-mesa">3</span></div>
         </div>
       </article>
 
       <!-- fecha -->
-      <article id="fecha"
-        class="my-5 max-w-xl flex items-center justify-between font-dancing text-gray-800">
+      <article id="fecha" class="my-5 max-w-xl flex items-center justify-between font-dancing text-gray-800">
 
-          <!-- Día de la semana -->
-          <div class="flex-1 flex flex-col items-center">
-            <hr class="flex-1 border-gray-300 w-full">
-            <span class="text-2xl tracking-widest uppercase font-medium">SÁBADO</span>
-            <hr class="flex-1 border-gray-300 w-full">
-          </div>
+        <!-- Día de la semana -->
+        <div class="flex-1 flex flex-col items-center">
+          <hr class="flex-1 border-verde-medio w-full">
+          <span class="text-3xl tracking-widest uppercase font-medium">SÁBADO</span>
+          <hr class="flex-1 border-verde-medio w-full">
+        </div>
 
-          <!-- Fecha central -->
-          <div class="flex flex-col items-center justify-center px-6 text-center gap-1 mx-2">
-            <span class="uppercase text-xs text-gray-600 tracking-widest text-center ">AGOSTO</span>
-            <span class="text-5xl font-bold text-verde-medio tracking-wider leading-none">16</span>
-            <span class="text-xs text-gray-600 tracking-widest mt-1 text-center">2025</span>
-          </div>
+        <!-- Fecha central -->
+        <div class="flex flex-col items-center justify-center px-6 text-center gap-1 mx-2">
+          <span class="uppercase text-xs text-gray-600 tracking-widest text-center ">AGOSTO</span>
+          <span class="text-5xl font-bold text-verde-medio tracking-wider leading-none">16</span>
+          <span class="text-xs text-gray-600 tracking-widest mt-1 text-center">2025</span>
+        </div>
 
-          <!-- Hora -->
-          <div class="flex-1 flex flex-col items-center">
-            <hr class="flex-1 border-gray-300 w-full">
-            <span class="text-2xl tracking-widest font-medium">08:00PM</span>
-            <hr class="flex-1 border-gray-300 w-full">
-          </div>
-        </article>
+        <!-- Hora -->
+        <div class="flex-1 flex flex-col items-center">
+          <hr class="flex-1 border-verde-medio w-full">
+          <span class="text-3xl tracking-widest font-medium">08:00PM</span>
+          <hr class="flex-1 border-verde-medio w-full">
+        </div>
+      </article>
 
 
-        <!-- ubicacion -->
-      <article
-        class="h-screen w-full right-0 left-0 mx-auto z-20 p-5 mt-5  rounded-3xl  
+
+
+    </section>
+
+    <section class="h-screen">
+      <!-- ubicacion -->
+      <article class="h-full w-full right-0 left-0 mx-auto z-20 p-5 mt-5
         flex flex-col items-center justify-center xs:w-3/4">
         <div class="w-full  flex items-center justify-center mb-4 ">
-          <h2 class="font-bold text-3xl ">Caney Turístico Ojo de Lara <i class="fa-solid fa-location-dot text-red-600"></i></h2>
+          <h2 class="font-bold text-4xl text-center"><i class="fa-solid fa-location-dot text-red-600"></i>Caney Turístico Ojos de
+            Lara </h2>
         </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2409506780873!2d-69.4599767!3d9.996945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e87630051b615ff%3A0x6bb6fa3b3b30e836!2sCaney%20Tur%C3%ADstico%20Ojo%20de%20Lara!5e0!3m2!1ses-419!2sve!4v1753139833370!5m2!1ses-419!2sve"
           allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           class="w-full h-2/4 rounded-lg shadow-lg border-0 z-20 relative">
         </iframe>
-        <a href="https://www.google.com/maps/place/Caney+Tur%C3%ADstico+Ojo+de+Lara/@9.996056,-69.459713,20z/data=!4m6!3m5!1s0x8e87630051b615ff:0x6bb6fa3b3b30e836!8m2!3d9.996945!4d-69.4599767!16s%2Fg%2F11y29cb1lg!5m1!1e4?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D">
-          <p class="text-lg">Esta ubicado en la entrada de Bolívar, vía Villa Rosa, a 5 minutos de la entrada de Pescaito en Barquisimeto.
+        <a
+          href="https://www.google.com/maps/place/Caney+Tur%C3%ADstico+Ojo+de+Lara/@9.996056,-69.459713,20z/data=!4m6!3m5!1s0x8e87630051b615ff:0x6bb6fa3b3b30e836!8m2!3d9.996945!4d-69.4599767!16s%2Fg%2F11y29cb1lg!5m1!1e4?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D">
+          <p class="text-2xl ">Esta ubicado en la entrada de Bolívar, vía Villa Rosa, a 5 minutos de la entrada de
+            Pescaito en Barquisimeto.
           </p>
         </a>
-        
+      </article>
+    </section>
+
+
+
+    <section class=" text-center h-screen relative ">
+      <!-- lluvia de sobres -->
+
+      <article class="absolute flex flex-col justify-center items-center h-screen w-full z-30">
+          <h2 class="text-4xl font-bold mb-4">¡Lluvia de Sobres!</h2>
+          <p class="text-xl mb-6">¡Te esperamos para celebrar juntos!</p>
+          <button id="start-button"
+            class="bg-verde-medio text-white px-6 py-3 rounded-full hover:bg-verde-claro transition-colors text-2xl">
+            Confirmar asistencia
+          </button>
       </article>
 
     </section>
-
-
-
-    <section class=" text-center h-screen w-full flex flex-col items-center justify-center">
-      <!-- lluvia de sobres -->
-      <h2 class="text-2xl font-bold mb-2">secccion 3</h2>
-
-    </section>
   </main>
+
+  <!-- audio -->
+  <!-- <audio autoplay loop muted class="hidden">
+    <source src="ruta/a/tu/audio.mp3" type="audio/mpeg">
+    Tu navegador no soporta la etiqueta audio.
+  </audio> -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>

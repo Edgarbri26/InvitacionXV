@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //Rutas:::::::::::::::::::::::::::::::::::::::::
 app.use(require('../routes/router.js'));
-app.use(express.static("public"));
+app.use(express.static("public"));//public ya no exixte 
 app.use("/assets", express.static(path.join(__dirname, "../../assets")));
 app.use("/src", express.static(path.join(__dirname, "../")));
 app.use(require('../routes/aggInvitado.js'));

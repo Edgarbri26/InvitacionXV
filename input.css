@@ -1,4 +1,5 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@plugin "@midudev/tailwind-animations";
 
 @font-face {
     font-family: 'Dancing Scrip';
@@ -34,6 +35,7 @@
     /* brackponit */
     --breakpoint-ll: 900px;
     --breakpoint-xs: 550px;
+    --breakpoint-ss: 400px;
 
     /* fonts */
     --font-dancing: 'Dancing Scrip', system-ui, sans-serif;
