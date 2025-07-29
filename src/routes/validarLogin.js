@@ -6,10 +6,11 @@ const conn = new Conexion();
 
 router.post("/validarLogin", async function(req, res) {
     const nombre = req.body.CampNom;
+    const contra = req.body.CampClave;
 
     try {
 
-        if(nombre == 'admin') {
+        if(nombre == 'admin' && contra == "123") {
             try {
                 const invitados = await conn.getAll();
                 res.render("crud_invitados", { invitados });
@@ -24,7 +25,7 @@ router.post("/validarLogin", async function(req, res) {
 
                 console.log("Invitado encontrado correcasdastamente: ", invitado);
 
-                res.render("index", { nombre: invitado.nombre } );
+                res.redirect(`/${invitado.nombre}`);
 
             } catch (error) {
                 console.error("Error al obtener los invitados:", error);
