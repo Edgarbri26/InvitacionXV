@@ -256,6 +256,7 @@ body{
   pointer-events: none;
   z-index: 15;
   overflow: hidden;
+
 }
 
 @keyframes envFloating {

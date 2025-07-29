@@ -88,11 +88,14 @@ countdown(); // Llamada inicial
 
 function crearSobre() {
   const sobre = document.createElement('div');
-  sobre.className = 'sobre sobre-lluvia';
+  sobre.className = 'sobre sobre-lluvia absolute';
   
   // Posición aleatoria horizontal
-  const posX = Math.random() * window.innerWidth;
-  sobre.style.left = posX + 'px';
+  const margen = 100; // margen en px para evitar el borde derecho
+  const posX = Math.random() * (window.innerWidth - margen);
+
+
+  sobre.style.left = posX + 'px'  ; // Ajustar para centrar el sobre
   
   // Tamaño aleatorio
   const escala = 0.3 + Math.random() * 0.7; // Entre 0.3 y 1
@@ -108,7 +111,7 @@ function crearSobre() {
 function iniciarLluviaSobres() {
   const contenedor = document.getElementById('lluvia-container');
   let sobresCreados = 0;
-  const maxSobres = 70; 
+  const maxSobres = 60; 
   
   contenedor.innerHTML = '';
   
@@ -135,7 +138,7 @@ function iniciarLluviaSobres() {
     }, 6000);
     
     sobresCreados++;
-  }, 110); // Crear un sobre cada 80ms para más densidad
+  }, 100); // Crear un sobre cada 80ms para más densidad
 }
 
 // Event listener para el botón

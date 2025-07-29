@@ -16,7 +16,7 @@
 <body class="bg-pastel-claro font-dancing">
 
   <!-- Contenedor para la lluvia de sobres -->
-  <div id="lluvia-container" class="lluvia-container"></div>
+
 
   <!-- mensaje -->
   <section id="seccion-mensaje"
@@ -143,8 +143,8 @@
     </section>
 
     <!-- fecha y info -->
-    <section class="bg text-center h-screen w-full flex flex-col items-center justify-center">
-      <article id="bienvenida" class="mb-6 flex flex-col items-center h-3/4">
+    <section class=" text-center h-screen w-full flex flex-col items-center justify-evenly">
+      <article id="bienvenida" class=" mb-6 flex flex-col items-center">
         <h2 class="text-5xl font-extrabold mb-2 font-dancing">¡Hola, <%= typeof nombre !=='undefined' ? nombre
             : 'desconocido' %>!</h2>
         <p class="text-2xl">Estas cordialmente invitado a mis XV años.</p>
@@ -170,7 +170,7 @@
         </div>
 
         <!-- Fecha central -->
-        <div class="flex flex-col items-center justify-center px-6 text-center gap-1 mx-2">
+        <div class="flex flex-col items-center justify-center text-center p-0.5 gap-1 mx-1 ss:mx-5">
           <span class="uppercase text-xs text-gray-600 tracking-widest text-center ">AGOSTO</span>
           <span class="text-5xl font-bold text-verde-medio tracking-wider leading-none">16</span>
           <span class="text-xs text-gray-600 tracking-widest mt-1 text-center">2025</span>
@@ -186,10 +186,10 @@
 
     </section>
 
-    <section id="seccion-ubicacion" class="h-screen bg-acento-terracota">
+    <section id="seccion-ubicacion" class="h-screen ">
       <!-- ubicacion -->
       <article class="seccion-ubicacion h-full w-full right-0 left-0 mx-auto z-20 p-5 mt-5
-        flex flex-col items-center justify-center xs:w-3/4">
+        flex flex-col items-center justify-start xs:w-3/4 sticky">
         <div class="w-full  flex items-center justify-center mb-4 ">
           <h2 class="font-bold text-4xl text-center"><i class="fa-solid fa-location-dot text-red-600"></i>Caney
             Turístico Ojos de
@@ -212,6 +212,7 @@
 
 
     <section class="text-center h-screen relative">
+      <div id="lluvia-container" class="lluvia-container"></div>
       <!-- lluvia de sobres -->
       <article class="absolute flex flex-col justify-center items-center w-full h-full z-30">
         <!-- Líneas decorativas -->
