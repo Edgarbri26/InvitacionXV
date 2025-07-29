@@ -4,7 +4,7 @@ const { Conexion } = require("../../config/conexion"); // o ajusta según export
 const conn = new Conexion();
 
 router.get("/", async (req, res) => {
-  res.render("index");
+  res.render("login");
 })
 
 router.get("/crud_invitados", async (req, res) => {

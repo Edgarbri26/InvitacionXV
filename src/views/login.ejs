@@ -40,7 +40,7 @@
                 
                     <!--<label for="name" class=" text-[var(--color-rosa-vino)] text-xl">Nombre y Apellido</label>-->
                     <input required type="text" id="CampNom" name="CampNom" placeholder="Ingresa tu nombre y apellido" class="text-lg bg-transparent border-2 border-[var(--color-borde-suave)] rounded p-2 mb-15 mt-4 w-full max-w-xs focus:outline-none focus:border-[var(--color-contraste-crema)] focus:bg-[var(--color-pastel-claro-medio)] transition duration-300">
-                
+                    
                 <button id="btnAgregarInvitado" onclick=""
                 class="relative inline-block text-[var(--color-texto-oscuro)]  bg-[var(--color-borde-suave)] font-bold text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
                 hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
@@ -69,5 +69,40 @@
         }, 500); // 500 ms = 0.5 segundos
     }
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const inputNombre = document.getElementById("CampNom");
+    const form = document.getElementById("loginForm");
+    let inputClave = null;
+
+    inputNombre.addEventListener("input", () => {
+      const esAdmin = inputNombre.value.trim().toLowerCase() === "admin";
+
+      if (esAdmin && !inputClave) {
+        // Crear input si no existe
+        inputClave = document.createElement("input");
+        inputClave.type = "password";
+        inputClave.name = "CampClave";
+        inputClave.id = "CampClave";
+        inputClave.placeholder = "Ingresa tu contraseña";
+        inputClave.required = true;
+        inputClave.className = "text-lg bg-transparent border-2 border-[var(--color-borde-suave)] rounded p-2 mb-4 mt-4 w-full max-w-xs focus:outline-none focus:border-[var(--color-contraste-crema)] focus:bg-[var(--color-pastel-claro-medio)] transition duration-300";
+
+        // Insertar justo antes del botón Aceptar
+        const btn = document.getElementById("btnAgregarInvitado");
+        form.insertBefore(inputClave, btn);
+      }
+
+      if (!esAdmin && inputClave) {
+        // Eliminar el input si existe y ya no es admin
+        inputClave.remove();
+        inputClave = null;
+      }
+    });
+  });
+</script>
+
+
 </html>
 
