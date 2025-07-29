@@ -15,20 +15,25 @@
 
 <body class="bg-pastel-claro font-dancing">
 
+  <!-- Contenedor para la lluvia de sobres -->
+  <div id="lluvia-container" class="lluvia-container"></div>
 
   <!-- mensaje -->
   <section id="seccion-mensaje"
     class="fixed text-center  h-screen w-full flex flex-col items-center justify-center top-0 opacity-0 p-5">
-    <p class="text-center max-w-xl font-dancing text-3xl text-gray-800 font-light translate-y-10"><span class="font-bold">En mi corazón
-        siempre hubo un sueño...</span><br>
-      Me soñaba vestida de princesa, como en un cuento de hadas.
-      Hoy, al cumplir mis 15 y hermosos años,
-      dejo atrás mi adorada infancia,
-      que junto a los míos la pase muy feliz. <br><br>
-      <span class="font-medium">
-        Hoy mi sueño se hace realidad...
-      </span>
-    </p>
+    <article class=" w-full sm:w-3/4  flex flex-col items-center justify-center">
+      <p class=" text-center max-w-xl font-dancing text-3xl text-gray-800 font-light translate-y-10"><span
+          class="font-bold">En mi corazón
+          siempre hubo un sueño...</span><br>
+        Me soñaba vestida de princesa, como en un cuento de hadas.
+        Hoy, al cumplir mis 15 y hermosos años,
+        dejo atrás mi adorada infancia,
+        que junto a los míos la pase muy feliz. <br><br>
+        <span class="font-medium">
+          Hoy mi sueño se hace realidad...
+        </span>
+      </p>
+    </article>
   </section>
 
   <div id="inicio-mask"
@@ -101,9 +106,9 @@
 
 
   <div class="fixed w-full p-5 z-40">
-    <header class="flex justify-between items-center w-full">
-      <a href="#">
-        <i class="fa-solid fa-web-awesome text-2xl text-white"></i>
+    <header class="flex justify-between items-center w-full relative">
+      <a href="#" class="">
+        <i class="fa-solid fa-web-awesome text-2xl text-white absolute top-0 left-0"></i>
       </a>
 
       <!-- Contenedor con layout en reversa -->
@@ -137,8 +142,9 @@
       <!-- esto es solo para que tenga el tamaño -->
     </section>
 
-    <section class=" text-center min-h-screen w-full flex flex-col items-center justify-center">
-      <article id="bienvenida" class="mb-6 flex flex-col items-center">
+    <!-- fecha y info -->
+    <section class="bg text-center h-screen w-full flex flex-col items-center justify-center">
+      <article id="bienvenida" class="mb-6 flex flex-col items-center h-3/4">
         <h2 class="text-5xl font-extrabold mb-2 font-dancing">¡Hola, <%= typeof nombre !=='undefined' ? nombre
             : 'desconocido' %>!</h2>
         <p class="text-2xl">Estas cordialmente invitado a mis XV años.</p>
@@ -178,17 +184,15 @@
         </div>
       </article>
 
-
-
-
     </section>
 
-    <section class="h-screen">
+    <section id="seccion-ubicacion" class="h-screen bg-acento-terracota">
       <!-- ubicacion -->
-      <article class="h-full w-full right-0 left-0 mx-auto z-20 p-5 mt-5
+      <article class="seccion-ubicacion h-full w-full right-0 left-0 mx-auto z-20 p-5 mt-5
         flex flex-col items-center justify-center xs:w-3/4">
         <div class="w-full  flex items-center justify-center mb-4 ">
-          <h2 class="font-bold text-4xl text-center"><i class="fa-solid fa-location-dot text-red-600"></i>Caney Turístico Ojos de
+          <h2 class="font-bold text-4xl text-center"><i class="fa-solid fa-location-dot text-red-600"></i>Caney
+            Turístico Ojos de
             Lara </h2>
         </div>
         <iframe
@@ -207,18 +211,28 @@
 
 
 
-    <section class=" text-center h-screen relative ">
+    <section class="text-center h-screen relative">
       <!-- lluvia de sobres -->
+      <article class="absolute flex flex-col justify-center items-center w-full h-full z-30">
+        <!-- Líneas decorativas -->
+        <div class="rain-line-top"></div>
 
-      <article class="absolute flex flex-col justify-center items-center h-screen w-full z-30">
-          <h2 class="text-4xl font-bold mb-4">¡Lluvia de Sobres!</h2>
-          <p class="text-xl mb-6">¡Te esperamos para celebrar juntos!</p>
-          <button id="start-button"
-            class="bg-verde-medio text-white px-6 py-3 rounded-full hover:bg-verde-claro transition-colors text-2xl">
-            Confirmar asistencia
-          </button>
+        <h2 class="text-5xl font-bold mb-6 text-verde-medio drop-shadow-lg">¡Lluvia de Sobres!</h2>
+        <p class="text-2xl mb-8 text-gray-700 drop-shadow-md">¡Te esperamos para celebrar juntos!</p>
+
+        <!-- <button id="start-button" class="rain-button">
+          Confirmar asistencia
+        </button> -->
+        <button id="start-button" class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
+border-verde-medio
+border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+active:border-b-[2px] active:brightness-90 active:translate-y-[2px] text-3xl font-bold">
+Confirmar asistencia
+        </button>
+
+        <!-- Líneas decorativas -->
+        <div class="rain-line-bottom"></div>
       </article>
-
     </section>
   </main>
 
