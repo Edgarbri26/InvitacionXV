@@ -105,7 +105,8 @@
       <a href="#">
         <i class="fa-solid fa-web-awesome text-2xl text-white"></i>
       </a>
-
+      <% if (typeof nombre === 'undefined' || nombre === "admin") { if (typeof nombre === 'undefined') nombre = ""%>
+          
       <!-- Contenedor con layout en reversa -->
       <div class="dropdown-container flex flex-colum-reverse items-start gap-2">
 
@@ -122,12 +123,15 @@
             <!-- SVG abreviado -->
             Iniciar Sesión
           </button>
+          <% if (nombre == "admin") { %>
           <button class="value">
             Account
           </button>
+          <% } %>
         </div>
 
       </div>
+      <% } %>
     </header>
   </div>
 
@@ -139,7 +143,7 @@
 
     <section class=" text-center min-h-screen w-full flex flex-col items-center justify-center">
       <article id="bienvenida" class="mb-6 flex flex-col items-center">
-        <h2 class="text-5xl font-extrabold mb-2 font-dancing">¡Hola, <%= typeof nombre !=='undefined' ? nombre
+        <h2 class="text-5xl font-extrabold mb-2 font-dancing">¡Hola, <%= typeof nombre !== 'undefined' ? nombre
             : 'desconocido' %>!</h2>
         <p class="text-2xl">Estas cordialmente invitado a mis XV años.</p>
         <div class="text-2xl text-gray-700 mb-2">Invitación válida para</div>
@@ -177,9 +181,6 @@
           <hr class="flex-1 border-verde-medio w-full">
         </div>
       </article>
-
-
-
 
     </section>
 

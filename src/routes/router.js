@@ -3,8 +3,8 @@ const router = express.Router();
 const { Conexion } = require("../../config/conexion"); // o ajusta según exportes
 const conn = new Conexion();
 
-router.get("/", function(req, res) {
-    res.render("index");
+router.get("/", async (req, res) => {
+  res.render("index");
 })
 
 router.get("/crud_invitados", async (req, res) => {
@@ -45,6 +45,32 @@ router.get("/editar_invitado/:id", async function(req, res) {
 
 router.get("/login", function(req, res) {
   res.render("login");
+})
+
+router.get("/:nombre", async (req, res) => {
+  const nombre = req.params.nombre;
+
+  if (nombre == "admin")
+    {
+      res.render("index", { nombre: nombre } );
+    } else {
+
+  try {
+    const invitado = await conn.getByName(nombre);
+    console.log("Invitado: ", invitado);
+
+    res.render("index", {
+      id: invitado.id,
+      nombre: invitado.nombre,
+      mesa: invitado.numero_mesa,
+      numInvitados: invitado.numero_invitado
+    });
+
+  } catch (error) {
+    console.error("Error al obtener los datos del invitado:", error);
+    res.status(500).send("Error al obtener los datos del invitado");
+  }
+}
 })
 
 module.exports = router;
