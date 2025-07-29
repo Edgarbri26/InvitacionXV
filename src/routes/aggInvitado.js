@@ -11,8 +11,6 @@ router.post("/aggInvitado", async function(req, res) {
 
   try {
     await conn.insertar(nombreInvitado, mesaInvitado, numInvitados);
-    console.log("Invitado agregado correctamente");
-    
     try {
         const invitados = await conn.getAll();
         res.render("crud_invitados", { invitados, message: "Invitado agregado correctamente"});
