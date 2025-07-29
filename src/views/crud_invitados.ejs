@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="/assets/css/output.css">
     <link rel="stylesheet" href="/assets/css/swalStyles.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Administra los invitados</title>
 </head>
 <body class="bg-[var(--color-pastel-claro-medio)] text-aliceblue  overflow-x-hidden flex flex-col min-h-screen ">
@@ -75,7 +77,7 @@
                             <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.asistencia %></td>
                             <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">
                                 <button id="btn-eliminar-<%= inv.id %>" data-id="<%= inv.id %>" class="bg-[var(--color-eliminar)] text-white px-2 py-1  mb-2.5 
-                                    relative inline-blocfont-medium text-xs uppercase no-underline  
+                                    relative inline-block text-xs uppercase no-underline  
                                     rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit font-semibold
                                     hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
                                     active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
@@ -85,7 +87,7 @@
                                     Eliminar
                                 </button>
                                 <button onclick="editar()" id="btn-editar-<%= inv.id %>" data-id="<%= inv.id %>"  class="bg-[var(--color-editar)] text-white px-2 py-1  mb-2.5 
-                                    relative inline-blocfont-medium text-xs uppercase no-underline  
+                                    relative inline-block  text-xs uppercase no-underline  
                                     rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit font-semibold
                                     hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
                                     active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
@@ -93,6 +95,17 @@
                                     after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
                                     hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0" value="<%= inv.id %>">
                                     Editar
+                                </button>
+                                <button id="btn-compartir-<%= inv.id %>" data-id="<%= inv.id %>"  class="bg-[var(--color-editar)] text-white px-2 py-1  mb-2.5 
+                                    relative inline-block text-xs uppercase no-underline  
+                                    rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit font-semibold
+                                    hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+                                    active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+                                    after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full 
+                                    after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
+                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0" value="<%= inv.nombre %>">
+                                    
+                                    <i class="fa-brands fa-whatsapp text-2xl"></i>
                                 </button>
                             </td>
 
@@ -119,6 +132,20 @@
                 const id = button.dataset.id;
                 window.location.href = `/editar_invitado/${id}`; // Puedes usar /editar_invitado/123 también
             });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[id^="btn-compartir-"]').forEach(button => {
+        button.addEventListener("click", () => {
+            console.log("HOLA AMIGO");
+            const nombre = button.value;
+            const mensaje = `http://localhost:3000.com/${nombre}`;
+            const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, "_blank");
+        });
         });
     });
 </script>
