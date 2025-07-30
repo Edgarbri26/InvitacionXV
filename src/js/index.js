@@ -23,8 +23,8 @@ tl
   }, "<") // 0.8 -> 1.2
   .to("#picture-inicio", { opacity: 0, duration: 0.4 }, "<") // 0.8 -> 1.2
   .to("#seccion-mensaje", { opacity: 1, duration: 0.2 }, 1.2) // 1.2 -> 1.4
-  .to("#inicio-mask", { opacity: 0, duration: 0.4 }, 1.4) // 1.4 -> 1.6
-  .to("#seccion-mensaje", { opacity: 0, scale: 0.5, duration: 0.3 }, 1.6) // 1.4 -> 1.6
+  .to("#inicio-mask", { opacity: 0, duration: 0.6 }, 1.4) // 1.4 -> 1.6
+  .to("#seccion-mensaje", { opacity: 0, scale: 0.5, duration: 0.6 }, 1.6) // 1.4 -> 1.6
   .to("#cuerpo", { opacity: 1, duration: 0.3 }, "<"); // 1.4 -> 1.6
 
 gsap.from("#fecha", {
@@ -85,4 +85,80 @@ const countdown = () => {
 
 const timer = setInterval(countdown, 1000);
 countdown(); // Llamada inicial
+
+function crearSobre() {
+  const sobre = document.createElement('div');
+  sobre.className = 'sobre sobre-lluvia absolute';
+  
+  // Posición aleatoria horizontal
+  const margen = 100; // margen en px para evitar el borde derecho
+  const posX = Math.random() * (window.innerWidth - margen);
+
+
+  sobre.style.left = posX + 'px'  ; // Ajustar para centrar el sobre
+  
+  // Tamaño aleatorio
+  const escala = 0.3 + Math.random() * 0.7; // Entre 0.3 y 1
+  sobre.style.transform = `scale(${escala})`;
+  
+  // Velocidad aleatoria
+  const duracion = 2.5 + Math.random() * 2.5; // Entre 2.5 y 5 segundos
+  sobre.style.animationDuration = duracion + 's';
+  
+  return sobre;
+}
+
+function iniciarLluviaSobres() {
+  const contenedor = document.getElementById('lluvia-container');
+  let sobresCreados = 0;
+  const maxSobres = 60; 
+  
+  contenedor.innerHTML = '';
+  
+  const intervalo = setInterval(() => {
+    if (sobresCreados >= maxSobres + 10) {
+      clearInterval(intervalo);
+      return;
+    }
+    
+    if(sobresCreados < maxSobres){
+      const sobre = crearSobre();
+      contenedor.appendChild(sobre);
+      // Agregar clase para la animación de caída
+      setTimeout(() => {
+        sobre.classList.add('falling');
+      }, 10);  
+    }
+
+
+    setTimeout(() => {
+      if (sobre.parentNode) {
+        sobre.parentNode.removeChild(sobre);
+      }
+    }, 6000);
+    
+    sobresCreados++;
+  }, 100); // Crear un sobre cada 80ms para más densidad
+}
+
+// Event listener para el botón
+document.addEventListener('DOMContentLoaded', function() {
+  const startButton = document.getElementById('start-button');
+  if (startButton) {
+    startButton.addEventListener('click', function() {
+      iniciarLluviaSobres();
+      
+      // Cambiar el texto del botón
+      this.textContent = '¡Gracias por confirmar!';
+      this.disabled = true;
+      this.classList.add('bg-green-500');
+      this.classList.remove('bg-verde-medio', 'hover:bg-verde-claro');
+      
+      // Agregar efecto de confeti adicional
+      setTimeout(() => {
+        this.innerHTML = '<i class="fas fa-heart mr-2"></i>¡Gracias por confirmar!';
+      }, 2000);
+    });
+  }
+});
 
