@@ -118,7 +118,7 @@ function iniciarLluviaSobres() {
   contenedor.innerHTML = '';
   
   const intervalo = setInterval(() => {
-    if (sobresCreados >= maxSobres + 10) {
+    if (sobresCreados >= maxSobres + 100) {
       clearInterval(intervalo);
       return;
     }
@@ -130,14 +130,13 @@ function iniciarLluviaSobres() {
       setTimeout(() => {
         sobre.classList.add('falling');
       }, 10);  
-    }
 
-
-    setTimeout(() => {
-      if (sobre.parentNode) {
-        sobre.parentNode.removeChild(sobre);
-      }
-    }, 6000);
+      setTimeout(() => {
+        if (sobre.parentNode) {
+          sobre.parentNode.removeChild(sobre);
+        }
+      }, 6000);
+    }  
     
     sobresCreados++;
   }, 100); // Crear un sobre cada 80ms para más densidad

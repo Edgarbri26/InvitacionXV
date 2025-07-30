@@ -223,14 +223,22 @@
           Confirmar asistencia
         </button> -->
 
+        <% if(typeof asistencia === 'undefined' || asistencia === null || asistencia === 0) { %>
           <button id="start-button" class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
 border-verde-medio
-border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-active:border-b-[2px] active:brightness-90 active:translate-y-[2px] text-3xl font-bold" value="<%= nombre %>">
+border-b-2 hover:brightness-110 hover:-translate-y-0.5 hover:border-b-4
+active:border-b-2 active:brightness-90 active:translate-y-0.5 text-3xl font-bold" value="<%= nombre %>">
           <i class="fa-solid fa-envelope mr-2" ></i>
           Confirmar asistencia
         </button>
-
+        <% } else if(asistencia === 1) { %>
+          <button disabled class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
+border-verde-medio
+border-b-2 text-3xl font-bold opacity-75" value="<%= nombre %>">
+          <i class="fa-solid fa-check mr-2" ></i>
+          ¡Gracias por confirmar!
+        </button>
+        <% } %>
         
 
         <!-- Líneas decorativas -->
