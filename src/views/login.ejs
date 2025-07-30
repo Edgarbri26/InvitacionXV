@@ -8,8 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Inicio de sesión</title>
 </head>
-<body class="bg-pastel-claro text-aliceblue overflow-x-hidden flex flex-col h-screen">
-    <header class=" bg-transparent text-center flex justify-between items-center p-5 shadow-red-950 mb-10">
+<body class="bg-pastel-claro text-aliceblue overflow-hidden overflow-x-hidden flex flex-col min-h-screen">
+
+    <header class=" bg-transparent text-center flex justify-between items-center p-5 mb-10">
         
         <div>
             <img  src="/assets/img/XV_recortado.svg" alt="" class="w-10 h-10 mx-auto">
@@ -32,14 +33,14 @@
 
     </header>
 
-    <main class="items-center flex-1">
+    <main class="p-3 flex-1">
+        
         
         <div class="m-5 p-10 justify-center items-center bg-pastel-claro rounded-xl shadow-2xl pb-10">
             <form class="flex flex-col items-center justify-center w-full " action="/validarLogin" method="post" id="loginForm">
                 
                 <h1 class="text-[var(--color-texto-oscuro)] text-center text-3xl mb-10 font-bold min-w-3xl">Bienvenido</h1>
                 
-                    <!--<label for="name" class=" text-[var(--color-rosa-vino)] text-xl">Nombre y Apellido</label>-->
                     <input required type="text" id="CampNom" name="CampNom" placeholder="Ingresa tu nombre" class="text-lg bg-transparent border-2 border-[var(--color-borde-suave)] rounded p-2 mb-15 mt-4 w-full max-w-xs focus:outline-none focus:border-[var(--color-contraste-crema)] focus:bg-[var(--color-pastel-claro-medio)] transition duration-300">
                     
                 <button id="btnAgregarInvitado" onclick=""
@@ -57,7 +58,7 @@
         
     </main>
 
-    <footer class="bg-[var(--color-verde-claro)] text-white text-center p-4 mt-10 hi">
+    <footer class="bg-verde-claro text-white text-center p-4">
             <p>© Todos los derechos reservados.</p>
     </footer>
 
