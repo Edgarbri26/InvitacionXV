@@ -110,13 +110,14 @@ class Conexion {
         });
     }
 
-    asistencia(id,asistencia){
+    confirmarAsistencia(nombre){
         return new Promise((resolve, reject) => {
-            const comando = "UPDATE invitado SET asistencia = ? WHERE id = ?";
-            this.conn.query(comando, [asistencia, id], function(err, resultado) {
+            const comando = "UPDATE invitado SET asistencia = ? WHERE nombre = ?";
+            this.conn.query(comando, [true, nombre], function(err, resultado) {
                 if (err) {
                     reject(err);
                 } else {
+                    console.log("Asistencia actualizada para:", nombre);
                     resolve(resultado);
                 }
             });

@@ -3,6 +3,19 @@ const router = express.Router();
 const { Conexion } = require("../../config/conexion"); // o ajusta según exportes
 const conn = new Conexion();
 
+router.post("/cambiarAsistencia", async function(req, res) {
+    const nombre = req.body.nombre;
+  
+    try {
+      await conn.confirmarAsistencia(nombre);
+      console.log("Asistencia actualizada correctamente para: ", nombre);
+      res.json({ success: true, message: "Asistencia confirmada correctamente" });
+    } catch (error) {
+      console.error("Error al cambiar la asistencia:", error);
+      res.status(500).json({ success: false, message: "Error al confirmar asistencia" });
+    }
+  });
+
 router.get("/", async (req, res) => {
   res.render("login");
 })

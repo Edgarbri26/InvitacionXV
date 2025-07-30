@@ -1,3 +1,5 @@
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 const tl = gsap.timeline({
@@ -143,23 +145,45 @@ function iniciarLluviaSobres() {
 
 // Event listener para el botón
 document.addEventListener('DOMContentLoaded', function() {
-  const { Conexion } = require("../../config/conexion");
-  const conn = new Conexion();
   const startButton = document.getElementById('start-button');
   if (startButton) {
     startButton.addEventListener('click', function() {
-      iniciarLluviaSobres();
-      
       // Cambiar el texto del botón
       this.textContent = '¡Gracias por confirmar!';
       this.disabled = true;
       this.classList.add('bg-green-500');
       this.classList.remove('bg-verde-medio', 'hover:bg-verde-claro');
+  
+      // cambiar la asistencia
+      const nombre = this.value;
       
-      // Agregar efecto de confeti adicional
-      setTimeout(() => {
-        this.innerHTML = '<i class="fas fa-heart mr-2"></i>¡Gracias por confirmar!';
-      }, 2000);
+      // Hacer petición al backend para cambiar asistencia
+      fetch('/cambiarAsistencia', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nombre: nombre,
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          console.log(data.message);
+          // Iniciar la lluvia de sobres solo si la petición fue exitosa
+          iniciarLluviaSobres();
+
+        } else {
+          console.error('Error al confirmar asistencia:', data.message);
+          // Mostrar mensaje de error al usuario
+          alert('Error al confirmar asistencia. Por favor intenta de nuevo.');
+        }
+      })
+      .catch(error => {
+        console.error('Error en la petición:', error);
+        alert('Error de conexión. Por favor intenta de nuevo.');
+      });
     });
   }
 });
