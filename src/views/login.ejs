@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/output.css">
     <link rel="stylesheet" href="/assets/css/swalStyles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Inicio de sesión</title>
 </head>
 <body class="bg-pastel-claro text-aliceblue overflow-x-hidden flex flex-col min-h-screen ">
@@ -39,7 +40,7 @@
                 <h1 class="text-[var(--color-texto-oscuro)] text-center text-3xl mb-10 font-bold min-w-3xl">Bienvenido</h1>
                 
                     <!--<label for="name" class=" text-[var(--color-rosa-vino)] text-xl">Nombre y Apellido</label>-->
-                    <input required type="text" id="CampNom" name="CampNom" placeholder="Ingresa tu nombre y apellido" class="text-lg bg-transparent border-2 border-[var(--color-borde-suave)] rounded p-2 mb-15 mt-4 w-full max-w-xs focus:outline-none focus:border-[var(--color-contraste-crema)] focus:bg-[var(--color-pastel-claro-medio)] transition duration-300">
+                    <input required type="text" id="CampNom" name="CampNom" placeholder="Ingresa tu nombre" class="text-lg bg-transparent border-2 border-[var(--color-borde-suave)] rounded p-2 mb-15 mt-4 w-full max-w-xs focus:outline-none focus:border-[var(--color-contraste-crema)] focus:bg-[var(--color-pastel-claro-medio)] transition duration-300">
                     
                 <button id="btnAgregarInvitado" onclick=""
                 class="relative inline-block text-[var(--color-texto-oscuro)]  bg-[var(--color-borde-suave)] font-bold text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
@@ -101,6 +102,25 @@
       }
     });
   });
+</script>
+
+<script>
+     <% if (typeof message !== "undefined") { %>
+        Swal.fire({
+            title: "Ups!",
+            text: "<%= message %>",
+            icon: "advertence",
+            confirmButtonText: 'Aceptar',
+            buttonsStyling: false,
+            customClass: {
+                popup: 'swal-showtime',
+                title: 'swal-titulo-glow',
+                confirmButton: 'swal-btn-confirm',
+                cancelButton: 'swal-btn-no',
+                actions: 'swal-action-box'
+            }
+        });
+    <% } %>
 </script>
 
 

@@ -19,7 +19,7 @@ router.post("/validarLogin", async function(req, res) {
                 }
 
                 if (user.contraseña !== contra) {
-                    return res.status(401).send("Contraseña incorrecta.");
+                    return res.render("login", { message: "Contraseña incorrecta. Por favor, inténtalo de nuevo." });
                 }
                 
                 req.session.login = true;
@@ -39,9 +39,16 @@ router.post("/validarLogin", async function(req, res) {
             try {
                 const invitado = await conn.getByName(nombre);
 
-                console.log("Invitado encontrado correcasdastamente: ", invitado);
+                if (!invitado) {
+                    res.render("login", { message : `El nombre: ${nombre} no se encuentra en la lista de invitados` })
+                    console.log("probando esta monda", invitado);
+                }
 
-                res.redirect(`/${invitado.nombre}`);
+                console.log("Invitado encontrado correcasdastamente: ", invitado);
+                
+                if (invitado ){
+                    res.redirect(`/${invitado.nombre}`);
+                }
 
             } catch (error) {
                 console.error("Error al obtener los invitados:", error);

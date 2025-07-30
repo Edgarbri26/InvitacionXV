@@ -74,7 +74,7 @@
                             <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.nombre %></td>
                             <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.numero_mesa %></td>
                             <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.numero_invitado %></td>
-                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.asistencia %></td>
+                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.asistencia ? 'Confirmado' : 'No confirmado' %></td>
                             <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">
                                 <button id="btn-eliminar-<%= inv.id %>" data-id="<%= inv.id %>" class="bg-[var(--color-eliminar)] text-white px-2 py-1  mb-2.5 
                                     relative inline-block text-xs uppercase no-underline  
