@@ -1,7 +1,7 @@
 {
   "name": "invitacionxv",
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "src/js/app.js",
   "scripts": {
     "dev": "npm run start && npm run build",
     "build": "npx tailwindcss -i ./input.css -o ./assets/css/output.css --watch",
