@@ -143,6 +143,8 @@ function iniciarLluviaSobres() {
 
 // Event listener para el botón
 document.addEventListener('DOMContentLoaded', function() {
+  const { Conexion } = require("../../config/conexion");
+  const conn = new Conexion();
   const startButton = document.getElementById('start-button');
   if (startButton) {
     startButton.addEventListener('click', function() {

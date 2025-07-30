@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { Conexion } = require("../../config/conexion");
-
 const conn = new Conexion();
 
 router.post("/aggInvitado", async function(req, res) {
