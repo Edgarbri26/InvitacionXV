@@ -105,7 +105,6 @@
       <a href="#">
         <i class="fa-solid fa-web-awesome text-2xl text-white"></i>
       </a>
-      <% if (typeof nombre === 'undefined' || nombre === "admin") { if (typeof nombre === 'undefined') { nombre = ""}%>
           
       <!-- Contenedor con layout en reversa -->
       <div class="dropdown-container flex flex-colum-reverse items-start gap-2">
@@ -122,16 +121,13 @@
           <button class="value" onclick="login()">
             <!-- SVG abreviado -->
             Iniciar Sesión
-          </button>
-          <% if (nombre == "admin") { %>
+          </button>  
           <button class="value">
             Account
           </button>
-          <% } %>
         </div>
 
       </div>
-      <% } %>
     </header>
   </div>
 
@@ -150,10 +146,10 @@
         <div class="flex flex-col items-center mb-2">
           <div
             class="rounded-full bg-yellow-300 border-4 border-yellow-500 w-16 h-16 flex items-center justify-center text-yellow-900 font-extrabold text-2xl shadow-lg mb-2">
-            5
+            <%= numInvitados %>
           </div>
           <div class="text-2xl text-gray-800">Estarás en la mesa <span class="font-semibold text-blue-700"
-              id="num-mesa">3</span></div>
+              id="num-mesa"><%= mesa %></span></div>
         </div>
       </article>
 
@@ -199,7 +195,7 @@
         </iframe>
         <a
           href="https://www.google.com/maps/place/Caney+Tur%C3%ADstico+Ojo+de+Lara/@9.996056,-69.459713,20z/data=!4m6!3m5!1s0x8e87630051b615ff:0x6bb6fa3b3b30e836!8m2!3d9.996945!4d-69.4599767!16s%2Fg%2F11y29cb1lg!5m1!1e4?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D">
-          <p class="text-2xl ">Esta ubicado en la entrada de Bolívar, vía Villa Rosa, a 5 minutos de la entrada de
+          <p class="text-2xl mt-7">Esta ubicado en la entrada de Bolívar, vía Villa Rosa, a 5 minutos de la entrada de
             Pescaito en Barquisimeto.
           </p>
         </a>
