@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/css/swalStyles.css">
     <title>Inicio de sesión</title>
 </head>
-<body class="bg-[var(--color-pastel-claro-medio)] text-aliceblue  overflow-x-hidden flex flex-col min-h-screen ">
+<body class="bg-pastel-claro text-aliceblue overflow-x-hidden flex flex-col min-h-screen ">
     <header class=" bg-transparent text-center flex justify-between items-center p-5 shadow-red-950 mb-10">
         
         <div>
@@ -17,24 +17,24 @@
         <nav>
             <ul class="flex space-x-2 ">
                 <li>
-                    <button id="" onclick="volver()"
+                    <!--<button id="" onclick="volver()"
                     class="relative inline-block tracking-[.1em] text-[var(--color-texto-oscuro)] bg-[var(--color-borde-suave)] font-medium text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
                     hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
                     active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
                     after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
                     hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0"
                     >Volver
-                    </button>
+                    </button>-->
                 </li>
             </ul>
         </nav>
 
     </header>
 
-    <main class="m-7 text-black  items-center flex flex-col flex-1">
+    <main class="items-center flex-1">
         
-        <div class="p-10 justify-center items-center flex flex-col bg-[var(--color-pastel-claro)] rounded-xl shadow-2xl h-100">
-            <form class="flex flex-col items-center" action="/validarLogin" method="post" id="loginForm">
+        <div class="m-5 p-10 justify-center items-center bg-pastel-claro rounded-xl shadow-2xl pb-10">
+            <form class="flex flex-col items-center justify-center w-full " action="/validarLogin" method="post" id="loginForm">
                 
                 <h1 class="text-[var(--color-texto-oscuro)] text-center text-3xl mb-10 font-bold min-w-3xl">Bienvenido</h1>
                 
@@ -77,7 +77,7 @@
     let inputClave = null;
 
     inputNombre.addEventListener("input", () => {
-      const esAdmin = inputNombre.value.trim().toLowerCase() === "admin";
+      const esAdmin = inputNombre.value.trim().toLowerCase() === "eudys";
 
       if (esAdmin && !inputClave) {
         // Crear input si no existe

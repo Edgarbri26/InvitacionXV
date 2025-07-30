@@ -8,12 +8,17 @@ router.get("/", async (req, res) => {
 })
 
 router.get("/crud_invitados", async (req, res) => {
-  try {
-    const invitados = await conn.getAll();
-    res.render("crud_invitados", { invitados });
-  } catch (error) {
-    console.error("Error al obtener los invitados:", error);
-    res.status(500).send("No se pudieron cargar los invitados");
+
+  if(!req.session.login) {
+    res.render("login", { mensaje : "Sesión no encontrada. Por favor, debes iniciar sesión."})
+  } else {
+    try {
+      const invitados = await conn.getAll();
+      res.render("crud_invitados", { invitados });
+    } catch (error) {
+      console.error("Error al obtener los invitados:", error);
+      res.status(500).send("No se pudieron cargar los invitados");
+    }
   }
 });
 
@@ -47,30 +52,41 @@ router.get("/login", function(req, res) {
   res.render("login");
 })
 
-router.get("/:nombre", async (req, res) => {
-  const nombre = req.params.nombre;
+router.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Error al cerrar sesión:", err);
+      return res.status(500).send("Error al cerrar sesión");
+    }
 
-  if (nombre == "admin")
-    {
-      res.render("index", { nombre: nombre } );
-    } else {
+    res.redirect("/"); // o "/login"
+  });
+});
 
-  try {
-    const invitado = await conn.getByName(nombre);
-    console.log("Invitado: ", invitado);
+router.get(/^\/([a-zA-Z]+)$/, async (req, res) => {
 
-    res.render("index", {
-      id: invitado.id,
-      nombre: invitado.nombre,
-      mesa: invitado.numero_mesa,
-      numInvitados: invitado.numero_invitado
-    });
+  const match = req.url.match(/^\/([a-zA-Z]+)$/);
+  const nombre = match ? match[1] : null;
 
-  } catch (error) {
-    console.error("Error al obtener los datos del invitado:", error);
-    res.status(500).send("Error al obtener los datos del invitado");
+  if (!nombre) {
+    return res.status(400).send("Nombre no válido en la URL.");
   }
-}
+  
+    try {
+        const invitado = await conn.getByName(nombre);
+        console.log("Invitado: ", invitado );
+
+        res.render("index", {
+          id: invitado.id,
+          nombre: invitado.nombre,
+          mesa: invitado.numero_mesa,
+          numInvitados: invitado.numero_invitado
+        });
+
+      } catch (error) {
+        console.error("Error al obtener los datos del invitado:", error);
+        res.status(500).send("Error al obtener los datos del invitado");
+      }
 })
 
 module.exports = router;

@@ -10,13 +10,29 @@ router.post("/validarLogin", async function(req, res) {
 
     try {
 
-        if(nombre == 'admin' && contra == "123") {
+        if(nombre == 'eudys') {
             try {
+                const user = await conn.getByUser(nombre);
+
+                if (!user) {
+                    return res.status(401).send("Usuario no encontrado.");
+                }
+
+                if (user.contraseña !== contra) {
+                    return res.status(401).send("Contraseña incorrecta.");
+                }
+                
+                req.session.login = true;
+                req.session.id = user.id;
+                req.session.nombre = user.nombre;
+                console.log(req.session);
+
                 const invitados = await conn.getAll();
-                res.render("crud_invitados", { invitados });
+                res.render("crud_invitados", { invitados,  datos: req.session });
+
             } catch (error) {
                 console.error("Error al obtener los invitados:", error);
-                res.status(500).send("No se pudieron cargar los invitados");
+                res.status(500).send("No se pudieron cargar los invitadoss.");
             }
         } else {
 

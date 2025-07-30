@@ -71,6 +71,19 @@ class Conexion {
         });
     }
 
+    getByUser(user) {
+        return new Promise((resolve, reject) => {
+            const coman = "SELECT * FROM users WHERE nombre = ?";
+            this.conn.query(coman, [user], function(err, user) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(user[0]);
+                }
+            });
+        });
+    }
+
     getById(id) {
         return new Promise((resolve, reject) => {
             const coman = "SELECT * FROM invitado WHERE id = ?";
