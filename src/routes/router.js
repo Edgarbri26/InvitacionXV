@@ -93,7 +93,8 @@ router.get(/^\/([a-zA-Z]+)$/, async (req, res) => {
           id: invitado.id,
           nombre: invitado.nombre,
           mesa: invitado.numero_mesa,
-          numInvitados: invitado.numero_invitado
+          numInvitados: invitado.numero_invitado,
+          asistencia: invitado.asistencia || 0
         });
 
       } catch (error) {
