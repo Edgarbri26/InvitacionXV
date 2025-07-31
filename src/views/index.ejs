@@ -15,6 +15,9 @@
 </head>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+
+  const audio = new Audio("/assets/music/A-las-hadas-reunirán-TinkerBell.mp3");
+
   document.addEventListener("DOMContentLoaded", () => {
     Swal.fire({
       title: "🎶 Activar audio",
@@ -24,19 +27,28 @@
       },
       backdrop: 'rgba(0,0,0,0.2)'
     }).then(() => {
-      const audio = new Audio("/assets/music/A-las-hadas-reunirán-TinkerBell.mp3");
+      
       audio.play().catch(err => console.warn("Autoplay fallido:", err));
+      document.getElementById("btnReanudar").style.display = "none";
     });
   });
+  
+  function pausarMusica() {
+    if (!audio.paused) {
+      audio.pause();
+      document.getElementById("btnPausar").style.display = "none";
+      document.getElementById("btnReanudar").style.display = "inline-block";
+    }
+  }
+
+  function reanudarMusica() {
+    if (audio.paused) {
+      audio.play();
+      document.getElementById("btnReanudar").style.display = "none";
+      document.getElementById("btnPausar").style.display = "inline-block";
+    }
+  }
 </script>
-<!--<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const audio = new Audio("/assets/music/A-las-hadas-reunirán-TinkerBell.mp3"); // Ajusta la ruta si es pública en Express
-    audio.play().catch(err => {
-      console.warn("Autoplay bloqueado por el navegador:", err);
-    });
-  });
-</script>-->
 
 <body class="bg-pastel-claro font-dancing">
 
@@ -161,6 +173,16 @@
           <button class="value" onclick="login()">
             <!-- SVG abreviado -->
             Cambiar de invitado
+          </button>
+
+          <button class="value" id="btnPausar" onclick="pausarMusica()">
+            <!-- SVG abreviado -->
+            Pausar musica
+          </button>
+
+          <button class="value" id="btnReanudar" onclick="reanudarMusica()">
+            <!-- SVG abreviado -->
+            Reanudar musica
           </button>
 
         </div>
