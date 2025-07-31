@@ -17,9 +17,10 @@ router.post("/cambiarAsistencia", async function (req, res) {
 });
 
 router.get("/", async (req, res) => {
-  if (localStorage.getItem("nombre")) {
-    const nombre = localStorage.getItem("nombre");
-    res.redirect("/index");
+  if (req.session.invitado) {
+    const invitado = req.session.invitado
+    const nombre = invitado.nombre
+    res.redirect("/" + nombre);
   }
   res.render("login");
 })
@@ -76,10 +77,7 @@ router.get("/logout", (req, res) => {
       console.error("Error al cerrar sesión:", err);
       return res.status(500).send("Error al cerrar sesión");
     }
-    localStorage.removeItem("nombre");
-    localStorage.removeItem("mesa");
-    localStorage.removeItem("numInvitados");
-    localStorage.removeItem("asistencia");
+
     res.redirect("/"); // o "/login"
   });
 });
