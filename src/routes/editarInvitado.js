@@ -12,7 +12,7 @@ router.post("/editarInvitado", async function(req, res) {
 
     try {
         await conn.actualizar(id, nombreInvitado, mesaInvitado, numInvitados);
-        console.log("Invitado actualizado correctamente: ", id);
+        // console.log("Invitado actualizado correctamente: ", id);
 
         try {
             const invitados = await conn.getAll();

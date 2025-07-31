@@ -29,6 +29,10 @@
     --color-verde-oscuro: #586e26;
     --color-verde-medio: #778c43;
     --color-verde-claro: #96ac60;
+    --color-verde-pastel-claro: #dcf0e4;
+    --color-verde-pastel-medio: #badacb;
+    --color-verde-pastel-oscuro: #8ea89c;
+    --color-verde-constraste: #ccd4d4;
     --color-pastel-claro: #f4e8d4;
     --color-pastel-claro-medio: #f9e5c4;
     --color-acento-terracota:	#a45d45;	/*Botones, íconos, enlaces destacados*/
@@ -48,4 +52,6 @@
     /* fonts */
     --font-dancing: 'Dancing Scrip', system-ui, sans-serif;
     --font-sour-gummy: 'Sour Gummy', system-ui, sans-serif;
+
+    --animate-bounce-pulse: bounce-pulse 2s ease-in-out infinite;
 }

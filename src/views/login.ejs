@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,64 +9,59 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Inicio de sesión</title>
 </head>
-<body class="bg-pastel-claro-medio text-aliceblue overflow-hidden overflow-x-hidden flex flex-col min-h-screen">
 
-    <header class=" bg-transparent text-center flex justify-between items-center p-5 mb-10">
-        
-        <div>
-            <img  src="/assets/img/XV_recortado.svg" alt="" class="w-10 h-10 mx-auto">
-        </div>
+<body class="bg-pastel-claro text-aliceblue overflow-hidden overflow-x-hidden flex flex-col min-h-screen">
 
-        <nav>
-            <ul class="flex space-x-2 ">
-                <li>
-                    <!--<button id="" onclick="volver()"
-                    class="relative inline-block tracking-[.1em] text-[var(--color-texto-oscuro)] bg-[var(--color-borde-suave)] font-medium text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
-                    hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
-                    active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
-                    after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
-                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0"
-                    >Volver
-                    </button>-->
-                </li>
-            </ul>
-        </nav>
+    <!-- fondo -->
+    <section class="fixed top-0 left-0 w-full h-screen -z-10">
+        <picture class="absolute top-0 left-0 w-full h-screen">
+            <img src="/assets/img/fondoPrincipal.jpg" alt="" class="absolute h-full w-full object-cover">
+        </picture>
+    </section>
+
+    <header class="fixed top-0 left-0 w-full bg-transparent text-center flex justify-between items-center p-5 sm:p-10 mb-10">
+
+        <a href="/">
+            <img src="/assets/img/XV_recortado.svg" alt="" class="w-12 h-12 mx-auto sm:w-15 sm:h-15">
+        </a>
 
     </header>
 
-    <main class="p-3 flex-1">
-        
-        
-        <div class="m-5 p-10 justify-center items-center bg-pastel-claro rounded-xl shadow-2xl pb-10">
-            <form class="flex flex-col items-center justify-center w-full " action="/validarLogin" method="post" id="loginForm">
-                
-                <h1 class="text-[var(--color-texto-oscuro)] text-center text-3xl mb-10 font-bold min-w-3xl">Bienvenido</h1>
-                
-                    <input required type="text" id="CampNom" name="CampNom" placeholder="Ingresa tu nombre" class="text-lg bg-transparent border-2 border-[var(--color-borde-suave)] rounded p-2 mb-15 mt-4 w-full max-w-xs focus:outline-none focus:border-[var(--color-contraste-crema)] focus:bg-[var(--color-pastel-claro-medio)] transition duration-300">
-                    
-                <button id="btnAgregarInvitado" onclick=""
-                class="relative inline-block text-[var(--color-texto-oscuro)]  bg-[var(--color-borde-suave)] font-bold text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
-                hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
-                active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
-                after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
-                hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0"
-                >
-                Aceptar
+    <main class="p-3 flex-1 h-full flex flex-col items-center justify-center">
+
+
+        <div class=" p-10 w-full   max-w-90 left-0 right-0 top-0 bottom-0  m-auto  justify-center items-center bg-verde-pastel-medio rounded-xl shadow-2xl pb-10 ">
+            <form class="flex flex-col items-center justify-center w-full " action="/validarLogin" method="post"
+                id="loginForm">
+
+                <h1 class="text-texto-oscuro text-center text-3xl mb-10 font-bold min-w-3xl w-full max-w-80">Bienvenido
+                </h1>
+
+                <input required type="text" id="CampNom" name="CampNom" placeholder="Ingresa tu nombre"
+                    class="text-lg bg-transparent border-2 border-verde-oscuro rounded p-2  mt-4 w-full max-w-xs focus:outline-none focus:border-verde-constraste focus:bg-verde-pastel-oscuro transition duration-300">
+
+
+                <button id="btnAgregarInvitado" onclick="" class="relative inline-block text-texto-oscuro  bg-verde-pastel-oscuro font-bold text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
+                hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+                active:-translate-y-1 active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+                after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-full after:bg-verde-constraste after:-z-10 after:transition-all after:duration-400
+                hover:after:scale-x-150 hover:after:scale-y-150 hover:after:opacity-0 mt-15">
+                    Aceptar
                 </button>
-                
+
             </form>
         </div>
-        
+
     </main>
 
-    <footer class="bg-verde-claro text-white text-center p-4">
-            <p>© Todos los derechos reservados.</p>
+    <footer class="bg-verde-pastel-medio text-white text-center p-4">
+        <p>© Todos los derechos reservados.</p>
     </footer>
 
 </body>
 <script>
     function volver() {
-    // Espera 0.5 segundos antes de redirigir
+        // Espera 0.5 segundos antes de redirigir
         setTimeout(() => {
             window.location.href = "/";
         }, 500); // 500 ms = 0.5 segundos
@@ -73,36 +69,36 @@
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const inputNombre = document.getElementById("CampNom");
-    const form = document.getElementById("loginForm");
-    let inputClave = null;
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputNombre = document.getElementById("CampNom");
+        const form = document.getElementById("loginForm");
+        let inputClave = null;
 
-    inputNombre.addEventListener("input", () => {
-      const esAdmin = inputNombre.value.trim().toLowerCase() === "eudys";
+        inputNombre.addEventListener("input", () => {
+            const esAdmin = inputNombre.value.trim().toLowerCase() === "eudys";
 
-      if (esAdmin && !inputClave) {
-        // Crear input si no existe
-        inputClave = document.createElement("input");
-        inputClave.type = "password";
-        inputClave.name = "CampClave";
-        inputClave.id = "CampClave";
-        inputClave.placeholder = "Ingresa tu contraseña";
-        inputClave.required = true;
-        inputClave.className = "text-lg bg-transparent border-2 border-[var(--color-borde-suave)] rounded p-2 mb-4 mt-4 w-full max-w-xs focus:outline-none focus:border-[var(--color-contraste-crema)] focus:bg-[var(--color-pastel-claro-medio)] transition duration-300";
+            if (esAdmin && !inputClave) {
+                // Crear input si no existe
+                inputClave = document.createElement("input");
+                inputClave.type = "password";
+                inputClave.name = "CampClave";
+                inputClave.id = "CampClave";
+                inputClave.placeholder = "Ingresa tu contraseña";
+                inputClave.required = true;
+                inputClave.className = "text-lg bg-transparent border-2 border-verde-oscuro rounded p-2  mt-4 w-full max-w-xs focus:outline-none focus:border-verde-constraste focus:bg-verde-pastel-oscuro transition duration-300";
 
-        // Insertar justo antes del botón Aceptar
-        const btn = document.getElementById("btnAgregarInvitado");
-        form.insertBefore(inputClave, btn);
-      }
+                // Insertar justo antes del botón Aceptar
+                const btn = document.getElementById("btnAgregarInvitado");
+                form.insertBefore(inputClave, btn);
+            }
 
-      if (!esAdmin && inputClave) {
-        // Eliminar el input si existe y ya no es admin
-        inputClave.remove();
-        inputClave = null;
-      }
+            if (!esAdmin && inputClave) {
+                // Eliminar el input si existe y ya no es admin
+                inputClave.remove();
+                inputClave = null;
+            }
+        });
     });
-  });
 </script>
 
 <script>
@@ -126,4 +122,3 @@
 
 
 </html>
-
