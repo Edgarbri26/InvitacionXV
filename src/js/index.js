@@ -17,16 +17,20 @@ tl
   .to("#maria-logo", { opacity: 0, duration: 0.4 }, "<") // 0.8 -> 1.0
   .to("#inicio-mask", { 
     maskSize: "20vh", 
-    duration: 0.4 
+    duration: 0.4 ,
   }, 0.8) // 0.8 -> 1.2
   .to("#inicio-mask", { 
     maskPosition: "50% 20%", 
     duration: 0.4 
   }, "<") // 0.8 -> 1.2
-  .to("#picture-inicio", { opacity: 0, duration: 0.4 }, "<") // 0.8 -> 1.2
-  .to("#seccion-mensaje", { opacity: 1, duration: 0.2 }, 1.2) // 1.2 -> 1.4
-  .to("#inicio-mask", { opacity: 0, duration: 0.6 }, 1.4) // 1.4 -> 1.6
-  .to("#seccion-mensaje", { opacity: 0, scale: 0.5, duration: 0.6 }, 1.6) // 1.4 -> 1.6
+  .to("#picture-inicio", { opacity: 0, duration: 0.4 }, 0.9) // 0.8 -> 1.2
+  .to("#seccion-mensaje", { opacity: 1, duration: 0.4 }, 1.2) // 1.2 -> 1.4
+  .to("#dec-xv", { opacity: 0.6, duration: 0.6 }, 1.2) // 1.2 -> 1.4
+  .to("#flor-b", { opacity: 0.8, duration: 0.6 }, 1.2)
+  .to("#inicio-mask", { opacity: 0, duration: 0.6 }, 1.8) // 1.4 -> 1.6
+  .to("#dec-xv", { opacity: 0, duration: 0.6 }, 1.8) // 1.4 -> 1.6
+  .to("#flor-b", { opacity: 0, duration: 0.6 }, "<")
+  .to("#seccion-mensaje", { opacity: 0, scale: 0.5, duration: 0.6 }, 1.8) // 1.4 -> 1.6
   .to("#cuerpo", { opacity: 1, duration: 0.3 }, "<"); // 1.4 -> 1.6
 
 gsap.from("#fecha", {

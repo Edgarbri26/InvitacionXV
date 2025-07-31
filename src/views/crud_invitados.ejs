@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,122 +8,146 @@
     <link rel="stylesheet" href="/assets/css/swalStyles.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Administra los invitados</title>
 </head>
-<body class="bg-pastel-claro-medio text-aliceblue  overflow-x-hidden flex flex-col min-h-screen ">
 
- <header class=" bg-transparent text-center flex justify-between items-center p-5 vmb-10">
+<body class="bg-pastel-claro text-aliceblue  overflow-x-hidden flex flex-col min-h-screen font-sour-gummy">
 
-    <div>
-        <img src="/assets/img/XV_recortado.svg" alt="" class="w-10 h-10 mx-auto ">
-    </div>
+    <!-- fondo -->
+    <section class="fixed top-0 left-0 w-full h-screen -z-10">
+        <picture class="absolute top-0 left-0 w-full h-screen">
+            <img src="/assets/img/fondoPrincipal.jpg" alt="" class="absolute h-full w-full object-cover">
+        </picture>
+    </section>
 
-    <nav>
-        <ul class="flex space-x-2 ">
-            <li>
-                <button id="" onclick="logout()"
-                class="relative inline-block tracking-[.1em] text-[var(--color-texto-oscuro)]  bg-[var(--color-borde-suave)] font-medium text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
-                hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
-                active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
-                after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
-                hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0"
-                >
-                Cerrar sesión
-                </button>
-            </li>
-        </ul>
-    </nav>
+    <header class=" bg-transparent text-center flex justify-between items-center p-5 sm:p-10 vmb-10">
 
- </header>
+        <a href="/">
+            <img src="/assets/img/XV_recortado.svg" alt="" class="w-12 h-12 mx-auto sm:w-15 sm:h-15 ">
 
- <main class="p-3 flex-1">
-    <section class="bg-[var(--color-contraste-crema)] p-6 rounded-lg shadow-xl  flex flex-col items-center justify-center m-auto max-w-4xl ">
+        </a>
 
-        <h1 class="mb-7 font-bold text-xl text-[var(--color-texto-oscuro)] tracking-[.1em]">ADMINISTRADOR DE INVITADOS</h1>
-        <div class="flex justify-end items-end w-full mt-7">
-            <button id="btnAgregarInvitado" onclick="agregar_invitado()"
-            class="relative inline-block text-[var(--color-texto-oscuro)]  bg-[var(--color-borde-suave)] font-medium text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
-            hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
-            active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
-            after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
-            hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0"
-            >
-            Agregar un Invitado
-            </button>
+        <nav>
+            <ul class="flex space-x-2 ">
+                <li>
+                    <button id="" onclick="logout()" class="relative inline-block tracking-wider text-texto-oscuro  bg-verde-pastel-oscuro font-medium text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
+                hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+                active:-translate-y-0.5 active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+                after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-full after:bg-verde-pastel-oscuro after:-z-10 after:transition-all after:duration-400
+                hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0">
+                        Cerrar sesión
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="p-3 flex-1">
+        <div class="transform  w-full text-center">
+            <h1 class=" mb-10 font-bold text-xl ss:text-2xl sm:text-3xl md:text-4xl text-texto-oscuro tracking-[.1em]">
+                ADMINISTRADOR DE INVITADOS</h1>
         </div>
-        
-        <div class="mt-2 max-h-130 overflow-y-auto p-2 m-auto w-full" >
-            <h2 class="text-xl mb-1 font-semibold text-[var(--color-texto-oscuro)] tracking-[.1em]">Lista de Invitados</h2>
 
-            <table class="w-full m-auto border-collapse bg-[var(--color-contraste-crema)] shadow-md rounded-xl text-sm ">
-                <thead class="bg-[var(--color-piedra-suave)] text-white border-1 rounded-2xl tracking-[.1em]">
-                    <tr class="">
-                        <th class="px-4 py-2 text-center border-b">Nombre</th>
-                        <th class="px-4 py-2 text-center border-b">N° de Mesa</th>
-                        <th class="px-4 py-2 text-center border-b">N° de Invitados</th>
-                        <th class="px-4 py-2 text-center border-b">Asistencia</th>
-                        <th class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody class="text-center text-[var(--color-texto-oscuro)]">
-                    <% invitados.forEach(inv => { %>
+        <section
+            class="p-6 rounded-lg shadow-xl  flex flex-col items-center justify-center mx-auto left-0 right-0 w-full max-w-4xl bg-verde-pastel-medio lg:scale-110 md:translate-y-10">
 
-                        <tr id="fila-<%= inv.id %>" class="hover:bg-[var(--color-piedra-suave)] transition duration-300">
+            <div class="flex justify-end items-end w-full mt-7">
+                <button id="btnAgregarInvitado" onclick="agregar_invitado()" class="relative inline-block text-texto-oscuro  bg-verde-pastel-claro font-medium text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
+            hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+            active:-translate-y-0.5 active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+            after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:rounded-full after:bg-verde-pastel-claro after:-z-10 after:transition-all after:duration-400
+            hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0 my-0">
+                    Agregar un Invitado
+                </button>
+            </div>
 
-                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.nombre %></td>
-                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.numero_mesa %></td>
-                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.numero_invitado %></td>
-                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b"><%= inv.asistencia ? 'Confirmado' : 'No confirmado' %></td>
-                            <td class="px-4 py-2 text-center border-[var(--color-borde-suave)] border-b">
-                                <button id="btn-eliminar-<%= inv.id %>" data-id="<%= inv.id %>" class="bg-[var(--color-eliminar)] text-white px-2 py-1  mb-2.5 
+            <div class="mt-2 max-h-130 overflow-y-auto p-2 m-auto w-full">
+                <h2 class="text-xl mb-1 font-semibold text-oscuro tracking-[.1em]">Lista de
+                    Invitados</h2>
+
+                <table
+                    class="w-full m-auto border-collapse bg-verde-pastel-claro shadow-md rounded-xl text-sm ">
+                    <thead class="bg-verde-pastel-oscuro text-white border-1 border-verde-pastel-claro rounded-2xl tracking-[.1em]">
+                        <tr class="">
+                            <th class="px-4 py-2 text-center border-b">Nombre</th>
+                            <th class="px-4 py-2 text-center border-b">N° de Mesa</th>
+                            <th class="px-4 py-2 text-center border-b">N° de Invitados</th>
+                            <th class="px-4 py-2 text-center border-b">Asistencia</th>
+                            <th class="px-4 py-2 text-center border-b">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center text-[var(--color-texto-oscuro)]">
+                        <% invitados.forEach(inv=> { %>
+
+                            <tr id="fila-<%= inv.id %>"
+                                class="hover:bg-piedra-suave transition duration-300">
+
+                                <td class="px-4 py-2 text-center border-verde-pastel-oscuro border-t">
+                                    <%= inv.nombre %>
+                                </td>
+                                <td class="px-4 py-2 text-center border-verde-pastel-oscuro border-t">
+                                    <%= inv.numero_mesa %>
+                                </td>
+                                <td class="px-4 py-2 text-center border-verde-pastel-oscuro border-t">
+                                    <%= inv.numero_invitado %>
+                                </td>
+                                <td class="px-4 py-2 text-center border-verde-pastel-oscuro border-t">
+                                    <%= inv.asistencia ? 'Confirmado' : 'No confirmado' %>
+                                </td>
+                                <td class="px-4 py-2 text-center border-verde-pastel-oscuro border-t">
+                                    <button id="btn-eliminar-<%= inv.id %>" data-id="<%= inv.id %>" class="bg-eliminar text-white px-2 py-1  mb-2.5 
                                     relative inline-block text-xs uppercase no-underline  
                                     rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit font-semibold
-                                    hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
-                                    active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+                                    hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+                                    active:-translate-y-0.5 active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
                                     after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full 
-                                    after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
-                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0" value="<%= inv.nombre %>">
-                                    Eliminar
-                                </button>
-                                <button onclick="editar()" id="btn-editar-<%= inv.id %>" data-id="<%= inv.id %>"  class="bg-[var(--color-editar)] text-white px-2 py-1  mb-2.5 
+                                    after:rounded-full after:bg-eliminar after:-z-10 after:transition-all after:duration-400
+                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0"
+                                        value="<%= inv.nombre %>">
+                                        Eliminar
+                                    </button>
+                                    <button onclick="editar()" id="btn-editar-<%= inv.id %>" data-id="<%= inv.id %>"
+                                        class="bg-verde-pastel-oscuro text-white px-2 py-1  mb-2.5 
                                     relative inline-block  text-xs uppercase no-underline  
                                     rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit font-semibold
-                                    hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
-                                    active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+                                    hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+                                    active:-translate-y-0.5 active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
                                     after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full 
-                                    after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
-                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0" value="<%= inv.id %>">
-                                    Editar
-                                </button>
-                                <button id="btn-compartir-<%= inv.id %>" data-id="<%= inv.id %>"  class="bg-[var(--color-editar)] text-white px-2 py-1  mb-2.5 
+                                    after:rounded-full after:bg-verde-pastel-oscuro after:-z-10 after:transition-all after:duration-400
+                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0"
+                                        value="<%= inv.id %>">
+                                        Editar
+                                    </button>
+                                    <button id="btn-compartir-<%= inv.id %>" data-id="<%= inv.id %>" class="bg-[var(--color-editar)] text-white px-2 py-1  mb-2.5 
                                     relative inline-block text-xs uppercase no-underline  
                                     rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit font-semibold
-                                    hover:-translate-y-[3px] hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
-                                    active:-translate-y-[1px] active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
+                                    hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
+                                    active:-translate-y-0.5 active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
                                     after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full 
-                                    after:rounded-[100px] after:bg-[var(--color-borde-suave)] after:-z-10 after:transition-all after:duration-400
-                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0" value="<%= inv.nombre %>">
-                                    
-                                    <i class="fa-brands fa-whatsapp text-2xl"></i>
-                                </button>
-                            </td>
+                                    after:rounded-full after:bg-verde-pastel-oscuro after:-z-10 after:transition-all after:duration-400
+                                    hover:after:scale-x-[1.4] hover:after:scale-y-[1.6] hover:after:opacity-0"
+                                        value="<%= inv.nombre %>">
 
-                        </tr>
-                    <% }) %>
-                    
-                </tbody>
-            </table>
-        </div>
-    </section>
- </main>
+                                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                    </button>
+                                </td>
 
- <footer class="p-3 bg-verde-claro text-center text-amber-50 font-semibold">
-    <p>&copy; 2025 Invitación XV. Todos los derechos reservados.</p>
+                            </tr>
+                            <% }) %>
 
- </footer>
-    
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-verde-pastel-medio text-white text-center p-4">
+        <p>© Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 
 <script>
@@ -139,13 +164,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[id^="btn-compartir-"]').forEach(button => {
-        button.addEventListener("click", () => {
-            console.log("HOLA AMIGO");
-            const nombre = button.value;
-            const mensaje = `http://localhost:3000.com/${nombre}`;
-            const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensaje)}`;
-            window.open(url, "_blank");
-        });
+            button.addEventListener("click", () => {
+                console.log("HOLA AMIGO");
+                const nombre = button.value;
+                const mensaje = `http://localhost:3000.com/${nombre}`;
+                const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensaje)}`;
+                window.open(url, "_blank");
+            });
         });
     });
 </script>
@@ -182,7 +207,7 @@
                 const id = button.dataset.id;
 
                 Swal.fire({
-                    title:'¿Estás seguro?',
+                    title: '¿Estás seguro?',
                     text: `Esto eliminará el invitado: ${nombre}. Esta acción no se puede deshacer.`,
                     icon: 'warning',
                     showCancelButton: true,
@@ -203,36 +228,36 @@
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ id })
                         })
-                        .then(res => res.json())
-                        .then(data => {
-                        if (data.success) {
-                             Swal.fire({
-                                title: "Eliminado",
-                                text: data.message,
-                                icon: "success",
-                                confirmButtonText: 'Aceptar',
-                                buttonsStyling: false,
-                                customClass: {
-                                    popup: 'swal-showtime',
-                                    title: 'swal-titulo-glow',
-                                    confirmButton: 'swal-btn-confirm',
-                                    cancelButton: 'swal-btn-no',
-                                    actions: 'swal-action-box'
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.success) {
+                                    Swal.fire({
+                                        title: "Eliminado",
+                                        text: data.message,
+                                        icon: "success",
+                                        confirmButtonText: 'Aceptar',
+                                        buttonsStyling: false,
+                                        customClass: {
+                                            popup: 'swal-showtime',
+                                            title: 'swal-titulo-glow',
+                                            confirmButton: 'swal-btn-confirm',
+                                            cancelButton: 'swal-btn-no',
+                                            actions: 'swal-action-box'
+                                        }
+                                    });
+
+
+                                    // 🔥 Elimina el <tr> del DOM suavemente
+                                    const fila = document.getElementById(`fila-${data.idEliminado}`);
+                                    if (fila) {
+                                        fila.classList.add('opacity-0', 'transition'); // Tailwind fade-out
+                                        setTimeout(() => fila.remove(), 500); // Eliminar después de animación
+                                    }
                                 }
+                            })
+                            .catch(err => {
+                                Swal.fire('Error', 'Hubo un problema al eliminar el invitado.', 'error');
                             });
-                            
-                            
-                            // 🔥 Elimina el <tr> del DOM suavemente
-                            const fila = document.getElementById(`fila-${data.idEliminado}`);
-                            if (fila) {
-                            fila.classList.add('opacity-0', 'transition'); // Tailwind fade-out
-                            setTimeout(() => fila.remove(), 500); // Eliminar después de animación
-                            }
-                        }
-                        })
-                        .catch(err => {
-                        Swal.fire('Error', 'Hubo un problema al eliminar el invitado.', 'error');
-                        });
 
                     }
                 })
@@ -261,12 +286,12 @@
 </script>
 
 <script>
-    function agregar_invitado() {
-    // Espera 0.5 segundos antes de redirigir
-        setTimeout(() => {
-            window.location.href = "/agregar_invitado";
-        }, 500); // 500 ms = 0.5 segundos
-    }
+        function agregar_invitado() {
+            // Espera 0.5 segundos antes de redirigir
+            setTimeout(() => {
+                window.location.href = "/agregar_invitado";
+            }, 500); // 500 ms = 0.5 segundos
+        }
 </script>
 
 <script>
@@ -277,4 +302,5 @@
         }, 500);
     }
 </script>
+
 </html>

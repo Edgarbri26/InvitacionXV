@@ -3,27 +3,32 @@ const router = express.Router();
 const { Conexion } = require("../../config/conexion"); // o ajusta según exportes
 const conn = new Conexion();
 
-router.post("/cambiarAsistencia", async function(req, res) {
-    const nombre = req.body.nombre;
-  
-    try {
-      await conn.confirmarAsistencia(nombre);
-      console.log("Asistencia actualizada correctamente para: ", nombre);
-      res.json({ success: true, message: "Asistencia confirmada correctamente" });
-    } catch (error) {
-      console.error("Error al cambiar la asistencia:", error);
-      res.status(500).json({ success: false, message: "Error al confirmar asistencia" });
-    }
-  });
+router.post("/cambiarAsistencia", async function (req, res) {
+  const nombre = req.body.nombre;
+
+  try {
+    await conn.confirmarAsistencia(nombre);
+    // console.log("Asistencia actualizada correctamente para: ", nombre);
+    res.json({ success: true, message: "Asistencia confirmada correctamente" });
+  } catch (error) {
+    console.error("Error al cambiar la asistencia:", error);
+    res.status(500).json({ success: false, message: "Error al confirmar asistencia" });
+  }
+});
 
 router.get("/", async (req, res) => {
+  if (req.session.invitado) {
+    const invitado = req.session.invitado
+    const nombre = invitado.nombre
+    res.redirect("/" + nombre);
+  }
   res.render("login");
 })
 
 router.get("/crud_invitados", async (req, res) => {
 
-  if(!req.session.login) {
-    res.render("login", { mensaje : "Sesión no encontrada. Por favor, debes iniciar sesión."})
+  if (!req.session.login) {
+    res.render("login", { mensaje: "Sesión no encontrada. Por favor, debes iniciar sesión." })
   } else {
     try {
       const invitados = await conn.getAll();
@@ -35,17 +40,17 @@ router.get("/crud_invitados", async (req, res) => {
   }
 });
 
-router.get("/agregar_invitado", function(req, res) {
+router.get("/agregar_invitado", function (req, res) {
   res.render("agregar_invitado");
 })
 
-router.get("/editar_invitado/:id", async function(req, res) {
+router.get("/editar_invitado/:id", async function (req, res) {
   const id = req.params.id;
 
   try {
     const invitado = await conn.getById(id);
-    console.log("Invitado cargado correctamente: ", id);
-    console.log("Invitado: ", invitado);
+    // console.log("Invitado cargado correctamente: ", id);
+    // console.log("Invitado: ", invitado);
 
     res.render("editar_invitado", {
       id: invitado.id,
@@ -61,7 +66,8 @@ router.get("/editar_invitado/:id", async function(req, res) {
   //res.render("editar_invitado");
 })
 
-router.get("/login", function(req, res) {
+router.get("/login", function (req, res) {
+
   res.render("login");
 })
 
@@ -84,23 +90,44 @@ router.get(/^\/([a-zA-Z]+)$/, async (req, res) => {
   if (!nombre) {
     return res.status(400).send("Nombre no válido en la URL.");
   }
-  
-    try {
-        const invitado = await conn.getByName(nombre);
-        console.log("Invitado: ", invitado );
 
-        res.render("index", {
-          id: invitado.id,
-          nombre: invitado.nombre,
-          mesa: invitado.numero_mesa,
-          numInvitados: invitado.numero_invitado,
-          asistencia: invitado.asistencia || 0
-        });
+  try {
+    let invitado;
 
-      } catch (error) {
-        console.error("Error al obtener los datos del invitado:", error);
-        res.status(500).send("Error al obtener los datos del invitado");
+    // Verificar si ya tenemos los datos en la sesión y si es el mismo invitado
+    if (req.session.invitado && req.session.invitado.nombre === nombre) {
+      console.log("DATOS OBTENIDOS DE LA SESIÓN");
+      invitado = req.session.invitado;
+    } else {
+      console.log("SE LLAMA A LA BASE DE DATOS");
+      invitado = await conn.getByName(nombre);
+
+      if (!invitado) {
+        return res.status(404).send("Invitado no encontrado");
       }
+
+      // Guardar en la sesión
+      req.session.invitado = {
+        id: invitado.id,
+        nombre: invitado.nombre,
+        numero_mesa: invitado.numero_mesa,
+        numero_invitado: invitado.numero_invitado,
+        asistencia: invitado.asistencia || 0
+      };
+    }
+
+    res.render("index", {
+      id: invitado.id,
+      nombre: invitado.nombre,
+      mesa: invitado.numero_mesa,
+      numInvitados: invitado.numero_invitado,
+      asistencia: invitado.asistencia || 0
+    });
+
+  } catch (error) {
+    console.error("Error al obtener los datos del invitado:", error);
+    res.status(500).send("Error al obtener los datos del invitado");
+  }
 })
 
 module.exports = router;

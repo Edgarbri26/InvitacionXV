@@ -43,7 +43,9 @@
   <!-- fondo -->
   <section class="fixed top-0 left-0 w-full h-screen">
     <picture class="absolute top-0 left-0 w-full h-screen">
-      <img src="/assets/img/fondoPrueba.jpg" alt="" class="absolute h-full w-full object-cover">
+      <img src="/assets/img/fondoPrincipal.jpg" alt="" class="absolute h-full w-full object-cover">
+      <img id="dec-xv" src="/assets/img/deco/central.png" alt="" class=" absolute w-[30vh] top-1/7 left-1/2 -translate-x-1/2  object-cover opacity-0">
+      <img id="flor-b" src="/assets/img/deco/florB.png" alt="" class="absolute opacity-0 w-full max-w-[50vh]   bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3  object-cover">
     </picture>
   </section>
 
@@ -52,7 +54,7 @@
   <section id="seccion-mensaje"
     class="fixed text-center  h-screen w-full flex flex-col items-center justify-center top-0 opacity-0 p-5">
     <article class=" w-full sm:w-3/4  flex flex-col items-center justify-center  sm:scale-125 md:scale-150">
-      <p class=" text-center max-w-xl font-dancing text-3xl text-gray-800 font-light translate-y-12"><span
+      <p class=" text-center max-w-xl font-dancing text-2xl sm:text-3xl text-gray-800 font-light translate-y-12 "><span
           class="font-bold">En mi corazón
           siempre hubo un sueño...</span><br>
         Me soñaba vestida de princesa, como en un cuento de hadas.
@@ -69,7 +71,8 @@
   </section>
 
   <div id="inicio-mask"
-    class="transition-opacity  pointer-events-none z-10 opacity-100 bg-verde-claro fixed top-0 w-full h-screen ">
+    class="transition-opacity  pointer-events-none z-10 opacity-100 bg-verde-oscuro fixed top-0 w-full h-screen ">
+    
     <section class="">
       <picture id="picture-inicio" class="h-screen w-full scale-125 block overflow-hidden fixed">
         <img src="/assets/img/fondoInicio.jpg" alt="" class="absolute h-full w-full object-cover">
@@ -140,7 +143,7 @@
   <div class="fixed w-full p-5 z-40">
     <header class="flex justify-between items-start w-full p-2 sm:p-10  relative">
       <a href="#" class="">
-        <i class="fa-solid fa-web-awesome text-3xl text-verde-oscuro sm:text-4xl"></i>
+        <i class="fa-solid fa-web-awesome text-3xl text-verde-pastel-oscuro sm:text-4xl"></i>
       </a>
 
       <!-- Contenedor con layout en reversa -->
@@ -164,6 +167,12 @@
 
       </div>
     </header>
+
+    <footer class="fixed bottom-0 left-0 right-0 w-full h-16 flex items-center justify-center">
+      <svg width="34" height="14" viewBox="0 0 34 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"  focusable="false" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0.1711px, 0px) scale(0.9957, 0.9957); opacity: 0.9872; visibility: inherit;"
+      class="text-white drop-shadow-2xl animate-bounce-pulse"
+      ><path fill-rule="evenodd" clip-rule="evenodd" d="M33.5609 1.54346C34.0381 2.5875 33.6881 3.87821 32.7791 4.42633L17.0387 13.9181L1.48663 4.42115C0.580153 3.86761 0.235986 2.57483 0.717909 1.53365C1.19983 0.492464 2.32535 0.097152 3.23182 0.650692L17.0497 9.08858L31.051 0.64551C31.96 0.0973872 33.0837 0.499411 33.5609 1.54346Z" fill="currentColor"></path></svg>
+    </footer>
   </div>
 
 
@@ -173,7 +182,7 @@
     </section>
 
 
-    <section class=" text-center h-screen w-full flex flex-col items-center justify-evenly">
+    <section class=" text-center h-screen w-full flex flex-col items-center justify-evenly sm:scale-125 ">
       <article id="bienvenida" class=" mb-6 flex flex-col items-center">
 
         <h2 class="text-5xl font-extrabold mb-2 font-dancing">¡Hola, <%= typeof nombre !=='undefined' ? nombre
@@ -192,8 +201,10 @@
         </div>
       </article>
 
+      
+
       <!-- fecha -->
-      <article id="fecha" class=" my-5 max-w-xl flex items-center scale-95 justify-between font-dancing text-gray-800 ss:scale-100 sm:scale-125 md:scale-150">
+      <article id="fecha" class=" my-5 max-w-xl flex items-center scale-95 justify-between font-dancing text-gray-800 ss:scale-100 ">
         <picture class="absolute z-0 w-full">
           <img src="/assets/img/deco/florBaner.png" alt="">
         </picture>
@@ -239,7 +250,7 @@
         <a
           href="https://www.google.com/maps/place/Caney+Tur%C3%ADstico+Ojo+de+Lara/@9.996056,-69.459713,20z/data=!4m6!3m5!1s0x8e87630051b615ff:0x6bb6fa3b3b30e836!8m2!3d9.996945!4d-69.4599767!16s%2Fg%2F11y29cb1lg!5m1!1e4?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D">
           <div id="descripcion-ubicacion">
-            <p class="text-2xl mt-7">Esta ubicado en la entrada de Bolívar, vía Villa Rosa, a 5 minutos de la entrada de
+            <p class="text-xl ss:text-2xl mt-7 text-center">Esta ubicado en la entrada de Bolívar, vía Villa Rosa, a 5 minutos de la entrada de
               Pescaito en Barquisimeto.
             </p>
           </div>
@@ -264,7 +275,7 @@
       <article class="absolute  flex flex-col justify-center items-center w-full h-full z-30 ">
 
 
-        <h2 class="text-5xl font-bold sm:mb-6 text-verde-medio drop-shadow-lg">¡Lluvia de Sobres!</h2>
+        <h2 class="text-5xl font-bold sm:mb-6 text-white drop-shadow-lg sm:text-6xl">¡Lluvia de Sobres!</h2>
         <p class="text-2xl mb-8 text-gray-700 drop-shadow-md">¡Te esperamos para celebrar juntos!</p>
 
         <!-- <button id="start-button" class="rain-button">
@@ -280,15 +291,15 @@
           </button>
           <% } else if(asistencia===1) { %>
             <button disabled class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
-            border-verde-medio border-b-2 text-3xl font-bold opacity-75" value="<%= nombre %>">
+            border-verde-medio border-b-2 text-3xl font-bold opacity-95" value="<%= nombre %>">
               <i class="fa-solid fa-check mr-2"></i>
               ¡Gracias por confirmar!
             </button>
             <% } %>
 
-              <button onclick="iniciarLluviaSobres()" class="w-full h-10 bg-verde-medio">
+              <!-- <button onclick="iniciarLluviaSobres()" class="w-full h-10 bg-verde-medio">
                 prueba
-              </button>
+              </button> -->
 
               <!-- Líneas decorativas
               <div class="rain-line-bottom w-full h-1 bg-verde-medio rounded-full "></div> -->

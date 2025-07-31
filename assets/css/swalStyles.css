@@ -1,9 +1,9 @@
 
 .swal-showtime {
-  background: radial-gradient(circle at top left, var(--color-pastel-claro), var(--color-pastel-claro-medio));
+  background: radial-gradient(circle at top left, var(--color-verde-pastel-claro), var(--color-verde-pastel-medio));
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(142, 168, 156, 0.25);
   color: #2c2c2c;
   animation: zoomInRotate 0.6s ease-out;
   font-family: 'Segoe UI', sans-serif;
@@ -12,10 +12,10 @@
 /* Título con brillo intermitente */
 @keyframes titleGlow {
   0%, 100% {
-    text-shadow: 0 0 6px #ff6ec7, 0 0 12px #ffd1dc;
+    text-shadow: 0 0 6px var(--color-verde-pastel-medio), 0 0 12px var(--color-verde-pastel-claro);
   }
   50% {
-    text-shadow: 0 0 10px #ffa6c9, 0 0 20px #ffc0cb;
+    text-shadow: 0 0 10px var(--color-verde-pastel-oscuro), 0 0 20px var(--color-verde-pastel-medio);
   }
 }
 
@@ -25,7 +25,7 @@
   text-align: center;
   /*animation: titleGlow 1.2s infinite;*/
   margin-bottom: 14px;
-  color: var(--color-texto-oscuro);
+  color: var(--color-verde-pastel-oscuro);
 }
 
 /* Contenedor de botones con rebote */
@@ -51,13 +51,13 @@
   border-radius: 12px;
   font-weight: 600;
   border: none;
-  box-shadow: 0 0 12px rgba(16, 196, 105, 0.3);
+  box-shadow: 0 0 12px rgba(142, 168, 156, 0.3);
   transition: transform 0.2s ease;
 }
 
 .swal-btn-yes:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 18px rgba(16, 196, 105, 0.5);
+  box-shadow: 0 0 18px rgba(142, 168, 156, 0.5);
 }
 
 /* Botón no con efecto giratorio al pasar */
@@ -68,32 +68,32 @@
   border-radius: 12px;
   font-weight: 600;
   border: none;
-  box-shadow: 0 0 12px rgba(255, 91, 91, 0.3);
+  box-shadow: 0 0 12px rgba(186, 218, 203, 0.3);
   transition: all 0.3s ease;
 }
 
 .swal-btn-no:hover {
   transform: rotate(-3deg) scale(1.05);
-  box-shadow: 0 0 18px rgba(255, 91, 91, 0.5);
+  box-shadow: 0 0 18px rgba(186, 218, 203, 0.5);
 }
 
 
 .swal-btn-confirm {
-  background-color: var(--color-editar);
+  background-color: var(--color-verde-pastel-oscuro);
   color: white;
   padding: 12px 24px;
   border-radius: 12px;
   font-weight: 600;
   border: none;
   outline: none;
-  box-shadow: 0 0 12px rgba(16, 196, 105, 0.3);
+  box-shadow: 0 0 12px rgba(142, 168, 156, 0.3);
   transition: transform 0.2s ease;
 }
 
 .swal-btn-confirm:hover {
     outline: none;
   transform: scale(1.05);
-  box-shadow: 0 0 18px rgba(16, 196, 105, 0.5);
+  box-shadow: 0 0 18px rgba(142, 168, 156, 0.5);
 }
 
 .glass-alert {

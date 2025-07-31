@@ -41,10 +41,10 @@ router.post("/validarLogin", async function(req, res) {
 
                 if (!invitado) {
                     res.render("login", { message : `El nombre: ${nombre} no se encuentra en la lista de invitados` })
-                    console.log("probando esta monda", invitado);
+                    // console.log("probando esta monda", invitado);
                 }
 
-                console.log("Invitado encontrado correcasdastamente: ", invitado);
+                // console.log("Invitado encontrado correcasdastamente: ", invitado);
                 
                 if (invitado ){
                     res.redirect(`/${invitado.nombre}`);

@@ -9,7 +9,7 @@ router.post("/eliminarInvitado", async function(req, res) {
 
   try {
     await conn.eliminar(id);
-    console.log("Invitado eliminado correctamente: ", id);
+    // console.log("Invitado eliminado correctamente: ", id);
 
     res.json({
         success: true,
