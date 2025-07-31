@@ -63,6 +63,116 @@ gsap.from("#bienvenida", {
   } 
 });
 
+gsap.from("#titulo-ubicacion", {
+  opacity: 0,
+  y: -50,
+  duration: 1,
+  ease: "back.out(1.7)",
+  scrollTrigger: {
+    trigger: "#seccion-ubicacion",
+    start: "top 80%",
+    end: "top 50%",
+    scrub: 1,
+  }
+});
+
+gsap.from("#icono-ubicacion", {
+  opacity: 0,
+  scale: 0,
+  rotation: 360,
+  duration: 1.2,
+  ease: "elastic.out(1, 0.5)",
+  scrollTrigger: {
+    trigger: "#seccion-ubicacion",
+    start: "top 75%",
+    end: "top 45%",
+    scrub: 1,
+  }
+});
+
+gsap.from("#mapa-ubicacion", {
+  opacity: 0,
+  scale: 0.8,
+  y: 100,
+  duration: 1.5,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#mapa-ubicacion",
+    start: "top 85%",
+    end: "top 55%",
+    scrub: 1,
+  }
+});
+
+
+// animación de la descripción
+gsap.from("#descripcion-ubicacion", {
+  opacity: 0,
+  y: 50,
+  duration: 1,
+  ease: "power2.out",
+  scrollTrigger: {
+    trigger: "#descripcion-ubicacion",
+    start: "top 90%",
+    end: "top 70%",
+    scrub: 1,
+  }
+});
+
+const ubicacionTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#seccion-ubicacion",
+    start: "top 70%",
+    end: "bottom 30%",
+    scrub: false, 
+    once: true, 
+  }
+});
+
+
+ubicacionTimeline
+  .from("#titulo-ubicacion h2", { 
+    opacity: 0, 
+    y: -30, 
+    duration: 0.8,
+    ease: "power2.out"
+  })
+  .from("#mapa-ubicacion", { 
+    opacity: 0, 
+    scale: 0.9, 
+    y: 50, 
+    duration: 1,
+    ease: "power2.out"
+  }, "-=0.3") 
+  .from("#descripcion-ubicacion p", { 
+    opacity: 0, 
+    y: 30, 
+    duration: 0.6,
+    ease: "power2.out"
+  }, "-=0.5"); 
+
+
+// efecto hover para el mapa
+const mapaElement = document.getElementById('mapa-ubicacion');
+if (mapaElement) {
+  mapaElement.addEventListener('mouseenter', () => {
+    gsap.to("#mapa-ubicacion", {
+      scale: 1.05,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+
+  mapaElement.addEventListener('mouseleave', () => {
+    gsap.to("#mapa-ubicacion", {
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+}
+
+
 const countdown = () => {
   const targetDate = new Date("2025-08-16T20:00:00"); // 16 de agosto, 8:00 PM
   const now = new Date();
@@ -135,7 +245,7 @@ function iniciarLluviaSobres() {
         if (sobre.parentNode) {
           sobre.parentNode.removeChild(sobre);
         }
-      }, 6000);
+      }, 10000);
     }  
     
     sobresCreados++;
