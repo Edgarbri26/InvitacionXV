@@ -2,16 +2,41 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="/assets/css/output.css">
   <link rel="stylesheet" href="/assets/css/index.css">
+  <link rel="stylesheet" href="/assets/css/swalStyles.css">
   <link rel="stylesheet" href="/assets/css/menu.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>XV Maria</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    Swal.fire({
+      title: "🎶 Activar audio",
+      text: "Haz clic para comenzar",
+      customClass: {
+        popup: 'glass-alert'
+      },
+      backdrop: 'rgba(0,0,0,0.2)'
+    }).then(() => {
+      const audio = new Audio("/assets/music/A-las-hadas-reunirán-TinkerBell.mp3");
+      audio.play().catch(err => console.warn("Autoplay fallido:", err));
+    });
+  });
+</script>
+<!--<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const audio = new Audio("/assets/music/A-las-hadas-reunirán-TinkerBell.mp3"); // Ajusta la ruta si es pública en Express
+    audio.play().catch(err => {
+      console.warn("Autoplay bloqueado por el navegador:", err);
+    });
+  });
+</script>-->
 
 <body class="bg-pastel-claro font-dancing">
 
