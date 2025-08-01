@@ -70,7 +70,7 @@
 
                 <table
                     class="w-full m-auto border-collapse bg-verde-pastel-claro shadow-md rounded-xl text-sm ">
-                    <thead class="bg-verde-pastel-oscuro text-white border-1 border-verde-pastel-claro rounded-2xl tracking-[.1em]">
+                    <thead class="bg-verde-pastel-oscuro text-white rounded-2xl tracking-[.1em] ">
                         <tr class="">
                             <th class="px-4 py-2 text-center border-b">Nombre</th>
                             <th class="px-4 py-2 text-center border-b">N° de Mesa</th>
@@ -86,7 +86,7 @@
                                 class="hover:bg-piedra-suave transition duration-300">
 
                                 <td class="px-4 py-2 text-center border-verde-pastel-oscuro border-t">
-                                    <%= inv.nombre %>
+                                    <%= inv.nombre.replace(/\b\w/g, letra => letra.toUpperCase()) %>
                                 </td>
                                 <td class="px-4 py-2 text-center border-verde-pastel-oscuro border-t">
                                     <%= inv.numero_mesa %>
