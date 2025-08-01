@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -7,19 +7,22 @@
     <link rel="stylesheet" href="/assets/css/output.css">
     <link rel="stylesheet" href="/assets/css/swalStyles.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="/assets/img/XV_recortado.svg" type="image/svg+xml">
+
     <title>Inicio de sesión</title>
 </head>
 
-<body class="bg-pastel-claro text-aliceblue overflow-hidden overflow-x-hidden flex flex-col min-h-screen">
+<body class="overflow-x-hidden text-aliceblue overflow-hidden flex flex-col min-h-screen">
 
     <!-- fondo -->
     <section class="fixed top-0 left-0 w-full h-screen -z-10">
         <picture class="absolute top-0 left-0 w-full h-screen">
-            <img src="/assets/img/fondoPrincipal.jpg" alt="" class="absolute h-full w-full object-cover">
+            <img src="/assets/img/fondoPrincipal.webp" alt="" class="w-full h-full object-cover">
         </picture>
     </section>
 
-    <header class="fixed top-0 left-0 w-full bg-transparent text-center flex justify-between items-center p-5 sm:p-10 mb-10">
+    <header
+        class="fixed top-0 left-0 w-full bg-transparent text-center flex justify-between items-center p-5 sm:p-10 mb-10">
 
         <a href="/">
             <img src="/assets/img/XV_recortado.svg" alt="" class="w-12 h-12 mx-auto sm:w-15 sm:h-15">
@@ -30,11 +33,12 @@
     <main class="p-3 flex-1 h-full flex flex-col items-center justify-center">
 
 
-        <div class=" p-10 w-full   max-w-90 left-0 right-0 top-0 bottom-0  m-auto  justify-center items-center bg-verde-pastel-medio rounded-xl shadow-2xl pb-10 ">
-            <form class="flex flex-col items-center justify-center w-full " action="/validarLogin" method="post"
+        <div
+            class=" p-10 w-full   max-w-96 left-0 right-0 top-0 bottom-0  m-auto  justify-center items-center bg-verde-pastel-medio rounded-xl shadow-2xl pb-10 ">
+            <form class="flex flex-col items-center justify-center w-full max-w-xs  " action="/validarLogin" method="post"
                 id="loginForm">
 
-                <h1 class="text-texto-oscuro text-center text-3xl mb-10 font-bold min-w-3xl w-full max-w-80">Bienvenido
+                <h1 class="text-texto-oscuro text-center text-3xl font-bold mb-10 w-full max-w-xs">Bienvenido
                 </h1>
 
                 <input required type="text" id="CampNom" name="CampNom" placeholder="Ingresa tu nombre"
