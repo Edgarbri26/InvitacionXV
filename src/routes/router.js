@@ -106,6 +106,7 @@ router.get(/^\/([\w%]+(?:%20[\w%]+)*)$/, async (req, res) => {
     } else {
       console.log("SE LLAMA A LA BASE DE DATOS");
       invitado = await conn.getByName(nombre);
+      invitado.nombre = invitado.nombre.replace(/\b\w/g, letra => letra.toUpperCase());
 
       if (!invitado) {
         return res.status(404).send("Invitado no encontrado");
