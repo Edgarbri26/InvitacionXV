@@ -5,14 +5,16 @@ const { Conexion } = require("../../config/conexion");
 const conn = new Conexion();
 
 router.post("/validarLogin", async function(req, res) {
-    const nombre = req.body.CampNom;
+    const nombreOriginal = req.body.CampNom.trim();
+    const nombreParaBuscar = nombreOriginal.toLowerCase(); // Para buscar en BD
+    const nombreParaRuta = nombreOriginal.replace(/\s+/g, ''); // Para la URL
     const contra = req.body.CampClave;
 
     try {
 
-        if(nombre == 'eudys') {
+        if(nombreOriginal.toLowerCase() === 'eudys') {
             try {
-                const user = await conn.getByUser(nombre);
+                const user = await conn.getByUser('eudys');
 
                 if (!user) {
                     return res.status(401).send("Usuario no encontrado.");
@@ -25,7 +27,7 @@ router.post("/validarLogin", async function(req, res) {
                 req.session.login = true;
                 req.session.id = user.id;
                 req.session.nombre = user.nombre;
-                console.log(req.session);
+                // console.log(req.session);
 
                 const invitados = await conn.getAll();
                 res.render("crud_invitados", { invitados,  datos: req.session });
@@ -37,17 +39,17 @@ router.post("/validarLogin", async function(req, res) {
         } else {
 
             try {
-                const invitado = await conn.getByName(nombre);
+                const invitado = await conn.getByName(nombreParaBuscar);
 
                 if (!invitado) {
-                    res.render("login", { message : `El nombre: ${nombre} no se encuentra en la lista de invitados` })
+                    res.render("login", { message : `El nombre: ${nombreOriginal} no se encuentra en la lista de invitados` })
                     // console.log("probando esta monda", invitado);
                 }
 
                 // console.log("Invitado encontrado correcasdastamente: ", invitado);
                 
                 if (invitado ){
-                    res.redirect(`/${invitado.nombre}`);
+                    res.redirect(`/${nombreParaRuta}`);
                 }
 
             } catch (error) {
@@ -61,5 +63,16 @@ router.post("/validarLogin", async function(req, res) {
         res.status(500).send("Error al actualizar los datos del invitado");
     }
 });
+
+function capitalizarPalabras(str) {
+    return str.replace(/\b\w/g, letra => letra.toUpperCase());
+}
+  
+function capitalizarYEliminarEspacios(str) {
+    return str
+      .replace(/\b\w/g, letra => letra.toUpperCase())
+      .replace(/\s+/g, '');
+  }
+  
 
 module.exports = router;

@@ -9,6 +9,7 @@ router.post("/cambiarAsistencia", async function (req, res) {
   try {
     await conn.confirmarAsistencia(nombre);
     // console.log("Asistencia actualizada correctamente para: ", nombre);
+    req.session.invitado.asistencia = 1;
     res.json({ success: true, message: "Asistencia confirmada correctamente" });
   } catch (error) {
     console.error("Error al cambiar la asistencia:", error);
@@ -51,17 +52,20 @@ router.get("/editar_invitado/:id", async function (req, res) {
     const invitado = await conn.getById(id);
     // console.log("Invitado cargado correctamente: ", id);
     // console.log("Invitado: ", invitado);
+    
+    // Capitalizar el nombre para mostrar en el formulario
+    const nombreCapitalizado = invitado.nombre.replace(/\b\w/g, letra => letra.toUpperCase());
 
     res.render("editar_invitado", {
       id: invitado.id,
-      nombre: invitado.nombre,
+      nombre: nombreCapitalizado,
       mesa: invitado.numero_mesa,
       numInvitados: invitado.numero_invitado
     });
 
   } catch (error) {
-    console.error("Error al obtener los datos del invitado:", error);
-    res.status(500).send("Error al obtener los datos del invitado");
+    console.error("Error al obtener invitado:", error);
+    res.status(500).send("Error al obtener invitado");
   }
   //res.render("editar_invitado");
 })
@@ -88,24 +92,31 @@ router.get(/^\/([\w%]+(?:%20[\w%]+)*)$/, async (req, res) => {
   const nombreCodificado = match ? match[1] : null;
   const nombre = decodeURIComponent(nombreCodificado);
 
-  if (!nombre) {
+  if (!nombreDeRuta) {
     return res.status(400).send("Nombre no válido en la URL.");
   }
+
+  // Normalizar el nombre de la ruta para buscar en BD
+  const nombreParaBuscar = nombreDeRuta.toLowerCase();
 
   try {
     let invitado;
 
     // Verificar si ya tenemos los datos en la sesión y si es el mismo invitado
-    if (req.session.invitado && req.session.invitado.nombre === nombre) {
-      console.log("DATOS OBTENIDOS DE LA SESIÓN");
+    if (req.session.invitado && 
+        req.session.invitado.nombre.replace(/\s+/g, '').toLowerCase() === nombreParaBuscar) {
+      // console.log("DATOS OBTENIDOS DE LA SESIÓN");
       invitado = req.session.invitado;
     } else {
-      console.log("SE LLAMA A LA BASE DE DATOS");
-      invitado = await conn.getByName(nombre);
+      // console.log("SE LLAMA A LA BASE DE DATOS");
+      invitado = await conn.getByName(nombreParaBuscar);
 
       if (!invitado) {
         return res.status(404).send("Invitado no encontrado");
       }
+
+      // Capitalizar el nombre para mostrar
+      invitado.nombre = invitado.nombre.replace(/\b\w/g, letra => letra.toUpperCase());
 
       // Guardar en la sesión
       req.session.invitado = {
@@ -130,5 +141,16 @@ router.get(/^\/([\w%]+(?:%20[\w%]+)*)$/, async (req, res) => {
     res.status(500).send("Error al obtener los datos del invitado");
   }
 })
+
+// function capitalizarPalabras(str) {
+//   return str.replace(/\b\w/g, letra => letra.toUpperCase());
+// }
+
+// function capitalizarYEliminarEspacios(str) {
+//   return str
+//     .replace(/\b\w/g, letra => letra.toUpperCase())
+//     .replace(/\s+/g, '');
+// }
+
 
 module.exports = router;
