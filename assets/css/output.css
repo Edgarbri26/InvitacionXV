@@ -483,6 +483,9 @@
   .max-w-90 {
     max-width: calc(var(--spacing) * 90);
   }
+  .max-w-96 {
+    max-width: calc(var(--spacing) * 96);
+  }
   .max-w-\[50vh\] {
     max-width: 50vh;
   }
@@ -903,6 +906,20 @@
     --tw-mask-bottom: linear-gradient(to bottom, var(--tw-mask-bottom-from-color) var(--tw-mask-bottom-from-position), var(--tw-mask-bottom-to-color) var(--tw-mask-bottom-to-position));
     --tw-mask-bottom-from-position: 50%;
   }
+  .mask-b-from-70\% {
+    mask-image: var(--tw-mask-linear), var(--tw-mask-radial), var(--tw-mask-conic);
+    mask-composite: intersect;
+    --tw-mask-linear: var(--tw-mask-left), var(--tw-mask-right), var(--tw-mask-bottom), var(--tw-mask-top);
+    --tw-mask-bottom: linear-gradient(to bottom, var(--tw-mask-bottom-from-color) var(--tw-mask-bottom-from-position), var(--tw-mask-bottom-to-color) var(--tw-mask-bottom-to-position));
+    --tw-mask-bottom-from-position: 70%;
+  }
+  .mask-b-to-90\% {
+    mask-image: var(--tw-mask-linear), var(--tw-mask-radial), var(--tw-mask-conic);
+    mask-composite: intersect;
+    --tw-mask-linear: var(--tw-mask-left), var(--tw-mask-right), var(--tw-mask-bottom), var(--tw-mask-top);
+    --tw-mask-bottom: linear-gradient(to bottom, var(--tw-mask-bottom-from-color) var(--tw-mask-bottom-from-position), var(--tw-mask-bottom-to-color) var(--tw-mask-bottom-to-position));
+    --tw-mask-bottom-to-position: 90%;
+  }
   .mask-b-to-100 {
     mask-image: var(--tw-mask-linear), var(--tw-mask-radial), var(--tw-mask-conic);
     mask-composite: intersect;
@@ -1003,6 +1020,9 @@
   }
   .mask-radial-at-center {
     --tw-mask-radial-position: center;
+  }
+  .mask-repeat {
+    mask-repeat: repeat;
   }
   .fill-verde-pastel-oscuro {
     fill: var(--color-verde-pastel-oscuro);
@@ -1302,6 +1322,10 @@
     --tw-duration: 700ms;
     transition-duration: 700ms;
   }
+  .ease-in {
+    --tw-ease: var(--ease-in);
+    transition-timing-function: var(--ease-in);
+  }
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
@@ -1473,6 +1497,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-verde-claro);
+      }
+    }
+  }
+  .hover\:bg-verde-pastel-medio {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-verde-pastel-medio);
       }
     }
   }
