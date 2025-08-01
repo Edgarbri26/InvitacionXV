@@ -113,7 +113,6 @@
   border: none;
   padding: 10px;
   color: white;
-  display: flex;
   position: relative;
   gap: 5px;
   cursor: pointer;

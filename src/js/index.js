@@ -328,17 +328,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+const audio = new Audio("/assets/music/A-las-hadas-reunirán-TinkerBell.mp3");
 
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     const content = document.getElementById('main-content');
 
     // Oculta el loader con fade-out
-    loader.classList.add('opacity-0', 'transition-opacity', 'duration-700');
+    loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
 
     // Espera la transición y muestra el contenido
-    setTimeout(() => {
-      loader.style.display = 'none';
+    loader.style.display = 'none';
       content.classList.remove('opacity-0');
-    }, 700);
+    setTimeout(() => {
+      
+        Swal.fire({
+        title: "🎶 Activar audio",
+        text: "Haz clic para comenzar",
+        customClass: {
+          popup: 'glass-alert'
+        },
+        backdrop: 'rgba(0,0,0,0.2)'
+      }).then(() => {
+        audio.volume = 0.3;
+        audio.play().catch(err => console.warn("Autoplay fallido:", err));
+        document.getElementById("btnReanudar").style.display = "none";
+      });
+      }, 700);
   });
+
+  function pausarMusica() {
+    if (!audio.paused) {
+      audio.pause();
+      document.getElementById("btnPausar").style.display = "none";
+      document.getElementById("btnReanudar").style.display = "inline-block";
+    }
+  }
+
+  function reanudarMusica() {
+    if (audio.paused) {
+      audio.play();
+      document.getElementById("btnReanudar").style.display = "none";
+      document.getElementById("btnPausar").style.display = "inline-block";
+    }
+  }

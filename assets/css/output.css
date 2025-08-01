@@ -58,6 +58,7 @@
     --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
     --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --blur-sm: 8px;
     --blur-md: 12px;
@@ -999,6 +1000,9 @@
   .mask-radial-at-center {
     --tw-mask-radial-position: center;
   }
+  .fill-verde-pastel-oscuro {
+    fill: var(--color-verde-pastel-oscuro);
+  }
   .fill-white {
     fill: var(--color-white);
   }
@@ -1286,6 +1290,10 @@
     --tw-duration: 300ms;
     transition-duration: 300ms;
   }
+  .duration-500 {
+    --tw-duration: 500ms;
+    transition-duration: 500ms;
+  }
   .duration-700 {
     --tw-duration: 700ms;
     transition-duration: 700ms;
@@ -1293,6 +1301,10 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
   }
   .animate-duration-500 {
     animation-duration: 500ms;

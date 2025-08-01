@@ -29,7 +29,7 @@
 }
 
 .loader[showShadow] {
-  filter: drop-shadow(0 10px 10px #060606de);
+  filter: drop-shadow(0 10px 10px #ffffffde);
 }
 
 .loader svg:nth-child(1) {
@@ -108,8 +108,8 @@
   animation: flySpin 2s linear infinite;
 }
 
-/* @media (prefers-color-scheme: dark) {
+ @media (prefers-color-scheme: dark) {
   .loader[showShadow]{
     filter: drop-shadow(0 10px 10px #dbdbdbde);
   }
-} */
+} 
