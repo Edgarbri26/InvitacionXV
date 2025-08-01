@@ -327,7 +327,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  loader.style.display = "none";
-});
+
+
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    const content = document.getElementById('main-content');
+
+    // Oculta el loader con fade-out
+    loader.classList.add('opacity-0', 'transition-opacity', 'duration-700');
+
+    // Espera la transición y muestra el contenido
+    setTimeout(() => {
+      loader.style.display = 'none';
+      content.classList.remove('opacity-0');
+    }, 700);
+  });

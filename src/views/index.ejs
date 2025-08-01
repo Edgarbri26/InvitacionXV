@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="/assets/css/output.css">
   <link rel="stylesheet" href="/assets/css/index.css">
   <link rel="stylesheet" href="/assets/css/swalStyles.css">
+  <link rel="stylesheet" href="/assets/css/loader.css">
   <link rel="stylesheet" href="/assets/css/menu.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -40,7 +41,7 @@
   const audio = new Audio("/assets/music/A-las-hadas-reunirán-TinkerBell.mp3");
 
   document.addEventListener("DOMContentLoaded", () => {
-    Swal.fire({
+    /*Swal.fire({
       title: "🎶 Activar audio",
       text: "Haz clic para comenzar",
       customClass: {
@@ -51,7 +52,7 @@
 
       audio.play().catch(err => console.warn("Autoplay fallido:", err));
       document.getElementById("btnReanudar").style.display = "none";
-    });
+    });*/
   });
 
   function pausarMusica() {
@@ -71,354 +72,391 @@
   }
 </script>
 
-<body class="bg-pastel-claro font-dancing">
+<body class="bg-pastel-claro font-dancing fixed top-0 left-0 w-full h-screen z-50" >
+
+  <div id="loader" class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="loader" showShadow>
+          
+          <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.358 35.05c.435-.175.646-.408.861-.95.374-.94.698-1.52 1.145-2.05.78-.92 1.757-1.638 2.666-1.957.603-.212.9-.204 1.505.041.843.343 1.597.25 2.062-.254.95-1.029 3.95-6.873 5.841-11.376.869-2.07.831-1.882.797-3.962-.034-2.106-.024-2.064-.927-3.887-1.639-3.31-4.426-6.582-7.147-8.392C8.71 1.298 6.715.504 5.296.328c-.718-.09-2.465-.001-3.183.16C.943.752.279 1.268.279 1.917c0 .119.437 1.136.97 2.26.533 1.126 1.044 2.291 1.135 2.591.334 1.106.776 3.567.945 5.27.065.652.357 1.286.751 1.633.419.367 1.351.786 1.964.883.286.044.534.096.553.115.018.018-.129.128-.327.244-.761.446-1.432 1.439-1.74 2.574-.216.802-.194 2.914.045 4.121.24 1.212.575 2.318 1.031 3.403.46 1.092.535 1.458.439 2.135-.223 1.575-1.958 4.03-3.489 4.937-.693.41-.885.587-1.066.98-.173.375-.185.535-.069.953.223.802 1.206 1.326 1.937 1.033z" fill="#000"></path>
+          </svg>
+
+          
+          <svg viewBox="0 0 2.4 14.4" version="1.1" y="0" x="0" height="150" width="25" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.2 13c0 .641-.447 1.16-1 1.16-.553 0-1-.519-1-1.16V1.4C.2.759.647.24 1.2.24c.553 0 1 .519 1 1.16z" fill="#000"></path>
+          </svg>
+
+          
+          <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.105 35.155c-.42-.196-.627-.482-.902-1.253-.544-1.517-2.145-3.126-3.636-3.652-.69-.243-.887-.242-1.486.01-.617.26-1.342.278-1.798.045-.555-.283-1.76-2.262-3.476-5.708C2.628 22.232.984 18.575.455 17.144c-.236-.637-.237-.655-.237-2.485 0-2.164.01-2.209.9-4.013 1.011-2.049 2.53-4.189 4.185-5.9C7.679 2.293 9.783.995 12.49.313c.782-.197 1.554-.236 2.695-.137 1.619.14 2.38.38 2.882.909.21.22.246.321.243.684-.002.373-.122.67-.959 2.395-1.277 2.63-1.59 3.806-2.035 7.63-.111.951-.316 1.426-.809 1.87-.52.47-1.306.807-2.165.928l-.391.054.35.224c.897.574 1.58 1.674 1.834 2.956.193.969.12 2.791-.164 4.15-.222 1.061-.696 2.518-1.12 3.443-.336.735-.411 1.584-.203 2.3.505 1.738 2.056 3.692 3.736 4.705.693.417.938.83.874 1.476-.104 1.071-1.193 1.706-2.153 1.256z" fill="#000"></path>
+          </svg>
+    </div>
+  </div>
+
+<div id="main-content" class="opacity-0 transition-opacity duration-700">
 
   <!-- fondo -->
-  <section class="fixed top-0 left-0 w-full h-screen">
-    <picture class="absolute top-0 left-0 w-full h-screen">
-      <img src="/assets/img/fondoPrincipal.jpg" loading="lazy" alt="" class="absolute h-full w-full object-cover">
-      <img id="dec-xv" src="/assets/img/deco/central.png" loading="lazy" alt=""
-        class=" absolute w-[30vh] top-1/7 left-1/2 -translate-x-1/2  object-cover opacity-0">
-      <img id="flor-b" src="/assets/img/deco/florB.png" loading="lazy" alt=""
-        class="absolute opacity-0 w-full max-w-[50vh]   bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3  object-cover">
-      <div class="absolute bottom-0 w-full flex justify-between">
-        <img id="inferiorZ" src="/assets/img/deco/inferiorZ.png" loading="lazy" alt=""
-          class="object-cover w-1/2 opacity-0 translate-y-1/5 -translate-x-1/5 sm:w-1/4 -rotate-45">
-        <img id="inferiorD" src="/assets/img/deco/inferiorD.png" loading="lazy" alt=""
-          class=" translate-x-1/7 translate-y-1/5 w-1/2 ss:w-1/3 sm:w-1/4  object-cover opacity-0">
-      </div>
-    </picture>
-  </section>
-
-
-  <!-- mensaje -->
-  <section id="seccion-mensaje"
-    class="fixed text-center  h-screen w-full flex flex-col items-center justify-center top-0 opacity-0 p-5">
-    <article class=" w-full sm:w-3/4  flex flex-col items-center justify-center  sm:scale-125 md:scale-150">
-      <p class=" text-center max-w-xl font-dancing text-2xl sm:text-3xl text-gray-800 font-light translate-y-12 "><span
-          class="font-bold">En mi corazón
-          siempre hubo un sueño...</span><br>
-        Me soñaba vestida de princesa, como en un cuento de hadas.
-        Hoy, al cumplir mis 15 y hermosos años,
-        dejo atrás mi adorada infancia,
-        que junto a los míos la pase muy feliz. <br><br>
-        <span class="font-medium">
-          Hoy mi sueño se hace realidad...
-        </span>
-      </p>
-    </article>
-
-
-  </section>
-
-  <div id="inicio-mask"
-    class="transition-opacity  pointer-events-none z-10 opacity-100 bg-verde-oscuro fixed top-0 mb-2.5 w-full h-screen ">
-
-    <section class="">
-      <picture id="picture-inicio" class="h-screen w-full scale-125 block overflow-hidden fixed">
-        <img src="/assets/img/fondoInicio.jpg" alt="" class="absolute h-full w-full object-cover">
-        <img src="/assets/img/maria.png" alt=""
-          class="img15 absolute h-full object-cover mx-auto left-0 right-0 animate-duration-500  animate-blurred-fade-in">
-        <img src="/assets/img/logo-maria.png" alt="" id="maria-logo"
-          class="absolute w-full scale-105 translate-y-15 min-w-2xs  mx-auto left-0 right-0 object-cover  sm:h-full sm:w-auto sm:translate-0 sm:scale-100 ">
-        <img src="/assets/img/mitadDerecha.png" alt=""
-          class="absolute h-full object-cover mx-auto left-0 right-0 translate-x-5/12 animate-blurred-fade-in animate-duration-500 mask-b-from-20% mask-b-to-100%  mask-l-from-95% mask-l-to-100%">
+    <section class="fixed top-0 left-0 w-full h-screen">
+      <picture class="absolute top-0 left-0 w-full h-screen">
+        <img src="/assets/img/fondoPrincipal.jpg" loading="lazy" alt="" class="absolute h-full w-full object-cover">
+        <img id="dec-xv" src="/assets/img/deco/central.png" loading="lazy" alt=""
+          class=" absolute w-[30vh] top-1/7 left-1/2 -translate-x-1/2  object-cover opacity-0">
+        <img id="flor-b" src="/assets/img/deco/florB.png" loading="lazy" alt=""
+          class="absolute opacity-0 w-full max-w-[50vh]   bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3  object-cover">
+        <div class="absolute bottom-0 w-full flex justify-between">
+          <img id="inferiorZ" src="/assets/img/deco/inferiorZ.png" loading="lazy" alt=""
+            class="object-cover w-1/2 opacity-0 translate-y-1/5 -translate-x-1/5 sm:w-1/4 -rotate-45">
+          <img id="inferiorD" src="/assets/img/deco/inferiorD.png" loading="lazy" alt=""
+            class=" translate-x-1/7 translate-y-1/5 w-1/2 ss:w-1/3 sm:w-1/4  object-cover opacity-0">
+        </div>
       </picture>
-
-      <!-- cuenta regresiva-->
-      <footer class="w-full absolute bottom-0 m-auto p-10 flex justify-center ">
-        <div id="clock" class=" left-0 right-0 m-auto flex justify-between w-auto gap-5 p-4 
-                            bg-white/10 backdrop-blur-md rounded-3xl shadow-xl">
-          <!-- mariposa -->
-          <div class="mariposa absolute top-0 left-0 -translate-x-6 fill-white rotate-35">
-            <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M3.358 35.05c.435-.175.646-.408.861-.95.374-.94.698-1.52 1.145-2.05.78-.92 1.757-1.638 2.666-1.957.603-.212.9-.204 1.505.041.843.343 1.597.25 2.062-.254.95-1.029 3.95-6.873 5.841-11.376.869-2.07.831-1.882.797-3.962-.034-2.106-.024-2.064-.927-3.887-1.639-3.31-4.426-6.582-7.147-8.392C8.71 1.298 6.715.504 5.296.328c-.718-.09-2.465-.001-3.183.16C.943.752.279 1.268.279 1.917c0 .119.437 1.136.97 2.26.533 1.126 1.044 2.291 1.135 2.591.334 1.106.776 3.567.945 5.27.065.652.357 1.286.751 1.633.419.367 1.351.786 1.964.883.286.044.534.096.553.115.018.018-.129.128-.327.244-.761.446-1.432 1.439-1.74 2.574-.216.802-.194 2.914.045 4.121.24 1.212.575 2.318 1.031 3.403.46 1.092.535 1.458.439 2.135-.223 1.575-1.958 4.03-3.489 4.937-.693.41-.885.587-1.066.98-.173.375-.185.535-.069.953.223.802 1.206 1.326 1.937 1.033z">
-              </path>
-            </svg>
-
-
-            <svg viewBox="0 0 2.4 14.4" version="1.1" y="0" x="0" height="150" width="25"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M2.2 13c0 .641-.447 1.16-1 1.16-.553 0-1-.519-1-1.16V1.4C.2.759.647.24 1.2.24c.553 0 1 .519 1 1.16z">
-              </path>
-            </svg>
-
-
-            <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M15.105 35.155c-.42-.196-.627-.482-.902-1.253-.544-1.517-2.145-3.126-3.636-3.652-.69-.243-.887-.242-1.486.01-.617.26-1.342.278-1.798.045-.555-.283-1.76-2.262-3.476-5.708C2.628 22.232.984 18.575.455 17.144c-.236-.637-.237-.655-.237-2.485 0-2.164.01-2.209.9-4.013 1.011-2.049 2.53-4.189 4.185-5.9C7.679 2.293 9.783.995 12.49.313c.782-.197 1.554-.236 2.695-.137 1.619.14 2.38.38 2.882.909.21.22.246.321.243.684-.002.373-.122.67-.959 2.395-1.277 2.63-1.59 3.806-2.035 7.63-.111.951-.316 1.426-.809 1.87-.52.47-1.306.807-2.165.928l-.391.054.35.224c.897.574 1.58 1.674 1.834 2.956.193.969.12 2.791-.164 4.15-.222 1.061-.696 2.518-1.12 3.443-.336.735-.411 1.584-.203 2.3.505 1.738 2.056 3.692 3.736 4.705.693.417.938.83.874 1.476-.104 1.071-1.193 1.706-2.153 1.256z">
-              </path>
-            </svg>
-          </div>
-
-          <!-- DÍAS -->
-          <div class="flex flex-col items-center space-y-2">
-            <span id="days" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
-            <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Días</span>
-          </div>
-          <!-- HORAS -->
-          <div class="flex flex-col items-center space-y-2">
-            <span id="hours" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
-            <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Horas</span>
-          </div>
-          <!-- MINUTOS -->
-          <div class="flex flex-col items-center space-y-2">
-            <span id="minutes" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
-            <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Minutos</span>
-          </div>
-          <!-- SEGUNDOS -->
-          <div class="flex flex-col items-center space-y-2 ">
-            <span id="seconds" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
-            <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Segundos</span>
-          </div>
-        </div>
-      </footer>
-    </section>
-  </div>
-
-
-  <div class="fixed w-full p-5 z-40">
-    <header class="flex justify-between items-start w-full p-2 sm:p-10  relative">
-      <a href="#" class="">
-        <i class="fa-solid fa-web-awesome text-3xl text-verde-pastel-oscuro sm:text-4xl mt-2"></i>
-      </a>
-
-
-      <div class="dropdown-container flex flex-colum-reverse items-start  gap-2">
-        <!-- Burger totalmente a la derecha -->
-        <div class="burger-icon ">
-          <label class="burger" for="burger">
-            <input class="line" type="checkbox" id="burger" />
-          </label>
-        </div>
-
-        <!-- Menú aparecerá a la izquierda del icono -->
-        <div class="input">
-          <button class="value" onclick="login()">
-            <!-- SVG abreviado -->
-            Cambiar de invitado
-          </button>
-
-          <button class="value" id="btnPausar" onclick="pausarMusica()">
-            <!-- SVG abreviado -->
-            Pausar musica
-          </button>
-
-          <button class="value" id="btnReanudar" onclick="reanudarMusica()">
-            <!-- SVG abreviado -->
-            Reanudar musica
-          </button>
-
-        </div>
-
-      </div>
-    </header>
-
-    <footer id="footer" class="fixed bottom-0  left-0 right-0 w-full h-16 flex items-center justify-center shadow-2xl">
-      <svg id="footer-icon" width="34" height="14" viewBox="0 0 34 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-        focusable="false"
-        style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0.1711px, 0px) scale(0.9957, 0.9957); opacity: 0.9872; visibility: inherit;"
-        class="text-verde-pastel-oscuro drop-shadow-2xl animate-bounce-pulse">
-        <path fill-rule="evenodd" clip-rule="evenodd"
-          d="M33.5609 1.54346C34.0381 2.5875 33.6881 3.87821 32.7791 4.42633L17.0387 13.9181L1.48663 4.42115C0.580153 3.86761 0.235986 2.57483 0.717909 1.53365C1.19983 0.492464 2.32535 0.097152 3.23182 0.650692L17.0497 9.08858L31.051 0.64551C31.96 0.0973872 33.0837 0.499411 33.5609 1.54346Z"
-          fill="currentColor"></path>
-      </svg>
-    </footer>
-  </div>
-
-
-  <main id="cuerpo" class="opacity-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-    <section id="espacio" class="  mb-10 text-center h-[150vh] w-full flex flex-col items-center justify-center ">
-      <!-- esto es solo para que tenga el tamaño -->
     </section>
 
 
-    <section class=" text-center  w-full flex flex-col items-center justify-evenly sm:scale-125 ">
-      <article id="bienvenida" class="mb-6 flex flex-col items-center bg-verde-pastel-medio/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-verde-pastel-claro  max-w-2xl mx-auto">
-
-        <div class="text-center mb-6">
-          <h2 class="text-4xl sm:text-5xl font-extrabold mb-3 font-dancing text-texto-oscuro drop-shadow-lg">
-            ¡Hola, <span class="text-verde-oscuro"><%= typeof nombre.toLowerCase() !=='undefined' ? nombre : 'desconocido' %>!</span>
-          </h2>
-          <p class="text-xl sm:text-2xl text-texto-oscuro/80 font-medium">Estás cordialmente invitado a mis XV años.</p>
-        </div>
-
-        <div class="w-full bg-verde-pastel-claro/50 rounded-xl p-6 backdrop-blur-sm">
-          <div class="text-center mb-4">
-            <h3 class="text-lg sm:text-2xl text-black font-bold mb-3">Detalles de tu invitación</h3>
-          </div>
+    <!-- mensaje -->
+    <section id="seccion-mensaje"
+      class="fixed text-center  h-screen w-full flex flex-col items-center justify-center top-0 opacity-0 p-5">
+      <article class=" w-full sm:w-3/4  flex flex-col items-center justify-center  sm:scale-125 md:scale-150">
+        <p class=" text-center max-w-xl font-dancing text-2xl sm:text-3xl text-gray-800 font-light translate-y-12 "><span
+            class="font-bold">En mi corazón
+            siempre hubo un sueño...</span><br>
+          Me soñaba vestida de princesa, como en un cuento de hadas.
+          Hoy, al cumplir mis 15 y hermosos años,
+          dejo atrás mi adorada infancia,
+          que junto a los míos la pase muy feliz. <br><br>
+          <span class="font-medium">
+            Hoy mi sueño se hace realidad...
+          </span>
+        </p>
+      </article>
+      <!--<div class="loader">
           
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8" >
-            <!-- Número de invitados -->
-            <div class="flex flex-col items-center">
-              <div class="text-xl text-black/70 mb-2 font-medium">Invitación válida para</div>
-              <div class="relative">
-                <div class="rounded-full bg-gradient-to-br from-verde-pastel-claro to-verde-pastel-medio border-4 border-verde-pastel-oscuro w-20 h-20 flex items-center justify-center text-texto-oscuro font-extrabold text-2xl shadow-xl transform hover:scale-105 transition-transform duration-300">
-                  <%= numInvitados %>
-                </div>
-                <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-verde-pastel-oscuro rounded-full flex items-center justify-center">
-                  <i class="fa-solid fa-user text-white text-xs"></i>
-                </div>
-              </div>
-              <div class="text-xl text-black/70 font-light mt-2">
-                <%= numInvitados == 1 ? 'persona' : 'personas' %>
-              </div>
+          <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.358 35.05c.435-.175.646-.408.861-.95.374-.94.698-1.52 1.145-2.05.78-.92 1.757-1.638 2.666-1.957.603-.212.9-.204 1.505.041.843.343 1.597.25 2.062-.254.95-1.029 3.95-6.873 5.841-11.376.869-2.07.831-1.882.797-3.962-.034-2.106-.024-2.064-.927-3.887-1.639-3.31-4.426-6.582-7.147-8.392C8.71 1.298 6.715.504 5.296.328c-.718-.09-2.465-.001-3.183.16C.943.752.279 1.268.279 1.917c0 .119.437 1.136.97 2.26.533 1.126 1.044 2.291 1.135 2.591.334 1.106.776 3.567.945 5.27.065.652.357 1.286.751 1.633.419.367 1.351.786 1.964.883.286.044.534.096.553.115.018.018-.129.128-.327.244-.761.446-1.432 1.439-1.74 2.574-.216.802-.194 2.914.045 4.121.24 1.212.575 2.318 1.031 3.403.46 1.092.535 1.458.439 2.135-.223 1.575-1.958 4.03-3.489 4.937-.693.41-.885.587-1.066.98-.173.375-.185.535-.069.953.223.802 1.206 1.326 1.937 1.033z" fill="#000"></path>
+          </svg>
+
+          
+          <svg viewBox="0 0 2.4 14.4" version="1.1" y="0" x="0" height="150" width="25" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.2 13c0 .641-.447 1.16-1 1.16-.553 0-1-.519-1-1.16V1.4C.2.759.647.24 1.2.24c.553 0 1 .519 1 1.16z" fill="#000"></path>
+          </svg>
+
+          
+          <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.105 35.155c-.42-.196-.627-.482-.902-1.253-.544-1.517-2.145-3.126-3.636-3.652-.69-.243-.887-.242-1.486.01-.617.26-1.342.278-1.798.045-.555-.283-1.76-2.262-3.476-5.708C2.628 22.232.984 18.575.455 17.144c-.236-.637-.237-.655-.237-2.485 0-2.164.01-2.209.9-4.013 1.011-2.049 2.53-4.189 4.185-5.9C7.679 2.293 9.783.995 12.49.313c.782-.197 1.554-.236 2.695-.137 1.619.14 2.38.38 2.882.909.21.22.246.321.243.684-.002.373-.122.67-.959 2.395-1.277 2.63-1.59 3.806-2.035 7.63-.111.951-.316 1.426-.809 1.87-.52.47-1.306.807-2.165.928l-.391.054.35.224c.897.574 1.58 1.674 1.834 2.956.193.969.12 2.791-.164 4.15-.222 1.061-.696 2.518-1.12 3.443-.336.735-.411 1.584-.203 2.3.505 1.738 2.056 3.692 3.736 4.705.693.417.938.83.874 1.476-.104 1.071-1.193 1.706-2.153 1.256z" fill="#000"></path>
+          </svg>
+      </div>-->
+
+    </section>
+
+    <div id="inicio-mask"
+      class="transition-opacity  pointer-events-none z-10 opacity-100 bg-verde-oscuro fixed top-0 mb-2.5 w-full h-screen ">
+
+      <section class="">
+        <picture id="picture-inicio" class="h-screen w-full scale-125 block overflow-hidden fixed">
+          <img src="/assets/img/fondoInicio.jpg" alt="" class="absolute h-full w-full object-cover">
+          <img src="/assets/img/maria.png" alt=""
+            class="img15 absolute h-full object-cover mx-auto left-0 right-0 animate-duration-500  animate-blurred-fade-in">
+          <img src="/assets/img/logo-maria.png" alt="" id="maria-logo"
+            class="absolute w-full scale-105 translate-y-15 min-w-2xs  mx-auto left-0 right-0 object-cover  sm:h-full sm:w-auto sm:translate-0 sm:scale-100 ">
+          <img src="/assets/img/mitadDerecha.png" alt=""
+            class="absolute h-full object-cover mx-auto left-0 right-0 translate-x-5/12 animate-blurred-fade-in animate-duration-500 mask-b-from-20% mask-b-to-100%  mask-l-from-95% mask-l-to-100%">
+        </picture>
+
+        <!-- cuenta regresiva-->
+        <footer class="w-full absolute bottom-0 m-auto p-10 flex justify-center ">
+          <div id="clock" class=" left-0 right-0 m-auto flex justify-between w-auto gap-5 p-4 
+                              bg-white/10 backdrop-blur-md rounded-3xl shadow-xl">
+            <!-- mariposa -->
+            <div class="mariposa absolute top-0 left-0 -translate-x-6 fill-white rotate-35">
+              <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3.358 35.05c.435-.175.646-.408.861-.95.374-.94.698-1.52 1.145-2.05.78-.92 1.757-1.638 2.666-1.957.603-.212.9-.204 1.505.041.843.343 1.597.25 2.062-.254.95-1.029 3.95-6.873 5.841-11.376.869-2.07.831-1.882.797-3.962-.034-2.106-.024-2.064-.927-3.887-1.639-3.31-4.426-6.582-7.147-8.392C8.71 1.298 6.715.504 5.296.328c-.718-.09-2.465-.001-3.183.16C.943.752.279 1.268.279 1.917c0 .119.437 1.136.97 2.26.533 1.126 1.044 2.291 1.135 2.591.334 1.106.776 3.567.945 5.27.065.652.357 1.286.751 1.633.419.367 1.351.786 1.964.883.286.044.534.096.553.115.018.018-.129.128-.327.244-.761.446-1.432 1.439-1.74 2.574-.216.802-.194 2.914.045 4.121.24 1.212.575 2.318 1.031 3.403.46 1.092.535 1.458.439 2.135-.223 1.575-1.958 4.03-3.489 4.937-.693.41-.885.587-1.066.98-.173.375-.185.535-.069.953.223.802 1.206 1.326 1.937 1.033z">
+                </path>
+              </svg>
+
+
+              <svg viewBox="0 0 2.4 14.4" version="1.1" y="0" x="0" height="150" width="25"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.2 13c0 .641-.447 1.16-1 1.16-.553 0-1-.519-1-1.16V1.4C.2.759.647.24 1.2.24c.553 0 1 .519 1 1.16z">
+                </path>
+              </svg>
+
+
+              <svg viewBox="0 0 18.528 35.424" version="1.1" y="0" x="0" height="369" width="193"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.105 35.155c-.42-.196-.627-.482-.902-1.253-.544-1.517-2.145-3.126-3.636-3.652-.69-.243-.887-.242-1.486.01-.617.26-1.342.278-1.798.045-.555-.283-1.76-2.262-3.476-5.708C2.628 22.232.984 18.575.455 17.144c-.236-.637-.237-.655-.237-2.485 0-2.164.01-2.209.9-4.013 1.011-2.049 2.53-4.189 4.185-5.9C7.679 2.293 9.783.995 12.49.313c.782-.197 1.554-.236 2.695-.137 1.619.14 2.38.38 2.882.909.21.22.246.321.243.684-.002.373-.122.67-.959 2.395-1.277 2.63-1.59 3.806-2.035 7.63-.111.951-.316 1.426-.809 1.87-.52.47-1.306.807-2.165.928l-.391.054.35.224c.897.574 1.58 1.674 1.834 2.956.193.969.12 2.791-.164 4.15-.222 1.061-.696 2.518-1.12 3.443-.336.735-.411 1.584-.203 2.3.505 1.738 2.056 3.692 3.736 4.705.693.417.938.83.874 1.476-.104 1.071-1.193 1.706-2.153 1.256z">
+                </path>
+              </svg>
             </div>
 
-            <!-- Separador -->
-            <div class="hidden sm:block w-px h-16 bg-verde-pastel-oscuro/30"></div>
-            <div class="sm:hidden w-16 h-px bg-verde-pastel-oscuro/30"></div>
+            <!-- DÍAS -->
+            <div class="flex flex-col items-center space-y-2">
+              <span id="days" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
+              <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Días</span>
+            </div>
+            <!-- HORAS -->
+            <div class="flex flex-col items-center space-y-2">
+              <span id="hours" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
+              <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Horas</span>
+            </div>
+            <!-- MINUTOS -->
+            <div class="flex flex-col items-center space-y-2">
+              <span id="minutes" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
+              <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Minutos</span>
+            </div>
+            <!-- SEGUNDOS -->
+            <div class="flex flex-col items-center space-y-2 ">
+              <span id="seconds" class="text-5xl sm:text-6xl font-mono font-extrabold text-white">0</span>
+              <span class="text-xs sm:text-sm uppercase tracking-widest text-white/80">Segundos</span>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </div>
 
-            <!-- Mesa -->
-            <div class="flex flex-col items-center justify-center">
-              <div class="text-xl text-black/70 mb-2 font-medium">Tu mesa asignada</div>
-              <div class="relative">
-                <div class="rounded-xl bg-gradient-to-br from-verde-pastel-medio to-verde-pastel-oscuro border-2 border-verde-pastel-claro px-6 py-4 shadow-xl transform hover:scale-105 transition-transform duration-300">
-                  <div class="text-center">
-                    <div class="text-xs text-white/80 mb-1">MESA</div>
-                    <div class="text-2xl font-extrabold text-white" id="num-mesa"><%= mesa %></div>
+
+    <div class="fixed w-full p-5 z-40">
+      <header class="flex justify-between items-start w-full p-2 sm:p-10  relative">
+        <a href="#" class="">
+          <i class="fa-solid fa-web-awesome text-3xl text-verde-pastel-oscuro sm:text-4xl mt-2"></i>
+        </a>
+
+
+        <div class="dropdown-container flex flex-colum-reverse items-start  gap-2">
+          <!-- Burger totalmente a la derecha -->
+          <div class="burger-icon ">
+            <label class="burger" for="burger">
+              <input class="line" type="checkbox" id="burger" />
+            </label>
+          </div>
+
+          <!-- Menú aparecerá a la izquierda del icono -->
+          <div class="input">
+            <button class="value" onclick="login()">
+              <!-- SVG abreviado -->
+              Cambiar de invitado
+            </button>
+
+            <button class="value" id="btnPausar" onclick="pausarMusica()">
+              <!-- SVG abreviado -->
+              Pausar musica
+            </button>
+
+            <button class="value" id="btnReanudar" onclick="reanudarMusica()">
+              <!-- SVG abreviado -->
+              Reanudar musica
+            </button>
+
+          </div>
+
+        </div>
+      </header>
+
+      <footer id="footer" class="fixed bottom-0  left-0 right-0 w-full h-16 flex items-center justify-center shadow-2xl">
+        <svg id="footer-icon" width="34" height="14" viewBox="0 0 34 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+          focusable="false"
+          style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0.1711px, 0px) scale(0.9957, 0.9957); opacity: 0.9872; visibility: inherit;"
+          class="text-verde-pastel-oscuro drop-shadow-2xl animate-bounce-pulse">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M33.5609 1.54346C34.0381 2.5875 33.6881 3.87821 32.7791 4.42633L17.0387 13.9181L1.48663 4.42115C0.580153 3.86761 0.235986 2.57483 0.717909 1.53365C1.19983 0.492464 2.32535 0.097152 3.23182 0.650692L17.0497 9.08858L31.051 0.64551C31.96 0.0973872 33.0837 0.499411 33.5609 1.54346Z"
+            fill="currentColor"></path>
+        </svg>
+      </footer>
+    </div>
+
+
+    <main id="cuerpo" class="opacity-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+      <section id="espacio" class="  mb-10 text-center h-[150vh] w-full flex flex-col items-center justify-center ">
+        <!-- esto es solo para que tenga el tamaño -->
+      </section>
+
+
+      <section class=" text-center  w-full flex flex-col items-center justify-evenly sm:scale-125 ">
+        <article id="bienvenida" class="mb-6 flex flex-col items-center bg-verde-pastel-medio/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-verde-pastel-claro  max-w-2xl mx-auto">
+
+          <div class="text-center mb-6">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-3 font-dancing text-texto-oscuro drop-shadow-lg">
+              ¡Hola, <span class="text-verde-oscuro"><%= typeof nombre.toLowerCase() !=='undefined' ? nombre : 'desconocido' %>!</span>
+            </h2>
+            <p class="text-xl sm:text-2xl text-texto-oscuro/80 font-medium">Estás cordialmente invitado a mis XV años.</p>
+          </div>
+
+          <div class="w-full bg-verde-pastel-claro/50 rounded-xl p-6 backdrop-blur-sm">
+            <div class="text-center mb-4">
+              <h3 class="text-lg sm:text-2xl text-black font-bold mb-3">Detalles de tu invitación</h3>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8" >
+              <!-- Número de invitados -->
+              <div class="flex flex-col items-center">
+                <div class="text-xl text-black/70 mb-2 font-medium">Invitación válida para</div>
+                <div class="relative">
+                  <div class="rounded-full bg-gradient-to-br from-verde-pastel-claro to-verde-pastel-medio border-4 border-verde-pastel-oscuro w-20 h-20 flex items-center justify-center text-texto-oscuro font-extrabold text-2xl shadow-xl transform hover:scale-105 transition-transform duration-300">
+                    <%= numInvitados %>
+                  </div>
+                  <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-verde-pastel-oscuro rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-user text-white text-xs"></i>
                   </div>
                 </div>
-                <div class="absolute -top-2 -right-2 w-6 h-6 bg-verde-pastel-claro rounded-full flex items-center justify-center">
-                  <i class="fa-solid fa-utensils text-texto-oscuro text-xs"></i>
-                </div>
-                <div class="text-xl font-light text-black/70 mt-2 opacity-0">
+                <div class="text-xl text-black/70 font-light mt-2">
                   <%= numInvitados == 1 ? 'persona' : 'personas' %>
                 </div>
               </div>
+
+              <!-- Separador -->
+              <div class="hidden sm:block w-px h-16 bg-verde-pastel-oscuro/30"></div>
+              <div class="sm:hidden w-16 h-px bg-verde-pastel-oscuro/30"></div>
+
+              <!-- Mesa -->
+              <div class="flex flex-col items-center justify-center">
+                <div class="text-xl text-black/70 mb-2 font-medium">Tu mesa asignada</div>
+                <div class="relative">
+                  <div class="rounded-xl bg-gradient-to-br from-verde-pastel-medio to-verde-pastel-oscuro border-2 border-verde-pastel-claro px-6 py-4 shadow-xl transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-center">
+                      <div class="text-xs text-white/80 mb-1">MESA</div>
+                      <div class="text-2xl font-extrabold text-white" id="num-mesa"><%= mesa %></div>
+                    </div>
+                  </div>
+                  <div class="absolute -top-2 -right-2 w-6 h-6 bg-verde-pastel-claro rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-utensils text-texto-oscuro text-xs"></i>
+                  </div>
+                  <div class="text-xl font-light text-black/70 mt-2 opacity-0">
+                    <%= numInvitados == 1 ? 'persona' : 'personas' %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Decoración adicional -->
-        <div class="flex items-center justify-center mt-4 space-x-2">
-          <div class="w-2 h-2 bg-verde-pastel-oscuro rounded-full animate-pulse"></div>
-          <div class="w-1 h-1 bg-verde-pastel-medio rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
-          <div class="w-2 h-2 bg-verde-pastel-oscuro rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
-        </div>
-      </article>
-
-
-
-      <!-- fecha -->
-      <article id="fecha"
-        class=" my-5 max-w-xl h-80 flex items-center scale-95 justify-between font-dancing text-gray-800 ss:scale-100 ">
-        <picture class="absolute z-0 w-full">
-          <img src="/assets/img/deco/florBaner.png" alt="">
-        </picture>
-        <!-- Día de la semana -->
-        <div class="flex-1 flex flex-col items-center gap-2">
-          <hr class="flex-1 border-verde-medio w-full">
-          <span class="text-4xl tracking-widest uppercase font-bold">SÁBADO</span>
-          <hr class="flex-1 border-verde-medio w-full">
-        </div>
-
-        <!-- Fecha central -->
-        <div class=" flex flex-col items-center justify-center text-center p-0.5 gap-0.5 mx-1 ss:mx-5 z-10">
-          <span class="uppercase text-sm text-black tracking-widest text-center ">AGOSTO</span>
-          <span class="text-5xl font-bold text-black tracking-wider leading-none">16</span>
-          <span class="text-sm text-black tracking-widest mt-1 text-center">2025</span>
-        </div>
-
-        <!-- Hora -->
-        <div class="flex-1 flex flex-col items-center gap-2">
-          <hr class="flex-1 border-verde-medio w-full">
-          <span class="text-3xl tracking-widest font-bold">08:00PM</span>
-          <hr class="flex-1 border-verde-medio w-full">
-        </div>
-      </article>
-
-    </section>
-
-    <section id="seccion-ubicacion" class="h-screen mt-20 ">
-      <!-- ubicacion -->
-      <article class="seccion-ubicacion h-full w-full right-0 left-0 mx-auto z-20 p-5 mt-5
-        flex flex-col items-center justify-center xs:w-3/4 ">
-        <div id="titulo-ubicacion" class="w-full  flex items-center justify-center mb-4 ">
-          <h2 class="font-bold text-4xl text-center">
-            <i id="icono-ubicacion" class="fa-solid fa-location-dot text-red-600"></i>
-            Caney Turístico Ojos de Lara 
-          </h2>
-        </div>
-        <iframe id="mapa-ubicacion"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2409506780873!2d-69.4599767!3d9.996945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e87630051b615ff%3A0x6bb6fa3b3b30e836!2sCaney%20Tur%C3%ADstico%20Ojo%20de%20Lara!5e0!3m2!1ses-419!2sve!4v1753139833370!5m2!1ses-419!2sve"
-          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          class="w-full h-2/4 rounded-lg shadow-lg border-0 z-20 relative">
-        </iframe>
-        <a
-          href="https://www.google.com/maps/place/Caney+Tur%C3%ADstico+Ojo+de+Lara/@9.996056,-69.459713,20z/data=!4m6!3m5!1s0x8e87630051b615ff:0x6bb6fa3b3b30e836!8m2!3d9.996945!4d-69.4599767!16s%2Fg%2F11y29cb1lg!5m1!1e4?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D">
-          <div id="descripcion-ubicacion">
-            <p class="text-xl ss:text-2xl mt-7 text-center">Esta ubicado en la entrada de Bolívar, vía Villa Rosa, a 5
-              minutos de la entrada de
-              Pescaito en Barquisimeto.
-            </p>
+          <!-- Decoración adicional -->
+          <div class="flex items-center justify-center mt-4 space-x-2">
+            <div class="w-2 h-2 bg-verde-pastel-oscuro rounded-full animate-pulse"></div>
+            <div class="w-1 h-1 bg-verde-pastel-medio rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+            <div class="w-2 h-2 bg-verde-pastel-oscuro rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
           </div>
-        </a>
-      </article>
-    </section>
+        </article>
 
 
-    <!-- lluvia de sobres -->
-    <div id="lluvia-container" class="fixed top-0 left-0 h-full w-full flex items-center justify-center z-10"></div>
 
-    <section class="  text-center h-screen relative w-full">
+        <!-- fecha -->
+        <article id="fecha"
+          class=" my-5 max-w-xl h-80 flex items-center scale-95 justify-between font-dancing text-gray-800 ss:scale-100 ">
+          <picture class="absolute z-0 w-full">
+            <img src="/assets/img/deco/florBaner.png" alt="">
+          </picture>
+          <!-- Día de la semana -->
+          <div class="flex-1 flex flex-col items-center gap-2">
+            <hr class="flex-1 border-verde-medio w-full">
+            <span class="text-4xl tracking-widest uppercase font-bold">SÁBADO</span>
+            <hr class="flex-1 border-verde-medio w-full">
+          </div>
+
+          <!-- Fecha central -->
+          <div class=" flex flex-col items-center justify-center text-center p-0.5 gap-0.5 mx-1 ss:mx-5 z-10">
+            <span class="uppercase text-sm text-black tracking-widest text-center ">AGOSTO</span>
+            <span class="text-5xl font-bold text-black tracking-wider leading-none">16</span>
+            <span class="text-sm text-black tracking-widest mt-1 text-center">2025</span>
+          </div>
+
+          <!-- Hora -->
+          <div class="flex-1 flex flex-col items-center gap-2">
+            <hr class="flex-1 border-verde-medio w-full">
+            <span class="text-3xl tracking-widest font-bold">08:00PM</span>
+            <hr class="flex-1 border-verde-medio w-full">
+          </div>
+        </article>
+
+      </section>
+
+      <section id="seccion-ubicacion" class="h-screen mt-20 ">
+        <!-- ubicacion -->
+        <article class="seccion-ubicacion h-full w-full right-0 left-0 mx-auto z-20 p-5 mt-5
+          flex flex-col items-center justify-center xs:w-3/4 ">
+          <div id="titulo-ubicacion" class="w-full  flex items-center justify-center mb-4 ">
+            <h2 class="font-bold text-4xl text-center">
+              <i id="icono-ubicacion" class="fa-solid fa-location-dot text-red-600"></i>
+              Caney Turístico Ojos de Lara 
+            </h2>
+          </div>
+          <iframe id="mapa-ubicacion"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2409506780873!2d-69.4599767!3d9.996945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e87630051b615ff%3A0x6bb6fa3b3b30e836!2sCaney%20Tur%C3%ADstico%20Ojo%20de%20Lara!5e0!3m2!1ses-419!2sve!4v1753139833370!5m2!1ses-419!2sve"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            class="w-full h-2/4 rounded-lg shadow-lg border-0 z-20 relative">
+          </iframe>
+          <a
+            href="https://www.google.com/maps/place/Caney+Tur%C3%ADstico+Ojo+de+Lara/@9.996056,-69.459713,20z/data=!4m6!3m5!1s0x8e87630051b615ff:0x6bb6fa3b3b30e836!8m2!3d9.996945!4d-69.4599767!16s%2Fg%2F11y29cb1lg!5m1!1e4?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D">
+            <div id="descripcion-ubicacion">
+              <p class="text-xl ss:text-2xl mt-7 text-center">Esta ubicado en la entrada de Bolívar, vía Villa Rosa, a 5
+                minutos de la entrada de
+                Pescaito en Barquisimeto.
+              </p>
+            </div>
+          </a>
+        </article>
+      </section>
 
 
-      <picture class="absolute top-0 left-0 h-full flex items-center justify-center  w-full ">
-        <img src="/assets/img/maria2.png" loading="lazy" alt="foto de maria"
-          class="absolute z-20 object-cover w-full max-w-7xl h-full mask-b-from-50% mask-b-to-100% mask-radial-at-center mask-r-from-90% mask-r-to-100% mask-l-from-90% mask-l-to-100% -translate-y-5">
-        <img src="/assets/img/maria2.jpg" loading="lazy" alt="foto de maria"
-          class="object-cover w-full max-w-7xl h-full mask-radial-from-0% mask-radial-to-70% mask-radial-at-center mask-r-from-80% mask-r-to-100% mask-l-from-80% mask-l-to-100% -translate-y-5">
-      </picture>
+      <!-- lluvia de sobres -->
+      <div id="lluvia-container" class="fixed top-0 left-0 h-full w-full flex items-center justify-center z-10"></div>
 
-      <article class="absolute  flex flex-col justify-center items-center w-full h-full z-30 ">
+      <section class="  text-center h-screen relative w-full">
 
 
-        <h2 class="text-5xl font-bold sm:mb-6 text-white drop-shadow-lg sm:text-6xl">¡Lluvia de Sobres!</h2>
-        <p class="text-2xl mb-8 text-white drop-shadow-md">¡Te esperamos para celebrar juntos!</p>
+        <picture class="absolute top-0 left-0 h-full flex items-center justify-center  w-full ">
+          <img src="/assets/img/maria2.png" loading="lazy" alt="foto de maria"
+            class="absolute z-20 object-cover w-full max-w-7xl h-full mask-b-from-50% mask-b-to-100% mask-radial-at-center mask-r-from-90% mask-r-to-100% mask-l-from-90% mask-l-to-100% -translate-y-5">
+          <img src="/assets/img/maria2.jpg" loading="lazy" alt="foto de maria"
+            class="object-cover w-full max-w-7xl h-full mask-radial-from-0% mask-radial-to-70% mask-radial-at-center mask-r-from-80% mask-r-to-100% mask-l-from-80% mask-l-to-100% -translate-y-5">
+        </picture>
 
-        <!-- <button id="start-button" class="rain-button">
-          Confirmar asistencia
-        </button> -->
+        <article class="absolute  flex flex-col justify-center items-center w-full h-full z-30 ">
 
 
-        
+          <h2 class="text-5xl font-bold sm:mb-6 text-white drop-shadow-lg sm:text-6xl">¡Lluvia de Sobres!</h2>
+          <p class="text-2xl mb-8 text-white drop-shadow-md">¡Te esperamos para celebrar juntos!</p>
 
-        <% if(typeof asistencia==='undefined' || asistencia===null || asistencia===0) { %>
-          <button id="start-button" class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
-          border-verde-medio border-b-2 hover:brightness-110 hover:-translate-y-0.5 hover:border-b-4
-            active:border-b-2 active:brightness-90 active:translate-y-0.5 text-3xl font-bold" value="<%= nombre %>">
-            <i class="fa-solid fa-envelope mr-2"></i>
+          <!-- <button id="start-button" class="rain-button">
             Confirmar asistencia
-          </button>
-          <% } else if(asistencia === 1) { %>
-            <button onclick="lluviaSobres()" class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
-            border-verde-medio border-b-2 text-3xl font-bold opacity-95" value="<%= nombre %>">
-              <i class="fa-solid fa-check mr-2"></i>
-              ¡Gracias por confirmar!
+          </button> -->
+
+
+          
+
+          <% if(typeof asistencia==='undefined' || asistencia===null || asistencia===0) { %>
+            <button id="start-button" class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
+            border-verde-medio border-b-2 hover:brightness-110 hover:-translate-y-0.5 hover:border-b-4
+              active:border-b-2 active:brightness-90 active:translate-y-0.5 text-3xl font-bold" value="<%= nombre %>">
+              <i class="fa-solid fa-envelope mr-2"></i>
+              Confirmar asistencia
             </button>
-             
-          <% } %>
+            <% } else if(asistencia === 1) { %>
+              <button onclick="lluviaSobres()" class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
+              border-verde-medio border-b-2 text-3xl font-bold opacity-95" value="<%= nombre %>">
+                <i class="fa-solid fa-check mr-2"></i>
+                ¡Gracias por confirmar!
+              </button>
+              
+            <% } %>
 
-              <!-- <button onclick="iniciarLluviaSobres()" class="w-full h-10 bg-verde-medio">
-                prueba
-              </button> -->
+                <!-- <button onclick="iniciarLluviaSobres()" class="w-full h-10 bg-verde-medio">
+                  prueba
+                </button> -->
 
-              <!-- Líneas decorativas
-              <div class="rain-line-bottom w-full h-1 bg-verde-medio rounded-full "></div> -->
-      </article>
-    </section>
-  </main>
+                <!-- Líneas decorativas
+                <div class="rain-line-bottom w-full h-1 bg-verde-medio rounded-full "></div> -->
+        </article>
+      </section>
+    </main>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="/src/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="/src/js/index.js"></script>
+  </div>
 </body>
 
 <script>
