@@ -7,6 +7,11 @@ class Conexion {
             database: "mariaxv_bd", // <-- minúsculas
             user: "mariaxv",
             password: "Edgarbri26.",
+
+            // host: "brbjs3krzs9xr6i3wcdv-mysql.services.clever-cloud.com",
+            // database: "brbjs3krzs9xr6i3wcdv", // <-- minúsculas
+            // user: "uoazfsvh2xeo7ce0",
+            // password: "cXf09VfUlelli3aWerFU",
             // port: "3306"
         });
 

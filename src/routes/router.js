@@ -100,37 +100,39 @@ router.get(/^\/([\w%]+(?:%20[\w%]+)*)$/, async (req, res) => {
     let invitado;
 
     // Verificar si ya tenemos los datos en la sesión y si es el mismo invitado
+
     if (req.session.invitado && req.session.invitado.nombre === nombre) {
-      console.log("DATOS OBTENIDOS DE LA SESIÓN");
+      // console.log("DATOS OBTENIDOS DE LA SESIÓN");
       invitado = req.session.invitado;
     } else {
-      console.log("SE LLAMA A LA BASE DE DATOS");
+      // console.log("SE LLAMA A LA BASE DE DATOS");
       invitado = await conn.getByName(nombre);
       invitado.nombre = invitado.nombre.replace(/\b\w/g, letra => letra.toUpperCase());
 
-        if (!invitado) {
-          return res.status(404).send("Invitado no encontrado");
-        }
-
-        // Guardar en la sesión
-        req.session.invitado = {
-          id: invitado.id,
-          nombre: invitado.nombre,
-          numero_mesa: invitado.numero_mesa,
-          numero_invitado: invitado.numero_invitado,
-          asistencia: invitado.asistencia || 0
-        };
+      if (!invitado) {
+        return res.status(404).send("Invitado no encontrado");
       }
 
-      res.render("index", {
+      // Guardar en la sesión
+      req.session.invitado = {
         id: invitado.id,
         nombre: invitado.nombre,
-        mesa: invitado.numero_mesa,
-        numInvitados: invitado.numero_invitado,
+        numero_mesa: invitado.numero_mesa,
+        numero_invitado: invitado.numero_invitado,
         asistencia: invitado.asistencia || 0
-      });
-
+      };
+      
     }
+
+    res.render("index", {
+      id: invitado.id,
+      nombre: invitado.nombre,
+      mesa: invitado.numero_mesa,
+      numInvitados: invitado.numero_invitado,
+      asistencia: invitado.asistencia || 0
+    });
+
+
   } catch (error) {
     console.error("Error al obtener los datos del invitado:", error);
     res.status(500).send("Error al obtener los datos del invitado");
