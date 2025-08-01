@@ -288,14 +288,14 @@ document.addEventListener('DOMContentLoaded', function () {
     startButton.addEventListener('click', function () {
       // Cambiar el texto del botón
       this.textContent = '¡Gracias por confirmar!';
-      this.disabled = true;
+      // this.disabled = true;
       this.classList.add('bg-green-500');
       this.classList.remove('bg-verde-medio', 'hover:bg-verde-claro');
 
-      // cambiar la asistencia
-      const nombre = this.value;
 
+      
       // Hacer petición al backend para cambiar asistencia
+      const nombre = this.value;
       fetch('/cambiarAsistencia', {
         method: 'POST',
         headers: {

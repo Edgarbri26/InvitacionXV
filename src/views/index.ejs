@@ -4,6 +4,21 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="XV Años de María - ¡Te esperamos para celebrar juntos!">
+  <meta property="og:description" content="Acompáñanos en la celebración de los XV años de María. Una noche mágica llena de alegría y diversión.">
+  <meta property="og:image" content="/assets/img/maria.jpg">
+  <meta property="og:url" content="https://www.tudominio.com/pagina-a-compartir">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="XV Años de María">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="XV Años de María - ¡Te esperamos para celebrar juntos!">
+  <meta name="twitter:description" content="Acompáñanos en la celebración de los XV años de María. Una noche mágica llena de alegría y diversión.">
+  <meta name="twitter:image" content="/assets/img/maria.jpg">
+  
   <link rel="stylesheet" href="/assets/css/output.css">
   <link rel="stylesheet" href="/assets/css/index.css">
   <link rel="stylesheet" href="/assets/css/swalStyles.css">
@@ -197,11 +212,11 @@
       </div>
     </header>
 
-    <footer id="footer" class="fixed bottom-0 text-verde-oscuro left-0 right-0 w-full h-16 flex items-center justify-center">
+    <footer id="footer" class="fixed bottom-0  left-0 right-0 w-full h-16 flex items-center justify-center shadow-2xl">
       <svg id="footer-icon" width="34" height="14" viewBox="0 0 34 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
         focusable="false"
         style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0.1711px, 0px) scale(0.9957, 0.9957); opacity: 0.9872; visibility: inherit;"
-        class=" drop-shadow-2xl animate-bounce-pulse">
+        class="text-verde-pastel-oscuro drop-shadow-2xl animate-bounce-pulse">
         <path fill-rule="evenodd" clip-rule="evenodd"
           d="M33.5609 1.54346C34.0381 2.5875 33.6881 3.87821 32.7791 4.42633L17.0387 13.9181L1.48663 4.42115C0.580153 3.86761 0.235986 2.57483 0.717909 1.53365C1.19983 0.492464 2.32535 0.097152 3.23182 0.650692L17.0497 9.08858L31.051 0.64551C31.96 0.0973872 33.0837 0.499411 33.5609 1.54346Z"
           fill="currentColor"></path>
@@ -228,13 +243,13 @@
 
         <div class="w-full bg-verde-pastel-claro/50 rounded-xl p-6 backdrop-blur-sm">
           <div class="text-center mb-4">
-            <h3 class="text-lg sm:text-xl text-texto-oscuro font-semibold mb-3">Detalles de tu invitación</h3>
+            <h3 class="text-lg sm:text-2xl text-black font-bold mb-3">Detalles de tu invitación</h3>
           </div>
           
           <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8" >
             <!-- Número de invitados -->
             <div class="flex flex-col items-center">
-              <div class="text-sm text-texto-oscuro/70 mb-2 font-medium">Invitación válida para</div>
+              <div class="text-xl text-black/70 mb-2 font-medium">Invitación válida para</div>
               <div class="relative">
                 <div class="rounded-full bg-gradient-to-br from-verde-pastel-claro to-verde-pastel-medio border-4 border-verde-pastel-oscuro w-20 h-20 flex items-center justify-center text-texto-oscuro font-extrabold text-2xl shadow-xl transform hover:scale-105 transition-transform duration-300">
                   <%= numInvitados %>
@@ -243,7 +258,7 @@
                   <i class="fa-solid fa-user text-white text-xs"></i>
                 </div>
               </div>
-              <div class="text-xs text-texto-oscuro/60 mt-2">
+              <div class="text-xl text-black/70 font-light mt-2">
                 <%= numInvitados == 1 ? 'persona' : 'personas' %>
               </div>
             </div>
@@ -254,7 +269,7 @@
 
             <!-- Mesa -->
             <div class="flex flex-col items-center justify-center">
-              <div class="text-sm text-texto-oscuro/70 mb-2 font-medium">Tu mesa asignada</div>
+              <div class="text-xl text-black/70 mb-2 font-medium">Tu mesa asignada</div>
               <div class="relative">
                 <div class="rounded-xl bg-gradient-to-br from-verde-pastel-medio to-verde-pastel-oscuro border-2 border-verde-pastel-claro px-6 py-4 shadow-xl transform hover:scale-105 transition-transform duration-300">
                   <div class="text-center">
@@ -265,7 +280,7 @@
                 <div class="absolute -top-2 -right-2 w-6 h-6 bg-verde-pastel-claro rounded-full flex items-center justify-center">
                   <i class="fa-solid fa-utensils text-texto-oscuro text-xs"></i>
                 </div>
-                <div class="text-xs text-texto-oscuro/60 mt-2 opacity-0">
+                <div class="text-xl font-light text-black/70 mt-2 opacity-0">
                   <%= numInvitados == 1 ? 'persona' : 'personas' %>
                 </div>
               </div>
@@ -375,7 +390,7 @@
             Confirmar asistencia
           </button>
           <% } else if(asistencia === 1) { %>
-            <button disabled class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
+            <button onclick="lluviaSobres()" class="cursor-pointer transition-all bg-verde-claro text-white px-6 py-2 rounded-lg
             border-verde-medio border-b-2 text-3xl font-bold opacity-95" value="<%= nombre %>">
               <i class="fa-solid fa-check mr-2"></i>
               ¡Gracias por confirmar!

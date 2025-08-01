@@ -3,10 +3,10 @@ class Conexion {
     constructor() {
         this.mysql = require("mysql");
         this.conn = this.mysql.createPool({
-            host: "brbjs3krzs9xr6i3wcdv-mysql.services.clever-cloud.com",
-            database: "brbjs3krzs9xr6i3wcdv", // <-- minúsculas
-            user: "uoazfsvh2xeo7ce0",
-            password: "cXf09VfUlelli3aWerFU",
+            host: "mysql-mariaxv.alwaysdata.net",
+            database: "mariaxv_bd", // <-- minúsculas
+            user: "mariaxv",
+            password: "Edgarbri26.",
             // port: "3306"
         });
 
