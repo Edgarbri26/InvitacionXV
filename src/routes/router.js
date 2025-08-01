@@ -86,10 +86,11 @@ router.get("/logout", (req, res) => {
   });
 });
 
-router.get(/^\/([a-zA-Z\s]+)$/, async (req, res) => {
+router.get(/^\/([\w%]+(?:%20[\w%]+)*)$/, async (req, res) => {
 
-  const match = req.url.match(/^\/([a-zA-Z\s]+)$/);
-  const nombreDeRuta = match ? match[1] : null;
+  const match = req.url.match(/^\/([\w%]+(?:%20[\w%]+)*)$/);
+  const nombreCodificado = match ? match[1] : null;
+  const nombre = decodeURIComponent(nombreCodificado);
 
   if (!nombreDeRuta) {
     return res.status(400).send("Nombre no válido en la URL.");
