@@ -17,6 +17,13 @@ app.use(session({
     saveUninitialized: false
 }));
 
+app.use((req, res, next) => {
+    if (req.headers['x-forwarded-proto'] === 'http') {
+        return res.redirect('https://' + req.headers.host + req.url);
+    }
+    next();
+});
+
 //Rutas:::::::::::::::::::::::::::::::::::::::::
 app.use(require('./src/routes/router.js'));
 // app.use(express.static("public"));//public ya no exixte 
@@ -30,8 +37,8 @@ app.use(require('./src/routes/validarLogin.js'));
 //configuración del puerto del servidor
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT,() => {
-    if(PORT === 3000) {
+app.listen(PORT, () => {
+    if (PORT === 3000) {
         console.log("Servidor corriendo en el puerto 3000");
         console.log("http://localhost:3000");
     } else {
