@@ -7,7 +7,6 @@ const conn = new Conexion();
 router.post("/validarLogin", async function(req, res) {
     const nombreOriginal = req.body.CampNom.trim();
     const nombreParaBuscar = nombreOriginal.toLowerCase(); // Para buscar en BD
-    const nombreParaRuta = nombreOriginal.replace(/\s+/g, ''); // Para la URL
     const contra = req.body.CampClave;
 
     try {
@@ -49,7 +48,7 @@ router.post("/validarLogin", async function(req, res) {
                 // console.log("Invitado encontrado correcasdastamente: ", invitado);
                 
                 if (invitado ){
-                    res.redirect(`/${nombreParaRuta}`);
+                    res.redirect(`/${nombreParaBuscar}`);
                 }
 
             } catch (error) {
@@ -63,16 +62,6 @@ router.post("/validarLogin", async function(req, res) {
         res.status(500).send("Error al actualizar los datos del invitado");
     }
 });
-
-function capitalizarPalabras(str) {
-    return str.replace(/\b\w/g, letra => letra.toUpperCase());
-}
-  
-function capitalizarYEliminarEspacios(str) {
-    return str
-      .replace(/\b\w/g, letra => letra.toUpperCase())
-      .replace(/\s+/g, '');
-  }
   
 
 module.exports = router;
