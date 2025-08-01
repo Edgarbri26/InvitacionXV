@@ -52,7 +52,7 @@ router.get("/editar_invitado/:id", async function (req, res) {
     const invitado = await conn.getById(id);
     // console.log("Invitado cargado correctamente: ", id);
     // console.log("Invitado: ", invitado);
-    
+
     // Capitalizar el nombre para mostrar en el formulario
     const nombreCapitalizado = invitado.nombre.replace(/\b\w/g, letra => letra.toUpperCase());
 
@@ -108,33 +108,33 @@ router.get(/^\/([\w%]+(?:%20[\w%]+)*)$/, async (req, res) => {
       invitado = await conn.getByName(nombre);
       invitado.nombre = invitado.nombre.replace(/\b\w/g, letra => letra.toUpperCase());
 
-      if (!invitado) {
-        return res.status(404).send("Invitado no encontrado");
+        if (!invitado) {
+          return res.status(404).send("Invitado no encontrado");
+        }
+
+        // Guardar en la sesión
+        req.session.invitado = {
+          id: invitado.id,
+          nombre: invitado.nombre,
+          numero_mesa: invitado.numero_mesa,
+          numero_invitado: invitado.numero_invitado,
+          asistencia: invitado.asistencia || 0
+        };
       }
 
-      // Guardar en la sesión
-      req.session.invitado = {
+      res.render("index", {
         id: invitado.id,
         nombre: invitado.nombre,
-        numero_mesa: invitado.numero_mesa,
-        numero_invitado: invitado.numero_invitado,
+        mesa: invitado.numero_mesa,
+        numInvitados: invitado.numero_invitado,
         asistencia: invitado.asistencia || 0
-      };
+      });
+
     }
-
-    res.render("index", {
-      id: invitado.id,
-      nombre: invitado.nombre,
-      mesa: invitado.numero_mesa,
-      numInvitados: invitado.numero_invitado,
-      asistencia: invitado.asistencia || 0
-    });
-
   } catch (error) {
     console.error("Error al obtener los datos del invitado:", error);
     res.status(500).send("Error al obtener los datos del invitado");
   }
-})
-
+});
 
 module.exports = router;

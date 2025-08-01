@@ -167,7 +167,7 @@
             button.addEventListener("click", () => {
                 console.log("HOLA AMIGO");
                 const nombre = button.value;
-                const mensaje = `http://localhost:3000.com/${nombre}`;
+                const mensaje = `http://mariaxv.alwaysdata.net/${nombre}`;
                 const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensaje)}`;
                 window.open(url, "_blank");
             });

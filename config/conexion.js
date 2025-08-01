@@ -117,7 +117,7 @@ class Conexion {
                 if (err) {
                     reject(err);
                 } else {
-                    console.log("Asistencia actualizada para:", nombre);
+                    // console.log("Asistencia actualizada para:", nombre);
                     resolve(resultado);
                 }
             });
