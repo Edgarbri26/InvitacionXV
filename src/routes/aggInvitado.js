@@ -14,7 +14,7 @@ router.post("/aggInvitado", async function(req, res) {
 
     try {
       const invitados = await conn.getAll();
-      res.render("crud_invitados", { invitados });
+      res.render("crud_invitados", { invitados, message: "Invitado agregado correctamente" });
     } catch (error) {
       console.error("Error al obtener los invitados:", error);
       res.status(500).send("No se pudieron cargar los invitados");

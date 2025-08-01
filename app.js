@@ -19,7 +19,7 @@ app.use(session({
 
 //Rutas:::::::::::::::::::::::::::::::::::::::::
 app.use(require('./src/routes/router.js'));
-app.use(express.static("public"));//public ya no exixte 
+// app.use(express.static("public"));//public ya no exixte 
 app.use("/assets", express.static(path.join(__dirname, "./assets")));
 app.use("/src", express.static(path.join(__dirname, "./src")));
 app.use(require('./src/routes/aggInvitado.js'));
