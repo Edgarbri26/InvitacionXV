@@ -51,10 +51,15 @@
                 ADMINISTRADOR DE INVITADOS</h1>
         </div>
 
-        <section
-            class="p-6 rounded-lg shadow-xl  flex flex-col items-center justify-center mx-auto left-0 right-0 w-full max-w-4xl bg-verde-pastel-medio lg:scale-110 md:translate-y-10">
+        <section class="p-6 rounded-lg shadow-xl  flex flex-col items-center justify-center mx-auto left-0 right-0 w-full max-w-4xl bg-verde-pastel-medio lg:scale-110 md:translate-y-10">
 
-            <div class="flex justify-end items-end w-full mt-7">
+            
+
+
+            <div class="flex justify-between items-end w-full mt-7">
+                <input type="text" id="buscador" placeholder="Buscar por nombre..."
+                class="px-4 py-2 rounded-lg border border-verde-pastel-oscuro focus:outline-none focus:ring-2 focus:ring-verde-pastel-oscuro w-full max-w-md text-center " />
+
                 <button id="btnAgregarInvitado" onclick="agregar_invitado()" class="relative inline-block text-texto-oscuro  bg-verde-pastel-claro font-medium text-xs uppercase no-underline px-6 py-3 rounded-full transition-all duration-200 ease-in-out cursor-pointer border-none font-inherit
             hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]
             active:-translate-y-0.5 active:shadow-[0_5px_10px_rgba(0,0,0,0.2)]
@@ -149,6 +154,23 @@
     </footer>
 
 </body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("buscador");
+
+    input.addEventListener("input", () => {
+      const filtro = input.value.toLowerCase();
+      const filas = document.querySelectorAll("tbody tr");
+
+      filas.forEach(fila => {
+        const nombre = fila.querySelector("td").textContent.toLowerCase();
+        fila.style.display = nombre.includes(filtro) ? "" : "none";
+      });
+    });
+  });
+</script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {

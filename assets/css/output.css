@@ -20,6 +20,7 @@
     --container-2xs: 18rem;
     --container-xs: 20rem;
     --container-sm: 24rem;
+    --container-md: 28rem;
     --container-xl: 36rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
@@ -484,6 +485,9 @@
   }
   .max-w-\[50vh\] {
     max-width: 50vh;
+  }
+  .max-w-md {
+    max-width: var(--container-md);
   }
   .max-w-sm {
     max-width: var(--container-sm);
