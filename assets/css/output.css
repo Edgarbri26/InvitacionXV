@@ -62,6 +62,7 @@
     --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
     --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
     --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --blur-sm: 8px;
     --blur-md: 12px;
@@ -1002,6 +1003,9 @@
   .mask-radial-at-center {
     --tw-mask-radial-position: center;
   }
+  .mask-repeat {
+    mask-repeat: repeat;
+  }
   .fill-white {
     fill: var(--color-white);
   }
@@ -1300,6 +1304,10 @@
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
+  }
+  .ease-in {
+    --tw-ease: var(--ease-in);
+    transition-timing-function: var(--ease-in);
   }
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
