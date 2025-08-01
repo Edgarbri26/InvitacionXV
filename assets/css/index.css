@@ -71,8 +71,7 @@ body{
 .mariposa:not([anim1]) {
   right: var(--sizeLoaderHalf);
   transform-origin: center right;
-  animation: moveAround 2s linear infinite;
-   
+  /* animation: moveAround 2s linear infinite; */
 }
 
 .mariposa[showShadow] {
