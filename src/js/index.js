@@ -341,19 +341,9 @@ window.addEventListener('load', () => {
     loader.style.display = 'none';
       content.classList.remove('opacity-0');
     setTimeout(() => {
-      
-        Swal.fire({
-        title: "🎶 Activar audio",
-        text: "Haz clic para comenzar",
-        customClass: {
-          popup: 'glass-alert'
-        },
-        backdrop: 'rgba(0,0,0,0.2)'
-      }).then(() => {
-        audio.volume = 0.3;
+        audio.volume = 0.2;
         audio.play().catch(err => console.warn("Autoplay fallido:", err));
         document.getElementById("btnReanudar").style.display = "none";
-      });
       }, 700);
   });
 
