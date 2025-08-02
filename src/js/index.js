@@ -16,7 +16,7 @@ tl
   .to("#maria-logo", { opacity: 0, duration: 0.4 }, "<") // 0.8 -> 1.0
   .to("#inicio-mask", {
     maskSize: "20vh",
-    duration: 0.4,
+    duration: 1,
   }, 0.8) // 0.8 -> 1.2
   .to("#inicio-mask", {
     maskPosition: "50% 20%",
@@ -47,7 +47,7 @@ gsap.to("#footer", {
 });
 
 gsap.to("#footer", {
-  
+
   scrollTrigger: {
     trigger: "body",
     start: "bottom bottom",
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.classList.remove('bg-verde-medio', 'hover:bg-verde-claro');
 
 
-      
+
       // Hacer petición al backend para cambiar asistencia
       const nombre = this.value;
       fetch('/cambiarAsistencia', {
@@ -324,6 +324,31 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
   }
+
+
+  const sobre = document.getElementById('envelope-intro');
+  sobre.addEventListener('click', () => {
+    startEnvelopeAnimation();
+    // Iniciar música
+    audio.volume = 0.2;
+    audio.play().catch(err => console.warn("Autoplay fallido:", err));
+  
+    // Ocultar instrucción
+    instruction.style.opacity = '0';
+  
+    // Ocultar loader y mostrar contenido
+    setTimeout(() => {
+      sobre.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+  
+      setTimeout(() => {
+        sobre.style.display = 'none';
+      }, 500);
+    }, 300);
+  });
+  
+
+  // Hacer el sobre clickeable
+  sobre.style.cursor = 'pointer';
 });
 
 
@@ -331,34 +356,75 @@ document.addEventListener('DOMContentLoaded', function () {
 const audio = new Audio("/assets/music/A-las-hadas-reunirán-TinkerBell.mp3");
 
 window.addEventListener('load', () => {
-    const loader = document.getElementById('loader');
-    const content = document.getElementById('main-content');
+  const loader = document.getElementById('loader');
+  const content = document.getElementById('main-content');
 
-    // Oculta el loader con fade-out
-    loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+  // Oculta el loader con fade-out
+  loader.classList.add('opacity-0', 'transition-opacity', 'duration-500');
 
-    // Espera la transición y muestra el contenido
-    loader.style.display = 'none';
-      content.classList.remove('opacity-0');
-    setTimeout(() => {
-        audio.volume = 0.2;
-        audio.play().catch(err => console.warn("Autoplay fallido:", err));
-        document.getElementById("btnReanudar").style.display = "none";
-      }, 700);
-  });
+  // Espera la transición y muestra el contenido
+  loader.style.display = 'none';
+    content.classList.remove('opacity-0');
+    const sobreContainer = document.getElementById('sobre');
+    const sobre = document.getElementById('animated-mail')
+    sobreContainer.classList.remove('opacity-0')
+    sobre.classList.add('animate-tada')
 
-  function pausarMusica() {
-    if (!audio.paused) {
-      audio.pause();
-      document.getElementById("btnPausar").style.display = "none";
-      document.getElementById("btnReanudar").style.display = "inline-block";
-    }
+  // setTimeout(() => {
+  //     audio.volume = 0.2;
+  //     audio.play().catch(err => console.warn("Autoplay fallido:", err));
+  //     document.getElementById("btnReanudar").style.display = "none";
+  //   }, 700);
+});
+
+function pausarMusica() {
+  if (!audio.paused) {
+    audio.pause();
+    document.getElementById("btnPausar").style.display = "none";
+    document.getElementById("btnReanudar").style.display = "inline-block";
+  }
+}
+
+function reanudarMusica() {
+  if (audio.paused) {
+    audio.play();
+    document.getElementById("btnReanudar").style.display = "none";
+    document.getElementById("btnPausar").style.display = "inline-block";
+  }
+}
+
+
+
+function startEnvelopeAnimation() {
+  const envelopeIntro = document.getElementById('envelope-intro');
+  const animatedMail = document.getElementById('animated-mail');
+  const mainContent = document.getElementById('main-content');
+  const letterImage = document.querySelector('.letter-image');
+  const instruction = document.getElementById('click-instruction');
+
+  // Remover el evento de clic para evitar múltiples activaciones
+  letterImage.removeEventListener('click', startEnvelopeAnimation);
+  letterImage.style.cursor = 'default';
+
+  // Ocultar la instrucción
+  if (instruction) {
+    instruction.style.opacity = '0';
+    setTimeout(() => instruction.remove(), 300);
   }
 
-  function reanudarMusica() {
-    if (audio.paused) {
-      audio.play();
-      document.getElementById("btnReanudar").style.display = "none";
-      document.getElementById("btnPausar").style.display = "inline-block";
-    }
-  }
+  // Paso 1: Abrir el sobre
+  setTimeout(() => {
+    animatedMail.classList.add('envelope-opening');
+  }, 500);
+
+  // Paso 2: Después de que se abra, hacer que "salga" la invitación
+  setTimeout(() => {
+    envelopeIntro.classList.add('envelope-exit');
+    mainContent.classList.add('content-enter');
+
+    // Permitir scroll después de la animación
+    document.body.classList.remove('overflow-hidden');
+    mainContent.classList.remove('content-enter');
+
+  }, 2500);
+}

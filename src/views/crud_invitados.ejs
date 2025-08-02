@@ -159,13 +159,21 @@
     const input = document.getElementById("buscador");
 
     input.addEventListener("input", () => {
+
       const filtro = input.value.toLowerCase();
       const filas = document.querySelectorAll("tbody tr");
 
       filas.forEach(fila => {
-        const nombre = fila.querySelector("td").textContent.toLowerCase();
-        fila.style.display = nombre.includes(filtro) ? "" : "none";
+        const celdas = fila.querySelectorAll("td");
+        const nombre = celdas[0].textContent.toLowerCase(); // Primera columna: nombre
+        const mesa = celdas[1].textContent.toLowerCase();   // Segunda columna: número de mesa
+        
+        // Mostrar la fila si el filtro coincide con el nombre O con el número de mesa
+        const coincide = nombre.includes(filtro) || mesa.includes(filtro);
+        fila.style.display = coincide ? "" : "none";
       });
+
+      console.log(numInvitados);
     });
   });
 </script>
