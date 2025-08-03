@@ -42,10 +42,17 @@ router.get("/crud_invitados", async (req, res) => {
 });
 
 router.get("/agregar_invitado", function (req, res) {
-  res.render("agregar_invitado");
+  if (!req.session.login) {
+    res.render("login", { mensaje: "Sesión no encontrada. Por favor, debes iniciar sesión." })
+  } else {
+    res.render("agregar_invitado");
+  }
 })
 
 router.get("/editar_invitado/:id", async function (req, res) {
+  if (!req.session.login) {
+    res.render("login", { mensaje: "Sesión no encontrada. Por favor, debes iniciar sesión." })
+  } else {
   const id = req.params.id;
 
   try {
@@ -66,6 +73,7 @@ router.get("/editar_invitado/:id", async function (req, res) {
   } catch (error) {
     console.error("Error al obtener invitado:", error);
     res.status(500).send("Error al obtener invitado");
+  }
   }
   //res.render("editar_invitado");
 })

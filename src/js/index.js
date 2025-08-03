@@ -339,12 +339,12 @@ document.addEventListener('DOMContentLoaded', function () {
   sobre.addEventListener('click', () => {
     startEnvelopeAnimation();
     // Iniciar música
-    audio.volume = 0.2;
+    audio.volume = 0.5;
       audio.play().catch(err => console.warn("Autoplay fallido:", err));
       document.getElementById("btnReanudar").style.display = "none";
   
-      // Ocultar instrucción
-      // instruction.style.opacity = '0';
+    // Ocultar instrucción
+    instruction.style.opacity = '0';
   
     // Ocultar loader y mostrar contenido
     setTimeout(() => {
@@ -417,10 +417,10 @@ function startEnvelopeAnimation() {
   letterImage.style.cursor = 'default';
 
   // Ocultar la instrucción
-  // if (instruction) {
-  //   instruction.style.opacity = '0';
-  //   setTimeout(() => instruction.remove(), 300);
-  // }
+  if (instruction) {
+    instruction.style.opacity = '0';
+    setTimeout(() => instruction.remove(), 300);
+  }
 
   // Paso 1: Abrir el sobre
   setTimeout(() => {
@@ -430,11 +430,11 @@ function startEnvelopeAnimation() {
   // Paso 2: Después de que se abra, hacer que "salga" la invitación
   setTimeout(() => {
     envelopeIntro.classList.add('envelope-exit');
-    // mainContent.classList.add('content-enter');
+    mainContent.classList.add('content-enter');
 
     // Permitir scroll después de la animación
     document.body.classList.remove('overflow-hidden');
-    // mainContent.classList.remove('content-enter');
+    mainContent.classList.remove('content-enter');
 
   }, 2500);
 }
