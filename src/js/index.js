@@ -13,7 +13,8 @@ const tl = gsap.timeline({
 tl
   .to("#picture-inicio", { duration: .8, scale: 1 }) // 0 -> 1
   .to("#clock", { opacity: 0, duration: 0.4 }, 0.6) // 0.8 -> 1.0
-  .to("#maria-logo", { opacity: 0, duration: 0.4 }, "<") // 0.8 -> 1.0
+  // .to("#scroll-texto", { opacity: 0, duration: 0.9 }, 0.6) // 0.8 -> 1.0
+  .to("#maria-logo", { display: 0, duration: 0.4 }, "<") // 0.8 -> 1.0
   .to("#inicio-mask", {
     maskSize: "20vh",
     duration: 1,
@@ -36,6 +37,14 @@ tl
   .to("#footer", { opacity: 1, duration: 0.3 }, "<"); // 1.4 -> 1.6
 
 // Animación del footer para que se desvanezca al final del scroll
+// gsap.to("#scroll-texto", {
+//   opacity: 0,
+//   duration: 1,
+//   onComplete: () => {
+//     document.getElementById("scroll-texto").classList.remove("animate-bounce-pulse");
+//   }
+// });
+
 gsap.to("#footer", {
   opacity: 0,
   scrollTrigger: {
@@ -331,10 +340,11 @@ document.addEventListener('DOMContentLoaded', function () {
     startEnvelopeAnimation();
     // Iniciar música
     audio.volume = 0.2;
-    audio.play().catch(err => console.warn("Autoplay fallido:", err));
+      audio.play().catch(err => console.warn("Autoplay fallido:", err));
+      document.getElementById("btnReanudar").style.display = "none";
   
-    // Ocultar instrucción
-    instruction.style.opacity = '0';
+      // Ocultar instrucción
+      // instruction.style.opacity = '0';
   
     // Ocultar loader y mostrar contenido
     setTimeout(() => {
@@ -407,10 +417,10 @@ function startEnvelopeAnimation() {
   letterImage.style.cursor = 'default';
 
   // Ocultar la instrucción
-  if (instruction) {
-    instruction.style.opacity = '0';
-    setTimeout(() => instruction.remove(), 300);
-  }
+  // if (instruction) {
+  //   instruction.style.opacity = '0';
+  //   setTimeout(() => instruction.remove(), 300);
+  // }
 
   // Paso 1: Abrir el sobre
   setTimeout(() => {
@@ -420,11 +430,22 @@ function startEnvelopeAnimation() {
   // Paso 2: Después de que se abra, hacer que "salga" la invitación
   setTimeout(() => {
     envelopeIntro.classList.add('envelope-exit');
-    mainContent.classList.add('content-enter');
+    // mainContent.classList.add('content-enter');
 
     // Permitir scroll después de la animación
     document.body.classList.remove('overflow-hidden');
-    mainContent.classList.remove('content-enter');
+    // mainContent.classList.remove('content-enter');
 
   }, 2500);
 }
+
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
+
+window.addEventListener('scroll', function () {
+  const ayuda = document.querySelector('.scroll-indicador, .scroll-texto');
+  if (window.scrollY > 50 && ayuda) {
+    ayuda.style.display = 'none'; // Oculta la ayuda tras el primer scroll
+  }
+});

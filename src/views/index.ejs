@@ -31,9 +31,9 @@
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="preload" as="image" href="/assets/img/maria.png">
-  <link rel="preload" as="image" href="/assets/img/mitadDerecha.png">
-  <link rel="preload" as="image" href="/assets/img/logo-maria.png">
+  <link rel="preload" as="image" href="/assets/img/maria.webp">
+  <link rel="preload" as="image" href="/assets/img/mitadDerecha.webp">
+  <link rel="preload" as="image" href="/assets/img/logo-maria.webp">
 
   <link rel="icon" href="/assets/img/XV_recortado.svg" type="image/svg+xml">
 
@@ -215,7 +215,7 @@
     </div>
 
 
-    <div class="fixed w-full p-5 z-40">
+    <div class="fixed w-full p-5 z-40 h-screen">
       <header class="flex justify-between items-start w-full p-2 sm:p-10  relative">
         <a href="#" class="">
           <i class="fa-solid fa-web-awesome text-3xl text-verde-pastel-oscuro sm:text-4xl mt-2"></i>
@@ -254,6 +254,34 @@
         </div>
       </header>
 
+      <div id="scroll-texto" 
+      class="opacity-75 absolute scroll-texto z-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold flex flex-col items-center justify-center
+      ">
+      <h1 class="mb-4 text-center text-4xl">Desliza hacia abajo</h1> <i class="fa-solid fa-arrow-down text-4xl"></i>
+        
+      </div>
+
+      <style>
+        .scroll-texto {
+          animation: parpadear 2s infinite;
+        }
+
+        @keyframes parpadear {
+          0%,
+          100% {
+            opacity: 0.8;
+            transform: translateY(0px);
+          }
+
+          50% {
+            opacity: 0.3;
+            transform: translateY(10px);
+          }
+        }
+      </style>
+
+
+      
       <footer id="footer"
         class="fixed bottom-0  left-0 right-0 w-full h-16 flex items-center justify-center shadow-2xl">
         <svg id="footer-icon" width="34" height="14" viewBox="0 0 34 14" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -394,7 +422,7 @@
           <iframe id="mapa-ubicacion"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2409506780873!2d-69.4599767!3d9.996945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e87630051b615ff%3A0x6bb6fa3b3b30e836!2sCaney%20Tur%C3%ADstico%20Ojo%20de%20Lara!5e0!3m2!1ses-419!2sve!4v1753139833370!5m2!1ses-419!2sve"
             allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            class="w-full h-2/4 rounded-lg shadow-lg border-0 z-20 relative">
+            class="w-full h-2/4 rounded-lg shadow-lg border-0 z-40 relative">
           </iframe>
           <a class="z-20 " target="_blank" rel="noopener noreferrer"
             href="https://www.google.com/maps/place/Caney+Tur%C3%ADstico+Ojo+de+Lara/@9.996056,-69.459713,20z/data=!4m6!3m5!1s0x8e87630051b615ff:0x6bb6fa3b3b30e836!8m2!3d9.996945!4d-69.4599767!16s%2Fg%2F11y29cb1lg!5m1!1e4?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D">
@@ -423,7 +451,7 @@
             class="object-cover w-full max-w-7xl h-full mask-radial-from-0% mask-radial-to-70% mask-radial-at-center mask-r-from-90% mask-r-to-100% mask-l-from-90% mask-l-to-100% -translate-y-5">
         </picture>
 
-        <article class="absolute  flex flex-col justify-center items-center w-full h-full z-30 ">
+        <article class="absolute  flex flex-col justify-center items-center w-full h-full z-50 ">
 
 
           <h2 class="text-5xl font-bold sm:mb-6 text-white drop-shadow-lg sm:text-6xl">¡Lluvia de Sobres!</h2>
